@@ -1,0 +1,366 @@
+/* Стили 3D-тура: холст, метки, мини-карта, затемнение, редактор, текстовая версия. */
+:root {
+  --tour-accent: #2f6fd6;
+  --tour-hot: #d9480f;
+  --tour-case: #2f9e44;
+  --tour-ink: #0f1b2d;
+  --tour-muted: #5b6b7d;
+  --tour-surface: rgba(255, 255, 255, 0.94);
+  --tour-border: #d5dde6;
+  --tour-shadow: 0 6px 24px rgba(15, 27, 45, 0.16);
+}
+
+.tour-canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  touch-action: none;
+}
+.tour-canvas canvas {
+  display: block;
+}
+.tour-canvas.is-editing canvas {
+  cursor: crosshair;
+}
+
+/* затемнение при переходе между локациями (300 мс) */
+.fade {
+  position: absolute;
+  inset: 0;
+  background: #0f1b2d;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease;
+  z-index: 30;
+}
+.fade.is-on {
+  opacity: 1;
+}
+
+.scene-loader,
+.scene-error {
+  background: var(--tour-surface);
+  padding: 8px 14px;
+  border-radius: 8px;
+  box-shadow: var(--tour-shadow);
+  font-size: 14px;
+  white-space: nowrap;
+}
+.scene-error {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  color: var(--tour-hot);
+}
+
+/* метка точки интереса */
+.hotspot {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  color: var(--tour-ink);
+  transform: translateX(calc(50% - 22px)); /* центр — по кружку, подпись справа */
+}
+.hotspot-dot {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tour-accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 0 rgba(47, 111, 214, 0.55), var(--tour-shadow);
+  animation: hotspot-pulse 2.2s infinite;
+}
+.hotspot--case .hotspot-dot {
+  background: var(--tour-case);
+  box-shadow: 0 0 0 0 rgba(47, 158, 68, 0.55), var(--tour-shadow);
+}
+.hotspot.is-selected .hotspot-dot,
+.hotspot.is-in-route .hotspot-dot {
+  background: var(--tour-hot);
+  transform: scale(1.12);
+}
+.hotspot.is-draft .hotspot-dot {
+  background: #fff;
+  color: var(--tour-accent);
+  border-color: var(--tour-accent);
+  animation: none;
+}
+.hotspot-title {
+  background: var(--tour-surface);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: var(--tour-shadow);
+}
+.hotspot:focus-visible {
+  outline: none;
+}
+.hotspot:focus-visible .hotspot-dot {
+  outline: 3px solid #ffd43b;
+  outline-offset: 2px;
+}
+@keyframes hotspot-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(47, 111, 214, 0.5), var(--tour-shadow);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(47, 111, 214, 0), var(--tour-shadow);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(47, 111, 214, 0), var(--tour-shadow);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hotspot-dot {
+    animation: none;
+  }
+  .fade {
+    transition: none;
+  }
+}
+
+/* подписи зданий на генплане */
+.site-label {
+  background: rgba(15, 27, 45, 0.78);
+  color: #fff;
+  padding: 3px 9px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.site-label.in-route {
+  background: var(--tour-accent);
+}
+.site-label-badge {
+  background: var(--tour-hot);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* текущая локация */
+.location-chip {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 20;
+  background: var(--tour-surface);
+  border-radius: 10px;
+  padding: 8px 12px;
+  box-shadow: var(--tour-shadow);
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  max-width: calc(100% - 24px);
+}
+.location-chip-type {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--tour-muted);
+}
+
+/* мини-карта */
+.minimap {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 20;
+  width: 220px;
+  background: var(--tour-surface);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: var(--tour-shadow);
+}
+.minimap svg {
+  display: block;
+  width: 100%;
+}
+.minimap-bg {
+  fill: #eef2f6;
+  stroke: var(--tour-border);
+  stroke-width: 0.6;
+}
+.minimap-road {
+  stroke: #b7c0ca;
+  stroke-width: 2.4;
+}
+.minimap-route {
+  fill: none;
+  stroke: var(--tour-accent);
+  stroke-width: 1.2;
+  stroke-dasharray: 2 1.5;
+}
+.minimap-node {
+  cursor: pointer;
+}
+.minimap-node circle {
+  fill: #9aa7b6;
+  stroke: #fff;
+  stroke-width: 1;
+}
+.minimap-node.in-route circle {
+  fill: #6f9be0;
+}
+.minimap-node.is-hot circle {
+  stroke: var(--tour-hot);
+  stroke-width: 1.4;
+}
+.minimap-node.is-active circle {
+  fill: var(--tour-hot);
+}
+.minimap-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+.minimap-list button {
+  font: inherit;
+  font-size: 11px;
+  border: 1px solid var(--tour-border);
+  background: #fff;
+  border-radius: 6px;
+  padding: 3px 6px;
+  cursor: pointer;
+  color: var(--tour-ink);
+}
+.minimap-list button.is-active {
+  background: var(--tour-accent);
+  border-color: var(--tour-accent);
+  color: #fff;
+}
+
+/* редактор точек */
+.editor-hint,
+.editor-form {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 25;
+  background: var(--tour-surface);
+  border: 2px dashed var(--tour-accent);
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: var(--tour-shadow);
+  max-width: 340px;
+  font-size: 14px;
+}
+.editor-hint {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.editor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 320px;
+}
+.editor-form h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.editor-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 12px;
+  color: var(--tour-muted);
+}
+.editor-form input,
+.editor-form textarea,
+.editor-form select {
+  font: inherit;
+  font-size: 14px;
+  padding: 7px 8px;
+  border: 1px solid var(--tour-border);
+  border-radius: 6px;
+  color: var(--tour-ink);
+  background: #fff;
+}
+.editor-coords {
+  margin: 0;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 12px;
+  color: var(--tour-muted);
+}
+.editor-actions {
+  display: flex;
+  gap: 8px;
+}
+.form-error {
+  color: var(--tour-hot);
+  margin: 0;
+}
+
+/* текстовая версия тура */
+.text-version {
+  height: 100%;
+  overflow: auto;
+  padding: 16px 20px 40px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.text-version header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.text-version article {
+  border-top: 1px solid var(--tour-border);
+  padding-top: 8px;
+}
+.text-version li {
+  margin-bottom: 8px;
+  line-height: 1.45;
+}
+
+@media (max-width: 767px) {
+  .minimap {
+    width: 150px;
+    padding: 6px;
+    bottom: auto;
+    top: 64px;
+  }
+  .minimap-list {
+    display: none;
+  }
+  .hotspot-title {
+    display: none;
+  }
+  .hotspot.is-selected .hotspot-title {
+    display: inline;
+  }
+  .editor-hint,
+  .editor-form {
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-width: none;
+  }
+}

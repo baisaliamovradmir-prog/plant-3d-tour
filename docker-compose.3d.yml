@@ -1,0 +1,31 @@
+# Автономный запуск 3D-тура на данных-заглушках (ветка 3d).
+# Общий docker-compose.yml (nginx + backend + db) ведёт бэкенд.
+#
+#   docker compose -f docker-compose.3d.yml up tour-dev            -> http://localhost:5173 (горячая перезагрузка)
+#   docker compose -f docker-compose.3d.yml --profile prod up tour  -> http://localhost:8080 (сборка в nginx)
+services:
+  tour-dev:
+    image: node:22-alpine
+    working_dir: /app
+    command: sh -c "npm install --no-audit --no-fund && npm run dev"
+    ports:
+      - "5173:5173"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - VITE_API_MODE=mock
+    volumes:
+      - ./frontend:/app
+      - tour_node_modules:/app/node_modules
+
+  tour:
+    profiles: ["prod"]
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.3d
+      args:
+        VITE_API_MODE: mock
+    ports:
+      - "8080:80"
+
+volumes:
+  tour_node_modules:

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1, "location_id": 1, "title": "Завод сверху",
+    "description": "Сырьё приходит по железной дороге в резервуарный парк, затем проходит смешение, контроль качества, фасовку и уходит со склада к клиентам. Весь путь партии — около 34 часов.",
+    "kind": "process", "status": "published",
+    "yaw": null, "pitch": null, "pos_x": -16, "pos_y": 7, "pos_z": 12,
+    "stage_id": null, "case_id": null, "target_location_id": null
+  },
+  {
+    "id": 2, "location_id": 2, "title": "Сливная эстакада",
+    "description": "Цистерны с базовыми маслами и присадками разгружаются на эстакаде. Перед сливом лаборатория берёт пробу — входной контроль.",
+    "kind": "process", "status": "published",
+    "yaw": null, "pitch": null, "pos_x": -6, "pos_y": 5.6, "pos_z": 5.6,
+    "stage_id": 1, "case_id": null, "target_location_id": null
+  },
+  {
+    "id": 3, "location_id": 2, "title": "Резервуары",
+    "description": "Шесть вертикальных резервуаров базовых масел и четыре ёмкости присадок. Обогрев поддерживает вязкость, удобную для перекачки.",
+    "kind": "process", "status": "published",
+    "yaw": null, "pitch": null, "pos_x": 5, "pos_y": 8.2, "pos_z": -2,
+    "stage_id": 2, "case_id": null, "target_location_id": null
+  },
+  {
+    "id": 4, "location_id": 3, "title": "Смесительная установка",
+    "description": "В смесителе 25 м³ базовые масла смешиваются с присадками по рецептуре при 60 °C. Мешалка и циркуляционный насос дают однородный продукт за 3 часа.",
+    "kind": "process", "status": "published",
+    "yaw": null, "pitch": null, "pos_x": 0, "pos_y": 7.8, "pos_z": -2,
+    "stage_id": 3, "case_id": null, "target_location_id": null
+  },
+  {
+    "id": 5, "location_id": 4, "title": "Отбор проб",
+    "description": "Каждую партию проверяют по вязкости, температуре вспышки, щелочному числу и чистоте. Здесь узкое место процесса: пробы стоят в очереди.",
+    "kind": "case", "status": "published",
+    "yaw": 20, "pitch": -8, "pos_x": null, "pos_y": null, "pos_z": null,
+    "stage_id": 4, "case_id": 1, "target_location_id": null
+  },
+  {
+    "id": 6, "location_id": 5, "title": "Линия розлива",
+    "description": "Автоматическая линия разливает масло в канистры от 1 до 20 литров, отдельный пост — в бочки 216 л. После переналадки по SMED линия меняет продукт в два раза быстрее.",
+    "kind": "case", "status": "published",
+    "yaw": null, "pitch": null, "pos_x": -3, "pos_y": 4.2, "pos_z": 0,
+    "stage_id": 5, "case_id": 2, "target_location_id": null
+  },
+  {
+    "id": 7, "location_id": 5, "title": "Рабочее место оператора",
+    "description": "Оператор фасовки следит за дозаторами и укупоркой с пульта. Профессия: оператор линии розлива. Обязательные СИЗ — очки, перчатки, спецобувь.",
+    "kind": "info", "status": "published",
+    "yaw": null, "pitch": null, "pos_x": 4, "pos_y": 3.2, "pos_z": 3.6,
+    "stage_id": 5, "case_id": null, "target_location_id": null
+  },
+  {
+    "id": 8, "location_id": 6, "title": "Адресное хранение",
+    "description": "У каждой ячейки стеллажа есть адрес и QR-код. Ходовые позиции стоят ближе к воротам — порядок поддерживается по системе 5S.",
+    "kind": "case", "status": "published",
+    "yaw": null, "pitch": null, "pos_x": -4, "pos_y": 7.2, "pos_z": -1,
+    "stage_id": 6, "case_id": 3, "target_location_id": null
+  },
+  {
+    "id": 9, "location_id": 6, "title": "Погрузка",
+    "description": "Погрузчики собирают заказ по адресам ячеек и грузят паллеты в машину клиента через доковые ворота.",
+    "kind": "process", "status": "published",
+    "yaw": null, "pitch": null, "pos_x": 12, "pos_y": 4.2, "pos_z": 3,
+    "stage_id": 7, "case_id": null, "target_location_id": null
+  },
+  {
+    "id": 10, "location_id": 1, "title": "Итоги",
+    "description": "Главные показатели завода и все кейсы улучшений в одном месте.",
+    "kind": "process", "status": "published",
+    "yaw": null, "pitch": null, "pos_x": 0, "pos_y": 5.5, "pos_z": 16,
+    "stage_id": null, "case_id": null, "target_location_id": null
+  }
+]

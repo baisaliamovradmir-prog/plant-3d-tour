@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 470" font-family="Segoe UI, Roboto, Arial, sans-serif">
+  <title>Мнемосхема процесса производства смазочных масел</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#3d4d60"/>
+    </marker>
+    <marker id="arrRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#d9480f"/>
+    </marker>
+  </defs>
+  <rect width="1240" height="470" fill="#f6f8fa"/>
+  <text x="30" y="40" font-size="22" font-weight="700" fill="#0f1b2d">Мнемосхема: производство смазочных масел (партия 25 т)</text>
+  <text x="30" y="64" font-size="14" fill="#5b6b7d">Оборудование и склады — узлами, поток материала — стрелками, возле узлов — длительность этапа и загрузка ресурса. Синтетические данные I этапа.</text>
+
+  <!-- сводные KPI -->
+  <g font-size="13" fill="#0f1b2d">
+    <rect x="30" y="84" width="270" height="54" rx="8" fill="#fff" stroke="#d5dde6"/>
+    <text x="44" y="106" fill="#5b6b7d">Время цикла</text><text x="44" y="128" font-size="18" font-weight="700">34,5 ч</text>
+    <text x="164" y="106" fill="#5b6b7d">Выпуск</text><text x="164" y="128" font-size="18" font-weight="700">118 т/сут</text>
+    <rect x="310" y="84" width="300" height="54" rx="8" fill="#fff" stroke="#d5dde6"/>
+    <text x="324" y="106" fill="#5b6b7d">Загрузка (узкое место)</text><text x="324" y="128" font-size="18" font-weight="700" fill="#d9480f">96 % · ОТК</text>
+    <text x="484" y="106" fill="#5b6b7d">Стоимость</text><text x="484" y="128" font-size="18" font-weight="700">5 000 ₽/т</text>
+  </g>
+
+  <!-- зоны (локации тура) -->
+  <g font-size="12" fill="#5b6b7d">
+    <rect x="22" y="160" width="310" height="250" rx="10" fill="#eef3f8" stroke="#c9d4df" stroke-dasharray="5 4"/>
+    <text x="34" y="180">Резервуарный парк</text>
+    <rect x="344" y="160" width="160" height="250" rx="10" fill="#eef3f8" stroke="#c9d4df" stroke-dasharray="5 4"/>
+    <text x="356" y="180">Цех смешения</text>
+    <rect x="516" y="160" width="170" height="250" rx="10" fill="#fdf0ea" stroke="#d9480f" stroke-dasharray="5 4"/>
+    <text x="528" y="180" fill="#d9480f">Лаборатория ОТК</text>
+    <rect x="698" y="160" width="160" height="250" rx="10" fill="#eef3f8" stroke="#c9d4df" stroke-dasharray="5 4"/>
+    <text x="710" y="180">Цех фасовки</text>
+    <rect x="870" y="160" width="350" height="250" rx="10" fill="#eef3f8" stroke="#c9d4df" stroke-dasharray="5 4"/>
+    <text x="882" y="180">Склад и отгрузка</text>
+  </g>
+
+  <!-- поток -->
+  <g stroke="#3d4d60" stroke-width="3" fill="none" marker-end="url(#arr)">
+    <line x1="146" y1="270" x2="190" y2="270"/>
+    <line x1="296" y1="270" x2="370" y2="270"/>
+    <line x1="478" y1="270" x2="546" y2="270"/>
+    <line x1="656" y1="270" x2="724" y2="270"/>
+    <line x1="832" y1="270" x2="900" y2="270"/>
+    <line x1="1028" y1="270" x2="1072" y2="270"/>
+  </g>
+  <!-- возврат на корректировку -->
+  <path d="M600 316 C600 380 424 380 424 318" stroke="#d9480f" stroke-width="2.5" fill="none" stroke-dasharray="6 4" marker-end="url(#arrRed)"/>
+  <text x="512" y="398" font-size="12" text-anchor="middle" fill="#d9480f">проба не в норме → корректировка</text>
+
+  <!-- 1 приёмка: эстакада -->
+  <g>
+    <rect x="44" y="236" width="102" height="66" rx="8" fill="#fff" stroke="#3d4d60" stroke-width="2"/>
+    <rect x="58" y="252" width="74" height="22" rx="11" fill="#2b2b2b"/>
+    <rect x="52" y="246" width="86" height="4" fill="#f2c230"/>
+    <text x="95" y="292" font-size="12" text-anchor="middle" fill="#0f1b2d">1. Приёмка</text>
+    <text x="95" y="222" font-size="12" text-anchor="middle" fill="#3d4d60">2,0 ч · 62 %</text>
+  </g>
+  <!-- 2 хранение сырья: резервуары -->
+  <g>
+    <rect x="190" y="236" width="106" height="66" rx="8" fill="#fff" stroke="#3d4d60" stroke-width="2"/>
+    <rect x="204" y="248" width="22" height="34" rx="4" fill="#e8ecef" stroke="#6f7c89"/>
+    <rect x="232" y="248" width="22" height="34" rx="4" fill="#e8ecef" stroke="#6f7c89"/>
+    <rect x="260" y="256" width="22" height="26" rx="4" fill="#e9e2cf" stroke="#6f7c89"/>
+    <text x="243" y="296" font-size="12" text-anchor="middle" fill="#0f1b2d">2. Хранение</text>
+    <text x="243" y="222" font-size="12" text-anchor="middle" fill="#3d4d60">8,0 ч · 71 %</text>
+    <text x="243" y="336" font-size="11" text-anchor="middle" fill="#5b6b7d">3200 м³</text>
+  </g>
+  <!-- 3 смешение -->
+  <g>
+    <rect x="370" y="226" width="108" height="86" rx="8" fill="#fff" stroke="#3d4d60" stroke-width="2"/>
+    <rect x="404" y="240" width="40" height="38" rx="5" fill="#dfe7f2" stroke="#6f7c89"/>
+    <path d="M404 278 L424 292 L444 278" fill="#b8c2cc" stroke="#6f7c89"/>
+    <rect x="417" y="232" width="14" height="8" fill="#3b6ea8"/>
+    <text x="424" y="306" font-size="12" text-anchor="middle" fill="#0f1b2d">3. Смешение</text>
+    <text x="424" y="212" font-size="12" text-anchor="middle" fill="#3d4d60">3,0 ч · 78 %</text>
+    <text x="424" y="336" font-size="11" text-anchor="middle" fill="#5b6b7d">3 × 25 м³</text>
+  </g>
+  <!-- буфер перед ОТК -->
+  <path d="M508 252 L522 276 L494 276 Z" fill="#ffd8c7" stroke="#d9480f"/>
+  <text x="508" y="246" font-size="11" text-anchor="middle" fill="#d9480f">очередь</text>
+  <!-- 4 ОТК — узкое место -->
+  <g>
+    <rect x="546" y="226" width="110" height="86" rx="8" fill="#fff" stroke="#d9480f" stroke-width="3"/>
+    <rect x="566" y="244" width="32" height="34" fill="#3b6ea8"/>
+    <rect x="571" y="249" width="22" height="10" fill="#1f3550"/>
+    <g fill="#c8962e"><rect x="606" y="256" width="6" height="22"/><rect x="616" y="256" width="6" height="22"/><rect x="626" y="256" width="6" height="22"/><rect x="636" y="256" width="6" height="22"/></g>
+    <text x="601" y="300" font-size="12" text-anchor="middle" fill="#0f1b2d">4. Контроль</text>
+    <text x="601" y="212" font-size="13" font-weight="700" text-anchor="middle" fill="#d9480f">5,5 ч · 96 %</text>
+    <text x="601" y="336" font-size="11" text-anchor="middle" fill="#d9480f">УЗКОЕ МЕСТО</text>
+  </g>
+  <!-- 5 фасовка -->
+  <g>
+    <rect x="724" y="236" width="108" height="66" rx="8" fill="#fff" stroke="#3d4d60" stroke-width="2"/>
+    <rect x="736" y="276" width="84" height="5" fill="#3a4552"/>
+    <g fill="#e0a526"><rect x="742" y="262" width="10" height="14"/><rect x="760" y="262" width="10" height="14"/><rect x="778" y="262" width="10" height="14"/><rect x="796" y="262" width="10" height="14"/></g>
+    <rect x="760" y="246" width="36" height="10" fill="#d8dee6" stroke="#6f7c89"/>
+    <text x="778" y="296" font-size="12" text-anchor="middle" fill="#0f1b2d">5. Фасовка</text>
+    <text x="778" y="222" font-size="12" text-anchor="middle" fill="#3d4d60">2,5 ч · 84 %</text>
+  </g>
+  <!-- 6 хранение продукции -->
+  <g>
+    <rect x="900" y="236" width="128" height="66" rx="8" fill="#fff" stroke="#3d4d60" stroke-width="2"/>
+    <g fill="none" stroke="#3b6ea8" stroke-width="2"><rect x="914" y="246" width="100" height="32"/><line x1="914" y1="262" x2="1014" y2="262"/></g>
+    <g fill="#e0a526"><rect x="918" y="250" width="14" height="10"/><rect x="940" y="250" width="14" height="10"/><rect x="984" y="266" width="14" height="10"/><rect x="962" y="266" width="14" height="10"/></g>
+    <text x="964" y="296" font-size="12" text-anchor="middle" fill="#0f1b2d">6. Хранение</text>
+    <text x="964" y="222" font-size="12" text-anchor="middle" fill="#3d4d60">12,0 ч · 66 %</text>
+    <text x="964" y="336" font-size="11" text-anchor="middle" fill="#5b6b7d">1800 паллетомест</text>
+  </g>
+  <!-- 7 отгрузка -->
+  <g>
+    <rect x="1072" y="236" width="128" height="66" rx="8" fill="#fff" stroke="#3d4d60" stroke-width="2"/>
+    <rect x="1086" y="250" width="66" height="26" fill="#f4f6f8" stroke="#6f7c89"/>
+    <rect x="1152" y="256" width="26" height="20" fill="#3b6ea8"/>
+    <circle cx="1100" cy="280" r="5" fill="#222"/><circle cx="1166" cy="280" r="5" fill="#222"/>
+    <text x="1136" y="296" font-size="12" text-anchor="middle" fill="#0f1b2d">7. Отгрузка</text>
+    <text x="1136" y="222" font-size="12" text-anchor="middle" fill="#3d4d60">1,5 ч · 58 %</text>
+    <text x="1136" y="336" font-size="11" text-anchor="middle" fill="#5b6b7d">3 погрузчика</text>
+  </g>
+
+  <!-- легенда -->
+  <g font-size="12" fill="#3d4d60">
+    <text x="30" y="446">Подпись над узлом: длительность этапа · загрузка ресурса.</text>
+    <rect x="420" y="436" width="14" height="14" fill="#fff" stroke="#d9480f" stroke-width="3"/><text x="442" y="447">узкое место</text>
+    <path d="M540 450 L548 436 L556 450 Z" fill="#ffd8c7" stroke="#d9480f"/><text x="564" y="447">буфер / очередь</text>
+    <line x1="690" y1="443" x2="730" y2="443" stroke="#3d4d60" stroke-width="3" marker-end="url(#arr)"/><text x="740" y="447">поток материала</text>
+    <text x="900" y="447">Зоны = локации 3D-тура</text>
+  </g>
+</svg>
