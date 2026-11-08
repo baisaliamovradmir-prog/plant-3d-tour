@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Цифровой двойник участка и 3D-тур — интерактивный прототип</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232E6FD0'/%3E%3Cpath d='M8 23V9l8 12 8-12v14' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<aside class="side" id="side">
+  <div class="side-inner">
+    <div class="side-head">
+      <div class="brand brand--logo">
+        <img id="brand-logo" class="brand__img" src="assets/logo.svg" alt="Логотип предприятия" hidden>
+        <div class="brand__ph" id="brand-ph">
+          <b>ЛОГОТИП</b>
+          <span>prototype/assets/logo.svg</span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav">
+      <a href="#dash" data-target="dash" class="on">Обзор</a>
+      <a href="#process" data-target="process">Загрузка операций</a>
+      <a href="#machines" data-target="machines">Оборудование</a>
+      <a href="#scenarios" data-target="scenarios">Сценарии</a>
+      <a href="#tour" data-target="tour">3D-тур</a>
+      <a href="#about" data-target="about">О модели и ТЗ</a>
+    </nav>
+
+    <div class="panel-title">Параметры прогона</div>
+    <div class="controls">
+      <label>Спрос, шт/сут <output id="v-demand">42</output>
+        <input id="demand" type="range" min="34" max="54" step="2" value="42">
+      </label>
+      <label>Партия запуска, шт <output id="v-batch">20</output>
+        <input id="batch" type="range" min="5" max="20" step="5" value="20">
+      </label>
+      <label>Время переналадки <output id="v-setup">100 %</output>
+        <input id="setup" type="range" min="45" max="100" step="5" value="100">
+      </label>
+      <label>Вариация выборки <output id="v-seed">№26</output>
+        <input id="seed" type="range" min="1" max="60" step="1" value="26">
+      </label>
+    </div>
+    <button id="run" class="btn">Пересчитать модель</button>
+
+    <div class="side-foot">Прототип v1.0 · 08.11.2026<br>данные синтетические · РМЦ</div>
+  </div>
+</aside>
+
+<main class="main">
+  <header class="topbar">
+    <div class="topbar-inner">
+    <div class="topbar-left">
+      <button type="button" class="icon-btn icon-btn--light" id="side-toggle"
+              title="Показать или скрыть боковую панель" aria-label="Показать или скрыть боковую панель"
+              aria-expanded="true"><span class="hamb" aria-hidden="true"><i></i><i></i><i></i></span></button>
+      <div>
+        <div class="crumb">ООО «Газпром нефть» / РМЦ / Изготовление фланца</div>
+        <h1>Обзор процесса</h1>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <span class="chip" id="scenario-chip">Сценарий: настраиваемый</span>
+      <span class="chip ghost" id="run-chip">прогон не выполнен</span>
+    </div>
+    </div>
+  </header>
+
+  <div class="content">
+  <p class="screen-note">Это пульт участка. Сверху — четыре метрики, которые считает модель;
+     ниже — загрузка операций и узкое место, управление каждым станком, сравнение сценариев
+     и 3D-тур. Любое изменение параметров сразу пересчитывает все цифры на экране.</p>
+
+  <section id="dash" class="kpis">
+    <article class="card kpi">
+      <div class="kpi-label">Выпуск, шт/сут</div>
+      <div class="kpi-value"><span id="k-out">—</span><span class="unit">из <span id="k-plan">42</span></span></div>
+      <div class="kpi-foot" id="k-out-note">план смены</div>
+    </article>
+    <article class="card kpi">
+      <div class="kpi-label">Цикл изготовления</div>
+      <div class="kpi-value"><span id="k-lead">—</span><span class="unit">мин</span></div>
+      <div class="kpi-foot" id="k-lead-note">норма 480 мин</div>
+    </article>
+    <article class="card kpi">
+      <div class="kpi-label">Заказы в срок</div>
+      <div class="kpi-value"><span id="k-ontime">—</span><span class="unit">%</span></div>
+      <div class="kpi-foot" id="k-ontime-note">доля ≤ 480 мин</div>
+    </article>
+    <article class="card kpi">
+      <div class="kpi-label">В работе (WIP)</div>
+      <div class="kpi-value"><span id="k-wip">—</span><span class="unit">шт</span></div>
+      <div class="kpi-foot" id="k-wip-note">среднее за окно</div>
+    </article>
+  </section>
+  <p class="section-note">Выпуск и цикл — главные метрики: первый отвечает «сколько делаем»,
+     второй — «как быстро». «Заказы в срок» считается по обещанным 480 минутам, WIP показывает,
+     сколько деталей одновременно находится на участке.</p>
+
+  <section class="grid2">
+    <article class="card" id="process">
+      <div class="card-head">
+        <h2>Загрузка операций</h2>
+        <span class="muted" id="process-note">расчёт по 26 суткам</span>
+      </div>
+      <p class="section-note">Сколько процентов времени ресурс занят обработкой и переналадкой.
+         Красная полоса — 90 % и выше: эта операция ограничивает выпуск. Серое число справа —
+         среднее ожидание детали в очереди перед операцией.</p>
+      <div id="util" class="util"></div>
+      <div class="legend">
+        <span><i class="dot ok"></i>в норме</span>
+        <span><i class="dot hot"></i>узкое место</span>
+        <span><i class="dot wait"></i>очередь, мин</span>
+      </div>
+    </article>
+
+    <article class="card" id="bottleneck">
+      <div class="card-head">
+        <h2>Узкое место</h2>
+        <span class="pill hot" id="bottleneck-name">—</span>
+      </div>
+      <p class="section-note">Операция с максимальной загрузкой. Именно она определяет,
+         сколько участок может выпустить: остальные ресурсы простаивают.</p>
+      <p class="big" id="bottleneck-value">—</p>
+      <p class="muted" id="bottleneck-text">Рассчитайте модель, чтобы увидеть ограничение участка.</p>
+      <div class="divider"></div>
+      <div class="kv"><span>Очередь перед операцией</span><b id="bottleneck-wait">—</b></div>
+      <div class="kv"><span>Доля времени переналадки</span><b id="bottleneck-setup">—</b></div>
+      <div class="kv"><span>Себестоимость обработки</span><b id="cost">—</b></div>
+      <button class="btn ghost" id="to-tour">Показать в 3D-туре</button>
+    </article>
+  </section>
+
+  <section class="card" id="machines">
+    <div class="card-head">
+      <h2>Оборудование: каждый станок отдельно</h2>
+      <span class="muted" id="machines-note">11 единиц · управление по одной</span>
+    </div>
+    <p class="section-note">Каждая единица оборудования управляется отдельно: кнопка
+       «В работе / Простой» выводит станок из расчёта (ремонт, поломка, резерв), ползунок
+       «Норма» меняет время обработки именно на этом станке. Полоса показывает загрузку
+       конкретной единицы, а не операции целиком. Второй шлифовальный станок по умолчанию
+       выключен — включите его, чтобы увидеть сценарий «+1 станок».</p>
+    <div id="machine-grid" class="machine-grid"></div>
+    <div class="machine-foot">
+      <button class="btn ghost small" id="machines-reset">Вернуть оборудование к базе</button>
+      <span class="muted" id="machines-summary">—</span>
+    </div>
+  </section>
+
+  <section class="card" id="scenarios">
+    <div class="card-head">
+      <h2>Сценарии сравнения</h2>
+      <span class="muted">среднее по 5 репликациям × 26 суток</span>
+    </div>
+    <p class="section-note">Четыре готовых варианта из ТЗ и ваш собственный (последняя строка) —
+       то, что сейчас настроено на экране. Сравнение идёт по четырём метрикам: цикл, выпуск,
+       заказы в срок и себестоимость. Столбики внизу показывают цикл: чем ниже, тем лучше.</p>
+    <div class="table-wrap">
+      <table class="tbl">
+        <thead>
+          <tr><th>Сценарий</th><th>Цикл, мин</th><th>Выпуск, шт/сут</th><th>В срок, %</th><th>WIP, шт</th><th>Себест., ₽</th></tr>
+        </thead>
+        <tbody id="scenario-rows"></tbody>
+      </table>
+    </div>
+    <div class="bar-chart" id="lead-chart"></div>
+  </section>
+
+  <section class="card" id="tour">
+    <div class="card-head">
+      <h2>3D-тур по участку</h2>
+      <span class="muted">клик по метке открывает карточку точки интереса</span>
+    </div>
+    <p class="section-note">Изометрия участка: четыре метки соответствуют остановкам маршрута.
+       Метка ведёт к этапу процесса и показывает его метрику из текущего расчёта — это и есть
+       связка «тур → процесс → метрика». Кнопки внизу переключают остановки, карточка справа
+       объясняет, что происходит в этой точке.</p>
+    <div class="tour-wrap">
+      <canvas id="scene" width="1120" height="440"></canvas>
+      <div class="tour-card" id="poi-card">
+        <div class="poi-tag" id="poi-tag">POI-07 · Шлифовальная</div>
+        <h3 id="poi-title">Узкое место участка</h3>
+        <p class="muted" id="poi-text">Выберите точку на сцене.</p>
+        <div class="kv"><span id="poi-metric-label">Загрузка</span><b id="poi-metric">—</b></div>
+        <button class="btn small" id="poi-link">Открыть в двойнике</button>
+      </div>
+      <div class="route" id="route">
+        <button data-loc="0" class="on">1 · Склад</button>
+        <button data-loc="1">2 · Токарный</button>
+        <button data-loc="2">3 · Шлифовка</button>
+        <button data-loc="3">4 · ОТК</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="about">
+    <div class="card-head">
+      <h2>О модели и связи с ТЗ</h2>
+      <span class="muted">что считается, что настраивается, где это описано</span>
+    </div>
+    <p class="section-note">Короткая справка по прототипу: из чего он состоит и как соотносится
+       с техническим заданием. Раньше этот текст был в боковой панели — теперь она занята
+       только навигацией и параметрами.</p>
+    <div class="about-grid">
+      <article class="about-item">
+        <h3>Что считает модель</h3>
+        <p>Дискретно-событийная модель участка: 8 операций, 11 единиц оборудования, переналадки,
+           транспорт, брак и возврат на перешлифовку. Каждый прогон — 5 репликаций по 26 суток
+           с прогревом 6 суток. Все цифры экрана берутся из одного и того же прогона, поэтому
+           метрики, загрузка и карточки 3D-тура всегда согласованы.</p>
+      </article>
+      <article class="about-item">
+        <h3>Что настраивается</h3>
+        <p>В боковой панели — общие параметры: спрос, партия запуска, время переналадки и вариация
+           выборки. В разделе «Оборудование» — каждая единица отдельно: включить или вывести
+           в простой (ремонт, резерв), задать свою норму времени. Любое изменение пересчитывает
+           все метрики за долю секунды.</p>
+      </article>
+      <article class="about-item">
+        <h3>Как это связано с ТЗ</h3>
+        <p>Пункты 1–9 задания закрыты в документе «ТЗ_Цифровой_двойник_и_3D-туры.docx»: системный
+           анализ — раздел 2, требования — раздел 3, модели — раздел 4, данные — разделы 5–6,
+           макеты — раздел 8, сцена 3D-тура — раздел 9, тесты — раздел 10. Прототип демонстрирует
+           расчётную модель (раздел 4.7) и макеты (раздел 8).</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>Прототип расчёта: sim.js. Значения в интерфейсе согласованы с ТЗ (разделы 2, 4.7, 8, 9).</span>
+    <span>Демо-данные синтетические</span>
+  </footer>
+  </div>
+</main>
+
+<script src="sim.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

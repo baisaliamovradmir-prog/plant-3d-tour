@@ -1,0 +1,405 @@
+{
+  "meta": {
+    "seeds": [
+      1109,
+      2027,
+      3301,
+      4507,
+      5501
+    ],
+    "warmupDays": 6,
+    "runDays": 26,
+    "generated": "2026-11-08",
+    "product": "Фланец Ду100 PN16, сталь 09Г2С"
+  },
+  "scenarios": [
+    {
+      "id": "asis",
+      "label": "AS-IS (как есть)",
+      "short": "AS-IS",
+      "description": "Текущая конфигурация: один шлифовальный станок, партия 20 шт, переналадка по норме.",
+      "kpi": {
+        "throughput": 40.3,
+        "demand": 42,
+        "leadTime": 529,
+        "leadP95": 1073,
+        "wip": 20.7,
+        "onTimeShare": 47.1,
+        "scrapShare": 2.3,
+        "costPerGood": 1841,
+        "fullCost": 5462,
+        "utilization": [
+          {
+            "id": "prep",
+            "short": "Склад",
+            "servers": 1,
+            "utilization": 17.4,
+            "setupShare": 0,
+            "avgWait": 0
+          },
+          {
+            "id": "turn",
+            "short": "Токарная",
+            "servers": 2,
+            "utilization": 21.8,
+            "setupShare": 12.4,
+            "avgWait": 0
+          },
+          {
+            "id": "mill",
+            "short": "Фрезерная",
+            "servers": 1,
+            "utilization": 40.4,
+            "setupShare": 16.8,
+            "avgWait": 5
+          },
+          {
+            "id": "drill",
+            "short": "Сверловка",
+            "servers": 1,
+            "utilization": 28.9,
+            "setupShare": 11.3,
+            "avgWait": 1
+          },
+          {
+            "id": "grind",
+            "short": "Шлифовка",
+            "servers": 1,
+            "utilization": 97.1,
+            "setupShare": 5.1,
+            "avgWait": 425
+          },
+          {
+            "id": "wash",
+            "short": "Мойка",
+            "servers": 1,
+            "utilization": 12.8,
+            "setupShare": 0,
+            "avgWait": 0
+          },
+          {
+            "id": "qc",
+            "short": "ОТК",
+            "servers": 2,
+            "utilization": 12.8,
+            "setupShare": 0,
+            "avgWait": 0
+          },
+          {
+            "id": "pack",
+            "short": "Упаковка",
+            "servers": 1,
+            "utilization": 16.8,
+            "setupShare": 0,
+            "avgWait": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "a",
+      "label": "A. Второй шлифовальный станок",
+      "short": "A · +шлифовка",
+      "description": "Закупка второго шлифовального станка; устранение узкого места по мощности.",
+      "kpi": {
+        "throughput": 40.9,
+        "demand": 42,
+        "leadTime": 94,
+        "leadP95": 139,
+        "wip": 3.4,
+        "onTimeShare": 100,
+        "scrapShare": 2.6,
+        "costPerGood": 1842,
+        "fullCost": 5595,
+        "utilization": [
+          {
+            "id": "prep",
+            "short": "Склад",
+            "servers": 1,
+            "utilization": 17.4,
+            "setupShare": 0,
+            "avgWait": 0
+          },
+          {
+            "id": "turn",
+            "short": "Токарная",
+            "servers": 2,
+            "utilization": 21.9,
+            "setupShare": 12.3,
+            "avgWait": 0
+          },
+          {
+            "id": "mill",
+            "short": "Фрезерная",
+            "servers": 1,
+            "utilization": 40.4,
+            "setupShare": 16.6,
+            "avgWait": 5
+          },
+          {
+            "id": "drill",
+            "short": "Сверловка",
+            "servers": 1,
+            "utilization": 28.9,
+            "setupShare": 11.2,
+            "avgWait": 1
+          },
+          {
+            "id": "grind",
+            "short": "Шлифовка",
+            "servers": 2,
+            "utilization": 49.4,
+            "setupShare": 5.1,
+            "avgWait": 5
+          },
+          {
+            "id": "wash",
+            "short": "Мойка",
+            "servers": 1,
+            "utilization": 13.1,
+            "setupShare": 0,
+            "avgWait": 0
+          },
+          {
+            "id": "qc",
+            "short": "ОТК",
+            "servers": 2,
+            "utilization": 13,
+            "setupShare": 0,
+            "avgWait": 0
+          },
+          {
+            "id": "pack",
+            "short": "Упаковка",
+            "servers": 1,
+            "utilization": 16.9,
+            "setupShare": 0,
+            "avgWait": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "b",
+      "label": "B. Быстрая переналадка (SMED)",
+      "short": "B · SMED",
+      "description": "Переналадка 45 % от нормы, партия запуска 10 шт, вынесение подготовки на внешнюю операцию.",
+      "kpi": {
+        "throughput": 40.2,
+        "demand": 42,
+        "leadTime": 519,
+        "leadP95": 995,
+        "wip": 20.2,
+        "onTimeShare": 45.1,
+        "scrapShare": 2.3,
+        "costPerGood": 1834,
+        "fullCost": 5457,
+        "utilization": [
+          {
+            "id": "prep",
+            "short": "Склад",
+            "servers": 1,
+            "utilization": 17.6,
+            "setupShare": 0,
+            "avgWait": 0
+          },
+          {
+            "id": "turn",
+            "short": "Токарная",
+            "servers": 2,
+            "utilization": 21.7,
+            "setupShare": 11.1,
+            "avgWait": 0
+          },
+          {
+            "id": "mill",
+            "short": "Фрезерная",
+            "servers": 1,
+            "utilization": 39.8,
+            "setupShare": 15.3,
+            "avgWait": 4
+          },
+          {
+            "id": "drill",
+            "short": "Сверловка",
+            "servers": 1,
+            "utilization": 28.4,
+            "setupShare": 10.2,
+            "avgWait": 1
+          },
+          {
+            "id": "grind",
+            "short": "Шлифовка",
+            "servers": 1,
+            "utilization": 97.8,
+            "setupShare": 4.5,
+            "avgWait": 416
+          },
+          {
+            "id": "wash",
+            "short": "Мойка",
+            "servers": 1,
+            "utilization": 12.9,
+            "setupShare": 0,
+            "avgWait": 0
+          },
+          {
+            "id": "qc",
+            "short": "ОТК",
+            "servers": 2,
+            "utilization": 12.9,
+            "setupShare": 0,
+            "avgWait": 0
+          },
+          {
+            "id": "pack",
+            "short": "Упаковка",
+            "servers": 1,
+            "utilization": 16.8,
+            "setupShare": 0,
+            "avgWait": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "c",
+      "label": "C. A + B",
+      "short": "C · A+B",
+      "description": "Второй шлифовальный станок и быстрая переналадка одновременно.",
+      "kpi": {
+        "throughput": 41.2,
+        "demand": 42,
+        "leadTime": 90,
+        "leadP95": 123,
+        "wip": 3.3,
+        "onTimeShare": 100,
+        "scrapShare": 2.6,
+        "costPerGood": 1831,
+        "fullCost": 5576,
+        "utilization": [
+          {
+            "id": "prep",
+            "short": "Склад",
+            "servers": 1,
+            "utilization": 17.5,
+            "setupShare": 0,
+            "avgWait": 0
+          },
+          {
+            "id": "turn",
+            "short": "Токарная",
+            "servers": 2,
+            "utilization": 21.7,
+            "setupShare": 11.1,
+            "avgWait": 0
+          },
+          {
+            "id": "mill",
+            "short": "Фрезерная",
+            "servers": 1,
+            "utilization": 39.9,
+            "setupShare": 15.2,
+            "avgWait": 4
+          },
+          {
+            "id": "drill",
+            "short": "Сверловка",
+            "servers": 1,
+            "utilization": 28.8,
+            "setupShare": 10.1,
+            "avgWait": 1
+          },
+          {
+            "id": "grind",
+            "short": "Шлифовка",
+            "servers": 2,
+            "utilization": 49.9,
+            "setupShare": 4.5,
+            "avgWait": 3
+          },
+          {
+            "id": "wash",
+            "short": "Мойка",
+            "servers": 1,
+            "utilization": 13.3,
+            "setupShare": 0,
+            "avgWait": 0
+          },
+          {
+            "id": "qc",
+            "short": "ОТК",
+            "servers": 2,
+            "utilization": 13.1,
+            "setupShare": 0,
+            "avgWait": 0
+          },
+          {
+            "id": "pack",
+            "short": "Упаковка",
+            "servers": 1,
+            "utilization": 17.2,
+            "setupShare": 0,
+            "avgWait": 0
+          }
+        ]
+      }
+    }
+  ],
+  "demandSweep": [
+    {
+      "demand": 34,
+      "asis": 33.2,
+      "asis_lead": 141,
+      "asis_ontime": 100,
+      "c": 32.9,
+      "c_lead": 88,
+      "c_ontime": 100
+    },
+    {
+      "demand": 38,
+      "asis": 37.4,
+      "asis_lead": 222,
+      "asis_ontime": 91,
+      "c": 36.8,
+      "c_lead": 89,
+      "c_ontime": 100
+    },
+    {
+      "demand": 42,
+      "asis": 40.3,
+      "asis_lead": 529,
+      "asis_ontime": 47,
+      "c": 41.2,
+      "c_lead": 90,
+      "c_ontime": 100
+    },
+    {
+      "demand": 46,
+      "asis": 40.7,
+      "asis_lead": 1406,
+      "asis_ontime": 12,
+      "c": 44.4,
+      "c_lead": 92,
+      "c_ontime": 100
+    },
+    {
+      "demand": 50,
+      "asis": 40.5,
+      "asis_lead": 2440,
+      "asis_ontime": 11,
+      "c": 48.1,
+      "c_lead": 94,
+      "c_ontime": 100
+    },
+    {
+      "demand": 54,
+      "asis": 40.7,
+      "asis_lead": 3669,
+      "asis_ontime": 12,
+      "c": 51.1,
+      "c_lead": 96,
+      "c_ontime": 100
+    }
+  ]
+}
