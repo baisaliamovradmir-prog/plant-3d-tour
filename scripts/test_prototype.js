@@ -1,23 +1,41 @@
-// Headless-проверка app.js на заглушках DOM: ловим ошибки времени выполнения.
+// Headless-проверка prototype/app.js на заглушках DOM: ловим ошибки времени выполнения
+// и сверяем, что метрики экрана посчитаны и согласованы с моделью.
+// Запуск: node scripts/test_prototype.js
 const fs = require("fs");
 const path = require("path");
 
 const nodes = {};
+let seq = 0;
+
 function makeEl(id) {
   const e = {
     id,
+    tagName: "DIV",
     textContent: "",
     innerHTML: "",
     className: "",
+    hidden: false,
     style: {},
-    dataset: { loc: "0" },
-    classList: { toggle() {}, add() {}, remove() {}, contains() { return false; } },
+    dataset: {},
     children: [],
     value: "0",
+    complete: false,
+    naturalWidth: 0,
+    classList: {
+      _s: new Set(),
+      toggle(c, on) { (on === undefined ? !this._s.has(c) : on) ? this._s.add(c) : this._s.delete(c); },
+      add(c) { this._s.add(c); },
+      remove(c) { this._s.delete(c); },
+      contains(c) { return this._s.has(c); },
+    },
+    setAttribute(k, v) { this["attr:" + k] = String(v); },
+    getAttribute(k) { return this["attr:" + k] ?? null; },
     scrollIntoView() {},
     addEventListener() {},
-    appendChild(c) { this.children.push(c); },
-    querySelector() { return null; },
+    appendChild(c) { this.children.push(c); return c; },
+    querySelector() { return makeEl("q" + ++seq); },
+    querySelectorAll() { return []; },
+    closest() { return null; },
     getBoundingClientRect() { return { left: 0, top: 0, width: 1120, height: 440 }; },
     getContext() { return ctxStub; },
   };
@@ -34,73 +52,73 @@ const ctxStub = new Proxy({}, {
   set() { return true; },
 });
 
+const body = makeEl("body");
 global.document = {
-  getElementById(id) {
-    if (!nodes[id]) makeEl(id);
-    return nodes[id];
-  },
-  createElement() {
-    return makeEl("tmp" + Math.random());
-  },
+  body,
+  documentElement: { scrollHeight: 2000 },
+  getElementById(id) { return nodes[id] || makeEl(id); },
+  createElement() { return makeEl("tmp" + ++seq); },
+  querySelector() { return makeEl("q" + ++seq); },
+  querySelectorAll() { return []; },
 };
-global.performance = { now: () => Date.now() };
 global.window = global;
+global.innerWidth = 1440;
+global.innerHeight = 900;
+global.scrollY = 0;
+global.location = { search: "" };
+global.localStorage = { getItem() { return null; }, setItem() {} };
+global.performance = { now: () => Date.now() };
+global.requestAnimationFrame = () => 0;
+global.addEventListener = () => {};
+global.Image = function () { return {}; }; // тур не запущен — проба просто не срабатывает
 
-// значения ползунков
-const defaults = { demand: "42", grind: "1", batch: "20", setup: "100", seed: "26" };
-
-// подставляем value до загрузки app.js
-const simSource = fs.readFileSync(path.join(__dirname, "..", "prototype", "sim.js"), "utf8");
-eval(simSource);
-global.Sim = global.Sim || module.exports;
-
-// заглушка для Sim, если eval не дал глобал
-if (!global.Sim) { global.Sim = require("../prototype/sim.js"); }
-
-const appSource = fs.readFileSync(path.join(__dirname, "..", "prototype", "app.js"), "utf8");
-
-// готовим элементы с id, которые запрашивает app.js
-[
-  "demand", "grind", "batch", "setup", "seed", "v-demand", "v-grind", "v-batch", "v-setup", "v-seed",
-  "run", "dash", "process", "scenarios", "tour", "scene", "util", "scenario-rows", "lead-chart",
-  "k-out", "k-plan", "k-lead", "k-ontime", "k-wip", "k-out-note", "k-lead-note", "k-ontime-note", "k-wip-note",
-  "bottleneck-name", "bottleneck-value", "bottleneck-text", "bottleneck-wait", "bottleneck-setup", "cost",
-  "to-tour", "poi-card", "poi-tag", "poi-title", "poi-text", "poi-metric-label", "poi-metric", "poi-link",
-  "route", "run-chip", "scenario-chip", "process-note",
-].forEach((id) => makeEl(id));
-
-Object.keys(defaults).forEach((k) => { nodes[k].value = defaults[k]; });
-nodes["route"].children = [0, 1, 2, 3].map((i) => {
+// значения ползунков по умолчанию — как в index.html
+const defaults = { demand: "115", batch: "2", setup: "100", seed: "26" };
+Object.keys(defaults).forEach((k) => { makeEl(k).value = defaults[k]; });
+makeEl("tour").dataset.tourUrl = "http://localhost:8080/";
+makeEl("route").children = [0, 1, 2, 3].map((i) => {
   const b = makeEl("route-btn" + i);
   b.dataset = { loc: String(i) };
   b.tagName = "BUTTON";
   return b;
 });
 
-let failed = null;
+global.Sim = require("../prototype/sim.js");
+const appSource = fs.readFileSync(path.join(__dirname, "..", "prototype", "app.js"), "utf8");
+
 try {
   eval(appSource);
 } catch (e) {
-  failed = e;
-}
-
-if (failed) {
-  console.log("ОШИБКА app.js:", failed.message);
-  console.log(failed.stack.split("\n").slice(0, 4).join("\n"));
+  console.log("ОШИБКА app.js:", e.message);
+  console.log(e.stack.split("\n").slice(0, 4).join("\n"));
   process.exit(1);
 }
 
 const pick = (id) => (nodes[id] ? nodes[id].textContent : "");
-console.log("KPI:", {
-  выпуск: pick("k-out"),
-  план: pick("k-plan"),
-  цикл: pick("k-lead"),
-  "в срок": pick("k-ontime"),
-  wip: pick("k-wip"),
+const num = (id) => parseFloat(pick(id).replace(/\s/g, "").replace(",", "."));
+const checks = [
+  ["выпуск, т/сут", num("k-out"), (v) => v > 90 && v < 140],
+  ["цикл, ч", num("k-lead"), (v) => v > 20 && v < 80],
+  ["в срок, %", num("k-ontime"), (v) => v >= 0 && v <= 100],
+  ["WIP, партий", num("k-wip"), (v) => v > 0 && v < 30],
+  ["строк сценариев (4 + свой)", nodes["scenario-rows"].children.length, (v) => v === 5],
+  ["столбцов диаграммы", nodes["lead-chart"].children.length, (v) => v === 5],
+  ["строк загрузки (7 этапов)", nodes["util"].children.length, (v) => v === 7],
+  ["узкое место — ОТК", pick("bottleneck-name"), (v) => v === "ОТК"],
+];
+
+let failed = 0;
+checks.forEach(([name, value, ok]) => {
+  const pass = ok(value);
+  if (!pass) failed++;
+  console.log((pass ? "ok   " : "FAIL ") + name + ": " + value);
 });
-console.log("узкое место:", pick("bottleneck-name"), pick("bottleneck-value"), "| очередь",
-  pick("bottleneck-wait"), "| переналадка", pick("bottleneck-setup"), "| себестоимость", pick("cost"));
+const best = nodes["scenario-rows"].children.find((tr) => /\bbest\b/.test(tr.className));
+console.log("лучший сценарий:", best ? best.innerHTML.replace(/<[^>]+>/g, " ").trim().split(/\s{2,}/)[0] : "—");
 console.log("POI:", pick("poi-tag"), "|", pick("poi-title"), "|", pick("poi-metric-label"), pick("poi-metric"));
-console.log("строк сценариев:", nodes["scenario-rows"].children.length);
-console.log("столбцов диаграммы:", nodes["lead-chart"].children.length);
-console.log("OK: интерфейс отрисован без ошибок");
+
+if (failed) {
+  console.log(`\n${failed} проверок не прошли`);
+  process.exit(1);
+}
+console.log("\nOK: интерфейс отрисован без ошибок, метрики в допустимых пределах");

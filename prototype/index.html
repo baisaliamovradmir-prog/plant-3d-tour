@@ -3,11 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Цифровой двойник участка и 3D-тур — интерактивный прототип</title>
+<title>Цифровой двойник завода и 3D-тур — интерактивный прототип</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232E6FD0'/%3E%3Cpath d='M8 23V9l8 12 8-12v14' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=1.1">
 </head>
-<body>
+<body class="no-anim">
+<script>
+  // состояние панели — до первой отрисовки, чтобы на телефоне меню не мелькало при загрузке
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem("kontur.sidebar"); } catch (e) {}
+    if (window.innerWidth <= 900 || saved === "off") document.body.classList.add("side-collapsed");
+  })();
+</script>
 <aside class="side" id="side">
   <div class="side-inner">
     <div class="side-head">
@@ -15,14 +23,14 @@
         <img id="brand-logo" class="brand__img" src="assets/logo.png" alt="Логотип предприятия" hidden>
         <div class="brand__ph" id="brand-ph">
           <b>ЛОГОТИП</b>
-          <span>prototype/assets/logo.svg</span>
+          <span>prototype/assets/logo.png</span>
         </div>
       </div>
     </div>
 
     <nav class="nav" id="nav">
       <a href="#dash" data-target="dash" class="on">Обзор</a>
-      <a href="#process" data-target="process">Загрузка операций</a>
+      <a href="#process" data-target="process">Загрузка этапов</a>
       <a href="#machines" data-target="machines">Оборудование</a>
       <a href="#scenarios" data-target="scenarios">Сценарии</a>
       <a href="#tour" data-target="tour">3D-тур</a>
@@ -31,11 +39,11 @@
 
     <div class="panel-title">Параметры прогона</div>
     <div class="controls">
-      <label>Спрос, шт/сут <output id="v-demand">42</output>
-        <input id="demand" type="range" min="34" max="54" step="2" value="42">
+      <label>План выпуска, т/сут <output id="v-demand">115</output>
+        <input id="demand" type="range" min="90" max="135" step="5" value="115">
       </label>
-      <label>Партия запуска, шт <output id="v-batch">20</output>
-        <input id="batch" type="range" min="5" max="20" step="5" value="20">
+      <label>Серия одного продукта, партий <output id="v-batch">2</output>
+        <input id="batch" type="range" min="1" max="4" step="1" value="2">
       </label>
       <label>Время переналадки <output id="v-setup">100 %</output>
         <input id="setup" type="range" min="45" max="100" step="5" value="100">
@@ -46,7 +54,7 @@
     </div>
     <button id="run" class="btn">Пересчитать модель</button>
 
-    <div class="side-foot">Прототип v1.0 · 08.11.2026<br>данные синтетические · РМЦ</div>
+    <div class="side-foot">Прототип v1.1 · 09.11.2026<br>данные синтетические · завод масел</div>
   </div>
 </aside>
 
@@ -58,7 +66,7 @@
               title="Показать или скрыть боковую панель" aria-label="Показать или скрыть боковую панель"
               aria-expanded="true"><span class="hamb" aria-hidden="true"><i></i><i></i><i></i></span></button>
       <div>
-        <div class="crumb">ООО «Газпром нефть» / РМЦ / Изготовление фланца</div>
+        <div class="crumb">Завод смазочных материалов «Демо» / Производство масел / партия 25 т</div>
         <h1>Обзор процесса</h1>
       </div>
     </div>
@@ -70,50 +78,51 @@
   </header>
 
   <div class="content">
-  <p class="screen-note">Это пульт участка. Сверху — четыре метрики, которые считает модель;
-     ниже — загрузка операций и узкое место, управление каждым станком, сравнение сценариев
-     и 3D-тур. Любое изменение параметров сразу пересчитывает все цифры на экране.</p>
+  <p class="screen-note">Это пульт завода. Сверху — четыре метрики, которые считает модель;
+     ниже — загрузка этапов и узкое место, управление каждой единицей оборудования, сравнение сценариев
+     и 3D-тур по тому же заводу. Любое изменение параметров сразу пересчитывает все цифры на экране.</p>
 
   <section id="dash" class="kpis">
     <article class="card kpi">
-      <div class="kpi-label">Выпуск, шт/сут</div>
-      <div class="kpi-value"><span id="k-out">—</span><span class="unit">из <span id="k-plan">42</span></span></div>
-      <div class="kpi-foot" id="k-out-note">план смены</div>
+      <div class="kpi-label">Выпуск, т/сут</div>
+      <div class="kpi-value"><span id="k-out">—</span><span class="unit">из <span id="k-plan">115</span></span></div>
+      <div class="kpi-foot" id="k-out-note">план суток</div>
     </article>
     <article class="card kpi">
-      <div class="kpi-label">Цикл изготовления</div>
-      <div class="kpi-value"><span id="k-lead">—</span><span class="unit">мин</span></div>
-      <div class="kpi-foot" id="k-lead-note">норма 480 мин</div>
+      <div class="kpi-label">Цикл партии</div>
+      <div class="kpi-value"><span id="k-lead">—</span><span class="unit">ч</span></div>
+      <div class="kpi-foot" id="k-lead-note">от приёмки до отгрузки</div>
     </article>
     <article class="card kpi">
-      <div class="kpi-label">Заказы в срок</div>
+      <div class="kpi-label">Партии в срок</div>
       <div class="kpi-value"><span id="k-ontime">—</span><span class="unit">%</span></div>
-      <div class="kpi-foot" id="k-ontime-note">доля ≤ 480 мин</div>
+      <div class="kpi-foot" id="k-ontime-note">доля ≤ 48 ч</div>
     </article>
     <article class="card kpi">
       <div class="kpi-label">В работе (WIP)</div>
-      <div class="kpi-value"><span id="k-wip">—</span><span class="unit">шт</span></div>
+      <div class="kpi-value"><span id="k-wip">—</span><span class="unit">партий</span></div>
       <div class="kpi-foot" id="k-wip-note">среднее за окно</div>
     </article>
   </section>
   <p class="section-note">Выпуск и цикл — главные метрики: первый отвечает «сколько делаем»,
-     второй — «как быстро». «Заказы в срок» считается по обещанным 480 минутам, WIP показывает,
-     сколько деталей одновременно находится на участке.</p>
+     второй — «как быстро». «Партии в срок» считается по обещанным клиенту 48 часам от запуска до отгрузки,
+     WIP показывает, сколько партий по 25 т одновременно находится в производстве. Те же метрики
+     видны в карточках 3D-тура.</p>
 
   <section class="grid2">
     <article class="card" id="process">
       <div class="card-head">
-        <h2>Загрузка операций</h2>
+        <h2>Загрузка этапов</h2>
         <span class="muted" id="process-note">расчёт по 26 суткам</span>
       </div>
       <p class="section-note">Сколько процентов времени ресурс занят обработкой и переналадкой.
-         Красная полоса — 90 % и выше: эта операция ограничивает выпуск. Серое число справа —
-         среднее ожидание детали в очереди перед операцией.</p>
+         Красная полоса — 90 % и выше: этот этап ограничивает выпуск. Серое число справа —
+         среднее ожидание партии в очереди перед этапом.</p>
       <div id="util" class="util"></div>
       <div class="legend">
         <span><i class="dot ok"></i>в норме</span>
         <span><i class="dot hot"></i>узкое место</span>
-        <span><i class="dot wait"></i>очередь, мин</span>
+        <span><i class="dot wait"></i>очередь, ч</span>
       </div>
     </article>
 
@@ -122,28 +131,28 @@
         <h2>Узкое место</h2>
         <span class="pill hot" id="bottleneck-name">—</span>
       </div>
-      <p class="section-note">Операция с максимальной загрузкой. Именно она определяет,
-         сколько участок может выпустить: остальные ресурсы простаивают.</p>
+      <p class="section-note">Этап с максимальной загрузкой. Именно он определяет,
+         сколько завод может выпустить: остальные ресурсы простаивают.</p>
       <p class="big" id="bottleneck-value">—</p>
-      <p class="muted" id="bottleneck-text">Рассчитайте модель, чтобы увидеть ограничение участка.</p>
+      <p class="muted" id="bottleneck-text">Рассчитайте модель, чтобы увидеть ограничение завода.</p>
       <div class="divider"></div>
-      <div class="kv"><span>Очередь перед операцией</span><b id="bottleneck-wait">—</b></div>
+      <div class="kv"><span>Очередь перед этапом</span><b id="bottleneck-wait">—</b></div>
       <div class="kv"><span>Доля времени переналадки</span><b id="bottleneck-setup">—</b></div>
-      <div class="kv"><span>Себестоимость обработки</span><b id="cost">—</b></div>
+      <div class="kv"><span>Стоимость переработки</span><b id="cost">—</b></div>
       <button class="btn ghost" id="to-tour">Показать в 3D-туре</button>
     </article>
   </section>
 
   <section class="card" id="machines">
     <div class="card-head">
-      <h2>Оборудование: каждый станок отдельно</h2>
-      <span class="muted" id="machines-note">11 единиц · управление по одной</span>
+      <h2>Оборудование: каждая единица отдельно</h2>
+      <span class="muted" id="machines-note">10 единиц · управление по одной</span>
     </div>
     <p class="section-note">Каждая единица оборудования управляется отдельно: кнопка
-       «В работе / Простой» выводит станок из расчёта (ремонт, поломка, резерв), ползунок
-       «Норма» меняет время обработки именно на этом станке. Полоса показывает загрузку
-       конкретной единицы, а не операции целиком. Второй шлифовальный станок по умолчанию
-       выключен — включите его, чтобы увидеть сценарий «+1 станок».</p>
+       «В работе / Простой» выводит единицу из расчёта (ремонт, поломка, резерв), ползунок
+       «Норма» меняет время на партию именно для неё. Полоса показывает загрузку
+       конкретной единицы, а не этапа целиком. Второй пост анализа ОТК по умолчанию
+       выключен (нет лаборанта) — включите его, чтобы снять узкое место в лаборатории.</p>
     <div id="machine-grid" class="machine-grid"></div>
     <div class="machine-foot">
       <button class="btn ghost small" id="machines-reset">Вернуть оборудование к базе</button>
@@ -156,13 +165,13 @@
       <h2>Сценарии сравнения</h2>
       <span class="muted">среднее по 5 репликациям × 26 суток</span>
     </div>
-    <p class="section-note">Четыре готовых варианта из ТЗ и ваш собственный (последняя строка) —
+    <p class="section-note">Четыре готовых варианта — по кейсам улучшений из 3D-тура — и ваш собственный (последняя строка) —
        то, что сейчас настроено на экране. Сравнение идёт по четырём метрикам: цикл, выпуск,
-       заказы в срок и себестоимость. Столбики внизу показывают цикл: чем ниже, тем лучше.</p>
+       партии в срок и стоимость переработки. Столбики внизу показывают цикл: чем ниже, тем лучше.</p>
     <div class="table-wrap">
       <table class="tbl">
         <thead>
-          <tr><th>Сценарий</th><th>Цикл, мин</th><th>Выпуск, шт/сут</th><th>В срок, %</th><th>WIP, шт</th><th>Себест., ₽</th></tr>
+          <tr><th>Сценарий</th><th>Цикл, ч</th><th>Выпуск, т/сут</th><th>В срок, %</th><th>WIP, партий</th><th>Стоимость, ₽/т</th></tr>
         </thead>
         <tbody id="scenario-rows"></tbody>
       </table>
@@ -170,29 +179,41 @@
     <div class="bar-chart" id="lead-chart"></div>
   </section>
 
-  <section class="card" id="tour">
+  <!-- data-tour-url — адрес 3D-тура (ветка 3d). Переопределяется параметром ?tour=http://host:port/ -->
+  <section class="card" id="tour" data-tour-url="http://localhost:8080/">
     <div class="card-head">
-      <h2>3D-тур по участку</h2>
-      <span class="muted">клик по метке открывает карточку точки интереса</span>
+      <h2>3D-тур по заводу</h2>
+      <div class="tour-modes" id="tour-modes">
+        <button type="button" class="switch" data-mode="3d" disabled>3D-тур</button>
+        <button type="button" class="switch on" data-mode="scheme">Схема завода</button>
+      </div>
     </div>
-    <p class="section-note">Изометрия участка: четыре метки соответствуют остановкам маршрута.
+    <p class="section-note" id="tour-note-3d" hidden>Трёхмерный тур по предприятию: выберите маршрут,
+       идите по шагам кнопками «Далее / Назад», кликайте по меткам — карточка точки показывает этап
+       процесса, его метрики и кейсы улучшений. <a id="tour3d-open" href="#" target="_blank" rel="noopener">Открыть на весь экран ↗</a></p>
+    <p class="section-note" id="tour-note-scheme">Изометрия завода: четыре метки — те же точки, что в 3D-туре.
        Метка ведёт к этапу процесса и показывает его метрику из текущего расчёта — это и есть
        связка «тур → процесс → метрика». Кнопки внизу переключают остановки, карточка справа
-       объясняет, что происходит в этой точке.</p>
-    <div class="tour-wrap">
+       объясняет, что происходит в этой точке.
+       <span class="tour3d-off" id="tour3d-off" hidden>3D-тур сейчас не запущен — показана схема.
+       Запуск (ветка 3d): <code>docker compose -f docker-compose.3d.yml --profile prod up tour</code> или <code>npm --prefix frontend run dev</code>.</span></p>
+    <div class="tour3d" id="tour3d" hidden>
+      <iframe id="tour3d-frame" title="3D-тур по предприятию" allow="fullscreen"></iframe>
+    </div>
+    <div class="tour-wrap" id="tour-scheme">
       <canvas id="scene" width="1120" height="440"></canvas>
       <div class="tour-card" id="poi-card">
-        <div class="poi-tag" id="poi-tag">POI-07 · Шлифовальная</div>
-        <h3 id="poi-title">Узкое место участка</h3>
+        <div class="poi-tag" id="poi-tag">Точка 5 · лаборатория ОТК</div>
+        <h3 id="poi-title">Узкое место процесса</h3>
         <p class="muted" id="poi-text">Выберите точку на сцене.</p>
         <div class="kv"><span id="poi-metric-label">Загрузка</span><b id="poi-metric">—</b></div>
         <button class="btn small" id="poi-link">Открыть в двойнике</button>
       </div>
       <div class="route" id="route">
-        <button data-loc="0" class="on">1 · Склад</button>
-        <button data-loc="1">2 · Токарный</button>
-        <button data-loc="2">3 · Шлифовка</button>
-        <button data-loc="3">4 · ОТК</button>
+        <button data-loc="0">1 · Эстакада</button>
+        <button data-loc="1">2 · Смешение</button>
+        <button data-loc="2" class="on">3 · ОТК</button>
+        <button data-loc="3">4 · Фасовка</button>
       </div>
     </div>
   </section>
@@ -208,14 +229,16 @@
     <div class="about-grid">
       <article class="about-item">
         <h3>Что считает модель</h3>
-        <p>Дискретно-событийная модель участка: 8 операций, 11 единиц оборудования, переналадки,
-           транспорт, брак и возврат на перешлифовку. Каждый прогон — 5 репликаций по 26 суток
+        <p>Дискретно-событийная модель завода смазочных материалов: 7 этапов от приёмки сырья
+           до отгрузки, 10 единиц оборудования, промывки и переналадки, перекачка, возврат партии
+           на корректировку после ОТК и некондиция. Партия — 25 т. Каждый прогон — 5 репликаций по 26 суток
            с прогревом 6 суток. Все цифры экрана берутся из одного и того же прогона, поэтому
-           метрики, загрузка и карточки 3D-тура всегда согласованы.</p>
+           метрики, загрузка и карточки схемы всегда согласованы.
+           Этапы, оборудование и кейсы — те же, что в 3D-туре.</p>
       </article>
       <article class="about-item">
         <h3>Что настраивается</h3>
-        <p>В боковой панели — общие параметры: спрос, партия запуска, время переналадки и вариация
+        <p>В боковой панели — общие параметры: план выпуска, серия одного продукта, время переналадки и вариация
            выборки. В разделе «Оборудование» — каждая единица отдельно: включить или вывести
            в простой (ремонт, резерв), задать свою норму времени. Любое изменение пересчитывает
            все метрики за долю секунды.</p>
@@ -231,13 +254,13 @@
   </section>
 
   <footer class="foot">
-    <span>Прототип расчёта: sim.js. Значения в интерфейсе согласованы с ТЗ (разделы 2, 4.7, 8, 9).</span>
+    <span>Прототип расчёта: sim.js. Предприятие, этапы, оборудование и кейсы — общие с 3D-туром.</span>
     <span>Демо-данные синтетические</span>
   </footer>
   </div>
 </main>
 
-<script src="sim.js"></script>
-<script src="app.js"></script>
+<script src="sim.js?v=1.1"></script>
+<script src="app.js?v=1.1"></script>
 </body>
 </html>

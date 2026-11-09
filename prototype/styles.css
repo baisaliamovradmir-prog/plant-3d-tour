@@ -161,6 +161,15 @@ h2{font-size:15px;margin:0}
 .tour-card h3{font-size:15px;margin:0 0 6px}
 .tour-card .kv{font-size:12px}
 .route{position:absolute;left:16px;bottom:16px;display:flex;gap:8px}
+/* 3D-тур (ветка 3d) во фрейме и переключатель «3D / схема» */
+.tour-modes{display:flex;gap:6px;flex-shrink:0}
+.tour-modes .switch.on{background:#EAF1FB;border-color:#BCD0EE;color:var(--blue2)}
+.tour-modes .switch:disabled{opacity:.45;cursor:not-allowed}
+.tour3d{border-radius:10px;overflow:hidden;background:#0f1b2d}
+.tour3d iframe{display:block;width:100%;height:min(680px,78vh);border:0}
+.tour3d-off{display:block;margin-top:6px;color:var(--orange)}
+.tour3d-off[hidden]{display:none}
+.tour3d-off code{font-size:11px;background:#F3F6FB;border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--ink2)}
 .route button{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;cursor:pointer;color:var(--ink2)}
 .route button.on{border-color:var(--orange);color:var(--orange);font-weight:600}
 
@@ -237,11 +246,53 @@ body.side-collapsed #side-toggle .hamb i:nth-child(3){transform:translateY(-1px)
   .grid2{grid-template-columns:1fr}
 }
 @media (max-width:900px){
-  body{grid-template-columns:1fr}
-  .side{position:static;height:auto;padding:16px 14px}
-  .side-inner{width:100%;height:auto;overflow:visible}
-  .content{padding:14px 16px 28px}
-  .topbar{padding:12px 16px 10px}
+  /* панель — выезжающее меню поверх страницы */
+  body,body.side-collapsed{grid-template-columns:1fr}
+  .side{position:fixed;left:0;top:0;bottom:0;width:min(300px,86vw);height:100%;z-index:60;padding:18px 16px;
+    transform:none;opacity:1;pointer-events:auto;box-shadow:12px 0 40px rgba(10,22,40,.35);
+    transition:transform .3s cubic-bezier(.4,0,.2,1)}
+  body.side-collapsed .side{transform:translateX(-105%);opacity:1;padding:18px 16px;box-shadow:none}
+  .side-inner{width:100%;height:100%;overflow-y:auto}
+  .side-scrim{display:block;position:fixed;inset:0;z-index:55;background:rgba(10,22,40,.45);
+    opacity:1;transition:opacity .25s ease}
+  body.side-collapsed .side-scrim{opacity:0;pointer-events:none}
+  .main{grid-column:1}
+  .content{padding:14px 14px 28px}
+  .topbar{padding:10px 14px}
+  .topbar-inner{flex-wrap:wrap;align-items:center;gap:8px}
+  .topbar-right{flex-wrap:wrap}
+  h1{font-size:20px}
+  .crumb{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:62vw}
+  .kpi-value{font-size:28px}
+  .util-row{grid-template-columns:82px 1fr 44px 44px;gap:8px}
   .tour-card{position:static;width:auto;margin:12px}
-  .route{position:static;padding:12px}
+  .route{position:static;padding:12px;flex-wrap:wrap}
+  .tour3d iframe{height:min(620px,72vh)}
 }
+@media (max-width:520px){
+  .kpis{grid-template-columns:1fr 1fr;gap:10px}
+  .kpi{padding:12px}
+  .kpi-value{font-size:24px}
+  .kpi-value .unit{display:block;margin:0;font-size:11px}
+  .chip{font-size:11px;padding:4px 9px}
+  .bar-chart{gap:8px}
+}
+.side-scrim{display:none}
+
+/* ---- полировка ---- */
+.side{background:linear-gradient(180deg,#14263F 0%,#11213A 60%,#0E1C33 100%)}
+.kpi{position:relative;overflow:hidden}
+.kpi::before{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:var(--blue2);opacity:.85}
+.kpis .kpi:nth-child(2)::before{background:#5B8DEF}
+.kpis .kpi:nth-child(3)::before{background:var(--green)}
+.kpis .kpi:nth-child(4)::before{background:#E0A526}
+.kpi-value{font-variant-numeric:tabular-nums}
+.best-tag{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:999px;background:var(--green);color:#fff;
+  font-size:10.5px;font-weight:700;vertical-align:1px}
+#run-chip::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);
+  margin-right:6px;vertical-align:1px;box-shadow:0 0 0 3px rgba(30,138,95,.18)}
+.util-row:hover{background:#F6F9FD}
+#bottleneck{border-color:#F0D3CD;background:linear-gradient(180deg,#FFF8F6 0%,#fff 55%)}
+#bottleneck .big{color:var(--red)}
+
+body.no-anim,body.no-anim *{transition:none !important}

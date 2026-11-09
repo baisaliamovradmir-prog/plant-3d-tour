@@ -9,172 +9,161 @@
     ],
     "warmupDays": 6,
     "runDays": 26,
-    "generated": "2026-11-08",
-    "product": "Фланец Ду100 PN16, сталь 09Г2С"
+    "generated": "2026-11-09",
+    "enterprise": "Завод смазочных материалов «Демо»",
+    "product": "Моторное масло, партия 25 т",
+    "units": {
+      "throughput": "т/сут",
+      "leadTime": "ч",
+      "wip": "партий по 25 т",
+      "cost": "₽/т"
+    }
   },
   "scenarios": [
     {
       "id": "asis",
       "label": "AS-IS (как есть)",
       "short": "AS-IS",
-      "description": "Текущая конфигурация: один шлифовальный станок, партия 20 шт, переналадка по норме.",
+      "description": "Текущая работа: один пост анализа в ОТК, полный анализ каждой партии, переналадка линии по норме.",
       "kpi": {
-        "throughput": 40.3,
-        "demand": 42,
-        "leadTime": 529,
-        "leadP95": 1073,
-        "wip": 20.7,
-        "onTimeShare": 47.1,
-        "scrapShare": 2.3,
-        "costPerGood": 1841,
-        "fullCost": 5462,
+        "throughput_tpd": 114.2,
+        "demand_tpd": 115,
+        "leadTime_h": 41.7,
+        "leadP95_h": 54.2,
+        "wip_batches": 6.6,
+        "onTimeShare": 81.2,
+        "scrapShare": 0.3,
+        "cost_rub_t": 5427,
         "utilization": [
           {
-            "id": "prep",
-            "short": "Склад",
-            "servers": 1,
-            "utilization": 17.4,
-            "setupShare": 0,
-            "avgWait": 0
-          },
-          {
-            "id": "turn",
-            "short": "Токарная",
+            "id": "unload",
+            "short": "Приёмка",
             "servers": 2,
-            "utilization": 21.8,
-            "setupShare": 12.4,
-            "avgWait": 0
-          },
-          {
-            "id": "mill",
-            "short": "Фрезерная",
-            "servers": 1,
-            "utilization": 40.4,
-            "setupShare": 16.8,
-            "avgWait": 5
-          },
-          {
-            "id": "drill",
-            "short": "Сверловка",
-            "servers": 1,
-            "utilization": 28.9,
-            "setupShare": 11.3,
-            "avgWait": 1
-          },
-          {
-            "id": "grind",
-            "short": "Шлифовка",
-            "servers": 1,
-            "utilization": 97.1,
-            "setupShare": 5.1,
-            "avgWait": 425
-          },
-          {
-            "id": "wash",
-            "short": "Мойка",
-            "servers": 1,
-            "utilization": 12.8,
+            "utilization": 19.4,
             "setupShare": 0,
-            "avgWait": 0
+            "avgWait_h": 0
+          },
+          {
+            "id": "tanks",
+            "short": "Резервуары",
+            "servers": 10,
+            "utilization": 15.3,
+            "setupShare": 0,
+            "avgWait_h": 0
+          },
+          {
+            "id": "blend",
+            "short": "Смешение",
+            "servers": 3,
+            "utilization": 23.3,
+            "setupShare": 17.4,
+            "avgWait_h": 0
           },
           {
             "id": "qc",
             "short": "ОТК",
-            "servers": 2,
-            "utilization": 12.8,
+            "servers": 1,
+            "utilization": 94.7,
             "setupShare": 0,
-            "avgWait": 0
+            "avgWait_h": 5
           },
           {
-            "id": "pack",
-            "short": "Упаковка",
+            "id": "fill",
+            "short": "Фасовка",
             "servers": 1,
-            "utilization": 16.8,
+            "utilization": 49.3,
+            "setupShare": 27.7,
+            "avgWait_h": 0
+          },
+          {
+            "id": "store",
+            "short": "Склад",
+            "servers": 20,
+            "utilization": 11.4,
             "setupShare": 0,
-            "avgWait": 0
+            "avgWait_h": 0
+          },
+          {
+            "id": "ship",
+            "short": "Отгрузка",
+            "servers": 2,
+            "utilization": 14.1,
+            "setupShare": 0,
+            "avgWait_h": 0
           }
         ]
       }
     },
     {
       "id": "a",
-      "label": "A. Второй шлифовальный станок",
-      "short": "A · +шлифовка",
-      "description": "Закупка второго шлифовального станка; устранение узкого места по мощности.",
+      "label": "A. Экспресс-анализ проб",
+      "short": "A · экспресс",
+      "description": "Кейс «Экспресс-анализ проб»: ключевые параметры на поточном анализаторе, полный анализ по графику. Анализ 4,7 → 2,4 ч.",
       "kpi": {
-        "throughput": 40.9,
-        "demand": 42,
-        "leadTime": 94,
-        "leadP95": 139,
-        "wip": 3.4,
-        "onTimeShare": 100,
-        "scrapShare": 2.6,
-        "costPerGood": 1842,
-        "fullCost": 5595,
+        "throughput_tpd": 114.6,
+        "demand_tpd": 115,
+        "leadTime_h": 34.5,
+        "leadP95_h": 43.4,
+        "wip_batches": 5.4,
+        "onTimeShare": 98.7,
+        "scrapShare": 0.8,
+        "cost_rub_t": 5171,
         "utilization": [
           {
-            "id": "prep",
-            "short": "Склад",
-            "servers": 1,
-            "utilization": 17.4,
-            "setupShare": 0,
-            "avgWait": 0
-          },
-          {
-            "id": "turn",
-            "short": "Токарная",
+            "id": "unload",
+            "short": "Приёмка",
             "servers": 2,
-            "utilization": 21.9,
-            "setupShare": 12.3,
-            "avgWait": 0
-          },
-          {
-            "id": "mill",
-            "short": "Фрезерная",
-            "servers": 1,
-            "utilization": 40.4,
-            "setupShare": 16.6,
-            "avgWait": 5
-          },
-          {
-            "id": "drill",
-            "short": "Сверловка",
-            "servers": 1,
-            "utilization": 28.9,
-            "setupShare": 11.2,
-            "avgWait": 1
-          },
-          {
-            "id": "grind",
-            "short": "Шлифовка",
-            "servers": 2,
-            "utilization": 49.4,
-            "setupShare": 5.1,
-            "avgWait": 5
-          },
-          {
-            "id": "wash",
-            "short": "Мойка",
-            "servers": 1,
-            "utilization": 13.1,
+            "utilization": 18.7,
             "setupShare": 0,
-            "avgWait": 0
+            "avgWait_h": 0
+          },
+          {
+            "id": "tanks",
+            "short": "Резервуары",
+            "servers": 10,
+            "utilization": 15.3,
+            "setupShare": 0,
+            "avgWait_h": 0
+          },
+          {
+            "id": "blend",
+            "short": "Смешение",
+            "servers": 3,
+            "utilization": 23.2,
+            "setupShare": 17.6,
+            "avgWait_h": 0
           },
           {
             "id": "qc",
             "short": "ОТК",
-            "servers": 2,
-            "utilization": 13,
+            "servers": 1,
+            "utilization": 48.6,
             "setupShare": 0,
-            "avgWait": 0
+            "avgWait_h": 0.3
           },
           {
-            "id": "pack",
-            "short": "Упаковка",
+            "id": "fill",
+            "short": "Фасовка",
             "servers": 1,
-            "utilization": 16.9,
+            "utilization": 49.5,
+            "setupShare": 27.6,
+            "avgWait_h": 0.2
+          },
+          {
+            "id": "store",
+            "short": "Склад",
+            "servers": 20,
+            "utilization": 11.4,
             "setupShare": 0,
-            "avgWait": 0
+            "avgWait_h": 0
+          },
+          {
+            "id": "ship",
+            "short": "Отгрузка",
+            "servers": 2,
+            "utilization": 14.2,
+            "setupShare": 0,
+            "avgWait_h": 0
           }
         ]
       }
@@ -183,81 +172,72 @@
       "id": "b",
       "label": "B. Быстрая переналадка (SMED)",
       "short": "B · SMED",
-      "description": "Переналадка 45 % от нормы, партия запуска 10 шт, вынесение подготовки на внешнюю операцию.",
+      "description": "Кейс «Быстрая переналадка линии»: переналадка 45 % от нормы, продукт можно менять после каждой партии.",
       "kpi": {
-        "throughput": 40.2,
-        "demand": 42,
-        "leadTime": 519,
-        "leadP95": 995,
-        "wip": 20.2,
-        "onTimeShare": 45.1,
-        "scrapShare": 2.3,
-        "costPerGood": 1834,
-        "fullCost": 5457,
+        "throughput_tpd": 113.7,
+        "demand_tpd": 115,
+        "leadTime_h": 40.5,
+        "leadP95_h": 52.1,
+        "wip_batches": 6.4,
+        "onTimeShare": 88.3,
+        "scrapShare": 0.5,
+        "cost_rub_t": 5378,
         "utilization": [
           {
-            "id": "prep",
-            "short": "Склад",
-            "servers": 1,
-            "utilization": 17.6,
-            "setupShare": 0,
-            "avgWait": 0
-          },
-          {
-            "id": "turn",
-            "short": "Токарная",
+            "id": "unload",
+            "short": "Приёмка",
             "servers": 2,
-            "utilization": 21.7,
-            "setupShare": 11.1,
-            "avgWait": 0
-          },
-          {
-            "id": "mill",
-            "short": "Фрезерная",
-            "servers": 1,
-            "utilization": 39.8,
-            "setupShare": 15.3,
-            "avgWait": 4
-          },
-          {
-            "id": "drill",
-            "short": "Сверловка",
-            "servers": 1,
-            "utilization": 28.4,
-            "setupShare": 10.2,
-            "avgWait": 1
-          },
-          {
-            "id": "grind",
-            "short": "Шлифовка",
-            "servers": 1,
-            "utilization": 97.8,
-            "setupShare": 4.5,
-            "avgWait": 416
-          },
-          {
-            "id": "wash",
-            "short": "Мойка",
-            "servers": 1,
-            "utilization": 12.9,
+            "utilization": 19.3,
             "setupShare": 0,
-            "avgWait": 0
+            "avgWait_h": 0
+          },
+          {
+            "id": "tanks",
+            "short": "Резервуары",
+            "servers": 10,
+            "utilization": 15.3,
+            "setupShare": 0,
+            "avgWait_h": 0
+          },
+          {
+            "id": "blend",
+            "short": "Смешение",
+            "servers": 3,
+            "utilization": 23.4,
+            "setupShare": 15.7,
+            "avgWait_h": 0
           },
           {
             "id": "qc",
             "short": "ОТК",
-            "servers": 2,
-            "utilization": 12.9,
+            "servers": 1,
+            "utilization": 95,
             "setupShare": 0,
-            "avgWait": 0
+            "avgWait_h": 3.9
           },
           {
-            "id": "pack",
-            "short": "Упаковка",
+            "id": "fill",
+            "short": "Фасовка",
             "servers": 1,
-            "utilization": 16.8,
+            "utilization": 47.4,
+            "setupShare": 25.9,
+            "avgWait_h": 0
+          },
+          {
+            "id": "store",
+            "short": "Склад",
+            "servers": 20,
+            "utilization": 11.5,
             "setupShare": 0,
-            "avgWait": 0
+            "avgWait_h": 0
+          },
+          {
+            "id": "ship",
+            "short": "Отгрузка",
+            "servers": 2,
+            "utilization": 14.2,
+            "setupShare": 0,
+            "avgWait_h": 0
           }
         ]
       }
@@ -266,81 +246,72 @@
       "id": "c",
       "label": "C. A + B",
       "short": "C · A+B",
-      "description": "Второй шлифовальный станок и быстрая переналадка одновременно.",
+      "description": "Экспресс-анализ и быстрая переналадка одновременно.",
       "kpi": {
-        "throughput": 41.2,
-        "demand": 42,
-        "leadTime": 90,
-        "leadP95": 123,
-        "wip": 3.3,
-        "onTimeShare": 100,
-        "scrapShare": 2.6,
-        "costPerGood": 1831,
-        "fullCost": 5576,
+        "throughput_tpd": 113.8,
+        "demand_tpd": 115,
+        "leadTime_h": 34.1,
+        "leadP95_h": 42.4,
+        "wip_batches": 5.3,
+        "onTimeShare": 99.5,
+        "scrapShare": 0.5,
+        "cost_rub_t": 5098,
         "utilization": [
           {
-            "id": "prep",
-            "short": "Склад",
-            "servers": 1,
-            "utilization": 17.5,
-            "setupShare": 0,
-            "avgWait": 0
-          },
-          {
-            "id": "turn",
-            "short": "Токарная",
+            "id": "unload",
+            "short": "Приёмка",
             "servers": 2,
-            "utilization": 21.7,
-            "setupShare": 11.1,
-            "avgWait": 0
-          },
-          {
-            "id": "mill",
-            "short": "Фрезерная",
-            "servers": 1,
-            "utilization": 39.9,
-            "setupShare": 15.2,
-            "avgWait": 4
-          },
-          {
-            "id": "drill",
-            "short": "Сверловка",
-            "servers": 1,
-            "utilization": 28.8,
-            "setupShare": 10.1,
-            "avgWait": 1
-          },
-          {
-            "id": "grind",
-            "short": "Шлифовка",
-            "servers": 2,
-            "utilization": 49.9,
-            "setupShare": 4.5,
-            "avgWait": 3
-          },
-          {
-            "id": "wash",
-            "short": "Мойка",
-            "servers": 1,
-            "utilization": 13.3,
+            "utilization": 18.8,
             "setupShare": 0,
-            "avgWait": 0
+            "avgWait_h": 0
+          },
+          {
+            "id": "tanks",
+            "short": "Резервуары",
+            "servers": 10,
+            "utilization": 15.4,
+            "setupShare": 0,
+            "avgWait_h": 0
+          },
+          {
+            "id": "blend",
+            "short": "Смешение",
+            "servers": 3,
+            "utilization": 22.9,
+            "setupShare": 15.7,
+            "avgWait_h": 0
           },
           {
             "id": "qc",
             "short": "ОТК",
-            "servers": 2,
-            "utilization": 13.1,
+            "servers": 1,
+            "utilization": 47.6,
             "setupShare": 0,
-            "avgWait": 0
+            "avgWait_h": 0.3
           },
           {
-            "id": "pack",
-            "short": "Упаковка",
+            "id": "fill",
+            "short": "Фасовка",
             "servers": 1,
-            "utilization": 17.2,
+            "utilization": 48,
+            "setupShare": 25.7,
+            "avgWait_h": 0.1
+          },
+          {
+            "id": "store",
+            "short": "Склад",
+            "servers": 20,
+            "utilization": 11.4,
             "setupShare": 0,
-            "avgWait": 0
+            "avgWait_h": 0
+          },
+          {
+            "id": "ship",
+            "short": "Отгрузка",
+            "servers": 2,
+            "utilization": 14.2,
+            "setupShare": 0,
+            "avgWait_h": 0
           }
         ]
       }
@@ -348,57 +319,57 @@
   ],
   "demandSweep": [
     {
-      "demand": 34,
-      "asis": 33.2,
-      "asis_lead": 141,
-      "asis_ontime": 100,
-      "c": 32.9,
-      "c_lead": 88,
+      "demand_tpd": 90,
+      "asis": 89.8,
+      "asis_lead": 37.7,
+      "asis_ontime": 95,
+      "c": 89.8,
+      "c_lead": 34.2,
+      "c_ontime": 99
+    },
+    {
+      "demand_tpd": 100,
+      "asis": 99.4,
+      "asis_lead": 38.2,
+      "asis_ontime": 93,
+      "c": 100.2,
+      "c_lead": 34.2,
+      "c_ontime": 99
+    },
+    {
+      "demand_tpd": 110,
+      "asis": 108.3,
+      "asis_lead": 40.5,
+      "asis_ontime": 86,
+      "c": 110,
+      "c_lead": 34.4,
       "c_ontime": 100
     },
     {
-      "demand": 38,
-      "asis": 37.4,
-      "asis_lead": 222,
-      "asis_ontime": 91,
-      "c": 36.8,
-      "c_lead": 89,
-      "c_ontime": 100
+      "demand_tpd": 115,
+      "asis": 114.2,
+      "asis_lead": 41.7,
+      "asis_ontime": 81,
+      "c": 113.8,
+      "c_lead": 34.1,
+      "c_ontime": 99
     },
     {
-      "demand": 42,
-      "asis": 40.3,
-      "asis_lead": 529,
-      "asis_ontime": 47,
-      "c": 41.2,
-      "c_lead": 90,
-      "c_ontime": 100
+      "demand_tpd": 125,
+      "asis": 118.5,
+      "asis_lead": 54.5,
+      "asis_ontime": 40,
+      "c": 122.9,
+      "c_lead": 34.4,
+      "c_ontime": 99
     },
     {
-      "demand": 46,
-      "asis": 40.7,
-      "asis_lead": 1406,
-      "asis_ontime": 12,
-      "c": 44.4,
-      "c_lead": 92,
-      "c_ontime": 100
-    },
-    {
-      "demand": 50,
-      "asis": 40.5,
-      "asis_lead": 2440,
-      "asis_ontime": 11,
-      "c": 48.1,
-      "c_lead": 94,
-      "c_ontime": 100
-    },
-    {
-      "demand": 54,
-      "asis": 40.7,
-      "asis_lead": 3669,
-      "asis_ontime": 12,
-      "c": 51.1,
-      "c_lead": 96,
+      "demand_tpd": 135,
+      "asis": 121.7,
+      "asis_lead": 71.4,
+      "asis_ontime": 13,
+      "c": 134.6,
+      "c_lead": 34.4,
       "c_ontime": 100
     }
   ]
