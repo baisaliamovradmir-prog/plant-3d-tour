@@ -1,0 +1,146 @@
+// 14 domain tables; framework auth/session/admin/JWT tables are omitted.
+// See Django migrations for all indexes and constraints.
+
+Table accounts_user {
+  id bigint [pk, not null]
+  password varchar [not null]
+  last_login timestamp []
+  is_superuser boolean [not null]
+  username varchar [unique, not null]
+  first_name varchar [not null]
+  last_name varchar [not null]
+  email varchar [not null]
+  is_staff boolean [not null]
+  is_active boolean [not null]
+  date_joined timestamp [not null]
+  role varchar [not null]
+  consent_at timestamp []
+  policy_version varchar [not null]
+}
+
+Table tour_enterprise {
+  id bigint [pk, not null]
+  name varchar [unique, not null]
+  description text [not null]
+}
+
+Table tour_location {
+  id bigint [pk, not null]
+  enterprise_id bigint [not null, ref: > tour_enterprise.id]
+  name varchar [not null]
+  description text [not null]
+  scene_type varchar [not null]
+  asset varchar [not null]
+  preview varchar [not null]
+  map_x float [not null]
+  map_y float [not null]
+  sort_order int [not null]
+}
+
+Table tour_hotspot {
+  id bigint [pk, not null]
+  location_id bigint [not null, ref: > tour_location.id]
+  title varchar [not null]
+  description text [not null]
+  kind varchar [not null]
+  status varchar [not null]
+  yaw float [not null]
+  pitch float [not null]
+  pos_x float [not null]
+  pos_y float [not null]
+  pos_z float [not null]
+  stage_id bigint [ref: > processes_processstage.id]
+  case_id bigint [ref: > processes_case.id]
+  target_location_id bigint [ref: > tour_location.id]
+}
+
+Table tour_media {
+  id bigint [pk, not null]
+  hotspot_id bigint [not null, ref: > tour_hotspot.id]
+  media_type varchar [not null]
+  file varchar [not null]
+  caption varchar [not null]
+}
+
+Table tour_route {
+  id bigint [pk, not null]
+  enterprise_id bigint [not null, ref: > tour_enterprise.id]
+  name varchar [not null]
+  audience varchar [not null]
+  description text [not null]
+  duration_minutes int [not null]
+  is_published boolean [not null]
+}
+
+Table tour_routestep {
+  id bigint [pk, not null]
+  route_id bigint [not null, ref: > tour_route.id]
+  step_no int [not null]
+  location_id bigint [not null, ref: > tour_location.id]
+  hotspot_id bigint [ref: > tour_hotspot.id]
+  narration text [not null]
+}
+
+Table processes_process {
+  id bigint [pk, not null]
+  enterprise_id bigint [not null, ref: > tour_enterprise.id]
+  name varchar [not null]
+  description text [not null]
+}
+
+Table processes_resource {
+  id bigint [pk, not null]
+  location_id bigint [not null, ref: > tour_location.id]
+  name varchar [not null]
+  resource_type varchar [not null]
+  capacity float [not null]
+  capacity_unit varchar [not null]
+}
+
+Table processes_processstage {
+  id bigint [pk, not null]
+  process_id bigint [not null, ref: > processes_process.id]
+  location_id bigint [not null, ref: > tour_location.id]
+  resource_id bigint [not null, ref: > processes_resource.id]
+  step_no int [not null]
+  name varchar [not null]
+  duration_h float [not null]
+  cost_rub decimal(14,2) [not null]
+}
+
+Table processes_metric {
+  id bigint [pk, not null]
+  process_id bigint [not null, ref: > processes_process.id]
+  stage_id bigint [ref: > processes_processstage.id]
+  code varchar [not null]
+  name varchar [not null]
+  unit varchar [not null]
+  better varchar [not null]
+}
+
+Table processes_metricvalue {
+  id bigint [pk, not null]
+  metric_id bigint [not null, ref: > processes_metric.id]
+  measured_on date [not null]
+  value float [not null]
+}
+
+Table processes_case {
+  id bigint [pk, not null]
+  enterprise_id bigint [not null, ref: > tour_enterprise.id]
+  metric_id bigint [not null, ref: > processes_metric.id]
+  title varchar [not null]
+  problem text [not null]
+  solution text [not null]
+  value_before float [not null]
+  value_after float [not null]
+}
+
+Table analytics_tourevent {
+  id bigint [pk, not null]
+  session_id uuid [not null]
+  route_id bigint [not null, ref: > tour_route.id]
+  hotspot_id bigint [ref: > tour_hotspot.id]
+  event_type varchar [not null]
+  created_at timestamp [not null]
+}

@@ -1,0 +1,3780 @@
+openapi: 3.0.3
+info:
+  title: Plant 3D Tour API
+  version: 1.0.0
+  description: 'Направление B: экскурсии, процессы и история метрик. Все демо-данные
+    синтетические.'
+paths:
+  /api/auth/login/:
+    post:
+      operationId: auth_login_create
+      description: |-
+        Takes a set of user credentials and returns an access and refresh JSON web
+        token pair to prove the authentication of those credentials.
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPairRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPairRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPairRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenObtainPair'
+          description: ''
+  /api/auth/logout/:
+    post:
+      operationId: auth_logout_create
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogoutRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LogoutRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LogoutRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Logout'
+          description: ''
+  /api/auth/me/:
+    get:
+      operationId: auth_me_retrieve
+      tags:
+      - auth
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+    delete:
+      operationId: auth_me_destroy
+      tags:
+      - auth
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/auth/refresh/:
+    post:
+      operationId: auth_refresh_create
+      description: |-
+        Takes a refresh type JSON web token and returns an access type JSON web
+        token if the refresh token is valid.
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefreshRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenRefreshRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenRefreshRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRefresh'
+          description: ''
+  /api/auth/register/:
+    post:
+      operationId: auth_register_create
+      tags:
+      - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      security:
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Register'
+          description: ''
+  /api/cases/:
+    get:
+      operationId: cases_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - cases
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCaseList'
+          description: ''
+    post:
+      operationId: cases_create
+      tags:
+      - cases
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Case'
+          description: ''
+  /api/cases/{id}/:
+    get:
+      operationId: cases_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this case.
+        required: true
+      tags:
+      - cases
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Case'
+          description: ''
+    put:
+      operationId: cases_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this case.
+        required: true
+      tags:
+      - cases
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Case'
+          description: ''
+    patch:
+      operationId: cases_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this case.
+        required: true
+      tags:
+      - cases
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCaseRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCaseRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCaseRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Case'
+          description: ''
+    delete:
+      operationId: cases_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this case.
+        required: true
+      tags:
+      - cases
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/dashboard/:
+    get:
+      operationId: dashboard_retrieve
+      parameters:
+      - in: query
+        name: from
+        schema:
+          type: string
+      - in: query
+        name: process
+        schema:
+          type: integer
+        required: true
+      - in: query
+        name: to
+        schema:
+          type: string
+      tags:
+      - dashboard
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dashboard'
+          description: ''
+  /api/enterprises/:
+    get:
+      operationId: enterprises_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - enterprises
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedEnterpriseList'
+          description: ''
+    post:
+      operationId: enterprises_create
+      tags:
+      - enterprises
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnterpriseRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/EnterpriseRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/EnterpriseRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enterprise'
+          description: ''
+  /api/enterprises/{id}/:
+    get:
+      operationId: enterprises_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this enterprise.
+        required: true
+      tags:
+      - enterprises
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enterprise'
+          description: ''
+    put:
+      operationId: enterprises_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this enterprise.
+        required: true
+      tags:
+      - enterprises
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnterpriseRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/EnterpriseRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/EnterpriseRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enterprise'
+          description: ''
+    patch:
+      operationId: enterprises_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this enterprise.
+        required: true
+      tags:
+      - enterprises
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedEnterpriseRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedEnterpriseRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedEnterpriseRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enterprise'
+          description: ''
+    delete:
+      operationId: enterprises_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this enterprise.
+        required: true
+      tags:
+      - enterprises
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/events/:
+    post:
+      operationId: events_create
+      tags:
+      - events
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/EventRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/EventRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+  /api/hotspots/:
+    get:
+      operationId: hotspots_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - hotspots
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedHotspotList'
+          description: ''
+    post:
+      operationId: hotspots_create
+      tags:
+      - hotspots
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HotspotRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/HotspotRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/HotspotRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hotspot'
+          description: ''
+  /api/hotspots/{id}/:
+    get:
+      operationId: hotspots_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this hotspot.
+        required: true
+      tags:
+      - hotspots
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hotspot'
+          description: ''
+    put:
+      operationId: hotspots_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this hotspot.
+        required: true
+      tags:
+      - hotspots
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HotspotRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/HotspotRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/HotspotRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hotspot'
+          description: ''
+    patch:
+      operationId: hotspots_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this hotspot.
+        required: true
+      tags:
+      - hotspots
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedHotspotRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedHotspotRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedHotspotRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hotspot'
+          description: ''
+    delete:
+      operationId: hotspots_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this hotspot.
+        required: true
+      tags:
+      - hotspots
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/locations/:
+    get:
+      operationId: locations_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - locations
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLocationList'
+          description: ''
+    post:
+      operationId: locations_create
+      tags:
+      - locations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LocationRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LocationRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+          description: ''
+  /api/locations/{id}/:
+    get:
+      operationId: locations_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this location.
+        required: true
+      tags:
+      - locations
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+          description: ''
+    put:
+      operationId: locations_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this location.
+        required: true
+      tags:
+      - locations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LocationRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LocationRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+          description: ''
+    patch:
+      operationId: locations_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this location.
+        required: true
+      tags:
+      - locations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLocationRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedLocationRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedLocationRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+          description: ''
+    delete:
+      operationId: locations_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this location.
+        required: true
+      tags:
+      - locations
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/media/:
+    get:
+      operationId: media_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - media
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMediaList'
+          description: ''
+    post:
+      operationId: media_create
+      tags:
+      - media
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MediaRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MediaRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MediaRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Media'
+          description: ''
+  /api/media/{id}/:
+    get:
+      operationId: media_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this media.
+        required: true
+      tags:
+      - media
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Media'
+          description: ''
+    put:
+      operationId: media_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this media.
+        required: true
+      tags:
+      - media
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MediaRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MediaRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MediaRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Media'
+          description: ''
+    patch:
+      operationId: media_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this media.
+        required: true
+      tags:
+      - media
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedMediaRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedMediaRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedMediaRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Media'
+          description: ''
+    delete:
+      operationId: media_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this media.
+        required: true
+      tags:
+      - media
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/metric-values/:
+    get:
+      operationId: metric_values_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - metric-values
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMetricValueList'
+          description: ''
+    post:
+      operationId: metric_values_create
+      tags:
+      - metric-values
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricValueRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MetricValueRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MetricValueRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricValue'
+          description: ''
+  /api/metric-values/{id}/:
+    get:
+      operationId: metric_values_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this metric value.
+        required: true
+      tags:
+      - metric-values
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricValue'
+          description: ''
+    put:
+      operationId: metric_values_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this metric value.
+        required: true
+      tags:
+      - metric-values
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricValueRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MetricValueRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MetricValueRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricValue'
+          description: ''
+    patch:
+      operationId: metric_values_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this metric value.
+        required: true
+      tags:
+      - metric-values
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedMetricValueRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedMetricValueRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedMetricValueRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricValue'
+          description: ''
+    delete:
+      operationId: metric_values_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this metric value.
+        required: true
+      tags:
+      - metric-values
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/metrics/:
+    get:
+      operationId: metrics_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - metrics
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMetricList'
+          description: ''
+    post:
+      operationId: metrics_create
+      tags:
+      - metrics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Metric'
+          description: ''
+  /api/metrics/{id}/:
+    get:
+      operationId: metrics_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this metric.
+        required: true
+      tags:
+      - metrics
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Metric'
+          description: ''
+    put:
+      operationId: metrics_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this metric.
+        required: true
+      tags:
+      - metrics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MetricRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Metric'
+          description: ''
+    patch:
+      operationId: metrics_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this metric.
+        required: true
+      tags:
+      - metrics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedMetricRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedMetricRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedMetricRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Metric'
+          description: ''
+    delete:
+      operationId: metrics_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this metric.
+        required: true
+      tags:
+      - metrics
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/metrics/{id}/values/:
+    get:
+      operationId: metrics_values_list
+      parameters:
+      - in: query
+        name: from
+        schema:
+          type: string
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this metric.
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: to
+        schema:
+          type: string
+      tags:
+      - metrics
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMetricValueList'
+          description: ''
+  /api/processes/:
+    get:
+      operationId: processes_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - processes
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProcessList'
+          description: ''
+    post:
+      operationId: processes_create
+      tags:
+      - processes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProcessRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProcessRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Process'
+          description: ''
+  /api/processes/{id}/:
+    get:
+      operationId: processes_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this process.
+        required: true
+      tags:
+      - processes
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Process'
+          description: ''
+    put:
+      operationId: processes_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this process.
+        required: true
+      tags:
+      - processes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProcessRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProcessRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Process'
+          description: ''
+    patch:
+      operationId: processes_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this process.
+        required: true
+      tags:
+      - processes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProcessRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProcessRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProcessRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Process'
+          description: ''
+    delete:
+      operationId: processes_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this process.
+        required: true
+      tags:
+      - processes
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/resources/:
+    get:
+      operationId: resources_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - resources
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedResourceList'
+          description: ''
+    post:
+      operationId: resources_create
+      tags:
+      - resources
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ResourceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ResourceRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+          description: ''
+  /api/resources/{id}/:
+    get:
+      operationId: resources_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this resource.
+        required: true
+      tags:
+      - resources
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+          description: ''
+    put:
+      operationId: resources_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this resource.
+        required: true
+      tags:
+      - resources
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ResourceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ResourceRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+          description: ''
+    patch:
+      operationId: resources_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this resource.
+        required: true
+      tags:
+      - resources
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedResourceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedResourceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedResourceRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+          description: ''
+    delete:
+      operationId: resources_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this resource.
+        required: true
+      tags:
+      - resources
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/route-steps/:
+    get:
+      operationId: route_steps_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - route-steps
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRouteStepList'
+          description: ''
+    post:
+      operationId: route_steps_create
+      tags:
+      - route-steps
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RouteStepRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RouteStepRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RouteStepRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RouteStep'
+          description: ''
+  /api/route-steps/{id}/:
+    get:
+      operationId: route_steps_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this route step.
+        required: true
+      tags:
+      - route-steps
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RouteStep'
+          description: ''
+    put:
+      operationId: route_steps_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this route step.
+        required: true
+      tags:
+      - route-steps
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RouteStepRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RouteStepRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RouteStepRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RouteStep'
+          description: ''
+    patch:
+      operationId: route_steps_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this route step.
+        required: true
+      tags:
+      - route-steps
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedRouteStepRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedRouteStepRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedRouteStepRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RouteStep'
+          description: ''
+    delete:
+      operationId: route_steps_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this route step.
+        required: true
+      tags:
+      - route-steps
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/routes/:
+    get:
+      operationId: routes_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - routes
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRouteList'
+          description: ''
+    post:
+      operationId: routes_create
+      tags:
+      - routes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RouteRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RouteRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RouteRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Route'
+          description: ''
+  /api/routes/{id}/:
+    get:
+      operationId: routes_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this route.
+        required: true
+      tags:
+      - routes
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Route'
+          description: ''
+    put:
+      operationId: routes_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this route.
+        required: true
+      tags:
+      - routes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RouteRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RouteRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RouteRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Route'
+          description: ''
+    patch:
+      operationId: routes_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this route.
+        required: true
+      tags:
+      - routes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedRouteRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedRouteRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedRouteRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Route'
+          description: ''
+    delete:
+      operationId: routes_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this route.
+        required: true
+      tags:
+      - routes
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/schema/:
+    get:
+      operationId: schema_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - ckb
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - ms
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - ug
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+      tags:
+      - schema
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/stages/:
+    get:
+      operationId: stages_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - stages
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedStageList'
+          description: ''
+    post:
+      operationId: stages_create
+      tags:
+      - stages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StageRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/StageRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/StageRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stage'
+          description: ''
+  /api/stages/{id}/:
+    get:
+      operationId: stages_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this process stage.
+        required: true
+      tags:
+      - stages
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stage'
+          description: ''
+    put:
+      operationId: stages_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this process stage.
+        required: true
+      tags:
+      - stages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StageRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/StageRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/StageRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stage'
+          description: ''
+    patch:
+      operationId: stages_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this process stage.
+        required: true
+      tags:
+      - stages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedStageRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedStageRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedStageRequest'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stage'
+          description: ''
+    delete:
+      operationId: stages_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this process stage.
+        required: true
+      tags:
+      - stages
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    AudienceEnum:
+      enum:
+      - students
+      - partners
+      - employees
+      type: string
+      description: |-
+        * `students` - Абитуриенты
+        * `partners` - Партнёры
+        * `employees` - Сотрудники
+    BetterEnum:
+      enum:
+      - lower
+      - higher
+      type: string
+      description: |-
+        * `lower` - Меньше
+        * `higher` - Больше
+    Case:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        enterprise:
+          type: integer
+        metric:
+          type: integer
+        metric_detail:
+          allOf:
+          - $ref: '#/components/schemas/Metric'
+          readOnly: true
+        title:
+          type: string
+          maxLength: 200
+        problem:
+          type: string
+        solution:
+          type: string
+        value_before:
+          type: number
+          format: double
+          minimum: 0
+        value_after:
+          type: number
+          format: double
+          minimum: 0
+        improvement_percent:
+          type: number
+          format: double
+          nullable: true
+          readOnly: true
+        tour_links:
+          type: array
+          items:
+            type: object
+            additionalProperties: {}
+          readOnly: true
+      required:
+      - enterprise
+      - id
+      - improvement_percent
+      - metric
+      - metric_detail
+      - problem
+      - solution
+      - title
+      - tour_links
+      - value_after
+      - value_before
+    CaseRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        enterprise:
+          type: integer
+        metric:
+          type: integer
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+        problem:
+          type: string
+          minLength: 1
+        solution:
+          type: string
+          minLength: 1
+        value_before:
+          type: number
+          format: double
+          minimum: 0
+        value_after:
+          type: number
+          format: double
+          minimum: 0
+      required:
+      - enterprise
+      - metric
+      - problem
+      - solution
+      - title
+      - value_after
+      - value_before
+    CodeEnum:
+      enum:
+      - cycle_time
+      - output
+      - utilization
+      - cost
+      - stage_duration
+      type: string
+      description: |-
+        * `cycle_time` - cycle_time
+        * `output` - output
+        * `utilization` - utilization
+        * `cost` - cost
+        * `stage_duration` - stage_duration
+    Dashboard:
+      type: object
+      properties:
+        process:
+          type: integer
+        period:
+          type: object
+          additionalProperties: {}
+        metrics:
+          type: array
+          items:
+            type: object
+            additionalProperties: {}
+        bottleneck:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        cases:
+          type: array
+          items:
+            type: object
+            additionalProperties: {}
+        analytics:
+          type: object
+          additionalProperties: {}
+      required:
+      - analytics
+      - bottleneck
+      - cases
+      - metrics
+      - period
+      - process
+    Enterprise:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+      required:
+      - id
+      - name
+    EnterpriseRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+      required:
+      - name
+    Event:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        session_id:
+          type: string
+          format: uuid
+        route:
+          type: integer
+        hotspot:
+          type: integer
+          nullable: true
+        event_type:
+          $ref: '#/components/schemas/EventTypeEnum'
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - event_type
+      - id
+      - route
+      - session_id
+    EventRequest:
+      type: object
+      properties:
+        session_id:
+          type: string
+          format: uuid
+        route:
+          type: integer
+        hotspot:
+          type: integer
+          nullable: true
+        event_type:
+          $ref: '#/components/schemas/EventTypeEnum'
+      required:
+      - event_type
+      - route
+      - session_id
+    EventTypeEnum:
+      enum:
+      - open
+      - finish
+      type: string
+      description: |-
+        * `open` - Просмотр
+        * `finish` - Завершение
+    Hotspot:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        location:
+          type: integer
+        title:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        kind:
+          $ref: '#/components/schemas/KindEnum'
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        yaw:
+          type: number
+          format: double
+          maximum: 180
+          minimum: -180
+        pitch:
+          type: number
+          format: double
+          maximum: 90
+          minimum: -90
+        pos_x:
+          type: number
+          format: double
+        pos_y:
+          type: number
+          format: double
+        pos_z:
+          type: number
+          format: double
+        stage:
+          type: integer
+          nullable: true
+        case:
+          type: integer
+          nullable: true
+        target_location:
+          type: integer
+          nullable: true
+        media:
+          type: array
+          items:
+            $ref: '#/components/schemas/Media'
+          readOnly: true
+        stage_detail:
+          allOf:
+          - $ref: '#/components/schemas/Stage'
+          readOnly: true
+        case_detail:
+          allOf:
+          - $ref: '#/components/schemas/Case'
+          readOnly: true
+      required:
+      - case_detail
+      - id
+      - location
+      - media
+      - stage_detail
+      - title
+    HotspotRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        location:
+          type: integer
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+        kind:
+          $ref: '#/components/schemas/KindEnum'
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        yaw:
+          type: number
+          format: double
+          maximum: 180
+          minimum: -180
+        pitch:
+          type: number
+          format: double
+          maximum: 90
+          minimum: -90
+        pos_x:
+          type: number
+          format: double
+        pos_y:
+          type: number
+          format: double
+        pos_z:
+          type: number
+          format: double
+        stage:
+          type: integer
+          nullable: true
+        case:
+          type: integer
+          nullable: true
+        target_location:
+          type: integer
+          nullable: true
+      required:
+      - location
+      - title
+    KindEnum:
+      enum:
+      - info
+      - process
+      - case
+      - transition
+      type: string
+      description: |-
+        * `info` - info
+        * `process` - process
+        * `case` - case
+        * `transition` - transition
+    Location:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        enterprise:
+          type: integer
+        name:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        scene_type:
+          $ref: '#/components/schemas/SceneTypeEnum'
+        asset_url:
+          type: string
+          format: uri
+          readOnly: true
+        preview_url:
+          type: string
+          format: uri
+          readOnly: true
+        map_x:
+          type: number
+          format: double
+        map_y:
+          type: number
+          format: double
+        sort_order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        hotspots:
+          type: array
+          items:
+            type: object
+            additionalProperties: {}
+          readOnly: true
+      required:
+      - asset_url
+      - enterprise
+      - hotspots
+      - id
+      - name
+      - preview_url
+      - scene_type
+    LocationRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        enterprise:
+          type: integer
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+        scene_type:
+          $ref: '#/components/schemas/SceneTypeEnum'
+        asset:
+          type: string
+          format: binary
+          writeOnly: true
+        preview:
+          type: string
+          format: binary
+          writeOnly: true
+        map_x:
+          type: number
+          format: double
+        map_y:
+          type: number
+          format: double
+        sort_order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+      required:
+      - enterprise
+      - name
+      - scene_type
+    Logout:
+      type: object
+      properties:
+        refresh:
+          type: string
+      required:
+      - refresh
+    LogoutRequest:
+      type: object
+      properties:
+        refresh:
+          type: string
+          minLength: 1
+      required:
+      - refresh
+    Media:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        hotspot:
+          type: integer
+        media_type:
+          $ref: '#/components/schemas/MediaTypeEnum'
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        caption:
+          type: string
+          maxLength: 250
+      required:
+      - hotspot
+      - id
+      - media_type
+      - url
+    MediaRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        hotspot:
+          type: integer
+        media_type:
+          $ref: '#/components/schemas/MediaTypeEnum'
+        file:
+          type: string
+          format: binary
+          writeOnly: true
+        caption:
+          type: string
+          maxLength: 250
+      required:
+      - file
+      - hotspot
+      - media_type
+    MediaTypeEnum:
+      enum:
+      - image
+      - video
+      - pdf
+      type: string
+      description: |-
+        * `image` - Фото
+        * `video` - Видео
+        * `pdf` - PDF
+    Metric:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        process:
+          type: integer
+        stage:
+          type: integer
+          nullable: true
+        code:
+          $ref: '#/components/schemas/CodeEnum'
+        name:
+          type: string
+          maxLength: 200
+        unit:
+          type: string
+          maxLength: 40
+        better:
+          $ref: '#/components/schemas/BetterEnum'
+        latest:
+          type: object
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+      required:
+      - better
+      - code
+      - id
+      - latest
+      - name
+      - process
+      - unit
+    MetricRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        process:
+          type: integer
+        stage:
+          type: integer
+          nullable: true
+        code:
+          $ref: '#/components/schemas/CodeEnum'
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        unit:
+          type: string
+          minLength: 1
+          maxLength: 40
+        better:
+          $ref: '#/components/schemas/BetterEnum'
+      required:
+      - better
+      - code
+      - name
+      - process
+      - unit
+    MetricValue:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        metric:
+          type: integer
+        measured_on:
+          type: string
+          format: date
+        value:
+          type: number
+          format: double
+          minimum: 0
+      required:
+      - id
+      - measured_on
+      - metric
+      - value
+    MetricValueRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        metric:
+          type: integer
+        measured_on:
+          type: string
+          format: date
+        value:
+          type: number
+          format: double
+          minimum: 0
+      required:
+      - measured_on
+      - metric
+      - value
+    PaginatedCaseList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Case'
+    PaginatedEnterpriseList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Enterprise'
+    PaginatedHotspotList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hotspot'
+    PaginatedLocationList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+    PaginatedMediaList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Media'
+    PaginatedMetricList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metric'
+    PaginatedMetricValueList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetricValue'
+    PaginatedProcessList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Process'
+    PaginatedResourceList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
+    PaginatedRouteList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Route'
+    PaginatedRouteStepList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/RouteStep'
+    PaginatedStageList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stage'
+    PatchedCaseRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        enterprise:
+          type: integer
+        metric:
+          type: integer
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+        problem:
+          type: string
+          minLength: 1
+        solution:
+          type: string
+          minLength: 1
+        value_before:
+          type: number
+          format: double
+          minimum: 0
+        value_after:
+          type: number
+          format: double
+          minimum: 0
+    PatchedEnterpriseRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+    PatchedHotspotRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        location:
+          type: integer
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+        kind:
+          $ref: '#/components/schemas/KindEnum'
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        yaw:
+          type: number
+          format: double
+          maximum: 180
+          minimum: -180
+        pitch:
+          type: number
+          format: double
+          maximum: 90
+          minimum: -90
+        pos_x:
+          type: number
+          format: double
+        pos_y:
+          type: number
+          format: double
+        pos_z:
+          type: number
+          format: double
+        stage:
+          type: integer
+          nullable: true
+        case:
+          type: integer
+          nullable: true
+        target_location:
+          type: integer
+          nullable: true
+    PatchedLocationRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        enterprise:
+          type: integer
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+        scene_type:
+          $ref: '#/components/schemas/SceneTypeEnum'
+        asset:
+          type: string
+          format: binary
+          writeOnly: true
+        preview:
+          type: string
+          format: binary
+          writeOnly: true
+        map_x:
+          type: number
+          format: double
+        map_y:
+          type: number
+          format: double
+        sort_order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+    PatchedMediaRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        hotspot:
+          type: integer
+        media_type:
+          $ref: '#/components/schemas/MediaTypeEnum'
+        file:
+          type: string
+          format: binary
+          writeOnly: true
+        caption:
+          type: string
+          maxLength: 250
+    PatchedMetricRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        process:
+          type: integer
+        stage:
+          type: integer
+          nullable: true
+        code:
+          $ref: '#/components/schemas/CodeEnum'
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        unit:
+          type: string
+          minLength: 1
+          maxLength: 40
+        better:
+          $ref: '#/components/schemas/BetterEnum'
+    PatchedMetricValueRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        metric:
+          type: integer
+        measured_on:
+          type: string
+          format: date
+        value:
+          type: number
+          format: double
+          minimum: 0
+    PatchedProcessRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        enterprise:
+          type: integer
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+    PatchedResourceRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        resource_type:
+          $ref: '#/components/schemas/ResourceTypeEnum'
+        capacity:
+          type: number
+          format: double
+          minimum: 0.001
+        capacity_unit:
+          type: string
+          minLength: 1
+          maxLength: 40
+        location:
+          type: integer
+    PatchedRouteRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        enterprise:
+          type: integer
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        audience:
+          $ref: '#/components/schemas/AudienceEnum'
+        description:
+          type: string
+        duration_minutes:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        is_published:
+          type: boolean
+    PatchedRouteStepRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        route:
+          type: integer
+        step_no:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 1
+          format: int64
+        location:
+          type: integer
+        hotspot:
+          type: integer
+          nullable: true
+        narration:
+          type: string
+    PatchedStageRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        process:
+          type: integer
+        location:
+          type: integer
+        resource:
+          type: integer
+        step_no:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 1
+          format: int64
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        duration_h:
+          type: number
+          format: double
+          minimum: 0
+        cost_rub:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,12}(?:\.\d{0,2})?$
+    Process:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        enterprise:
+          type: integer
+        name:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+        stages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stage'
+          readOnly: true
+        metrics:
+          type: array
+          items:
+            type: object
+            additionalProperties: {}
+          readOnly: true
+      required:
+      - enterprise
+      - id
+      - metrics
+      - name
+      - stages
+    ProcessRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        enterprise:
+          type: integer
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+      required:
+      - enterprise
+      - name
+    Register:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          title: Имя пользователя
+          description: Обязательное поле. Не более 150 символов. Только буквы, цифры
+            и символы @/./+/-/_.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Адрес электронной почты
+          maxLength: 254
+      required:
+      - email
+      - id
+      - username
+    RegisterRequest:
+      type: object
+      properties:
+        username:
+          type: string
+          minLength: 1
+          title: Имя пользователя
+          description: Обязательное поле. Не более 150 символов. Только буквы, цифры
+            и символы @/./+/-/_.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          minLength: 1
+          title: Адрес электронной почты
+          maxLength: 254
+        password:
+          type: string
+          writeOnly: true
+          minLength: 1
+          maxLength: 128
+        consent:
+          type: boolean
+          writeOnly: true
+      required:
+      - consent
+      - email
+      - password
+      - username
+    Resource:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        resource_type:
+          $ref: '#/components/schemas/ResourceTypeEnum'
+        capacity:
+          type: number
+          format: double
+          minimum: 0.001
+        capacity_unit:
+          type: string
+          maxLength: 40
+        location:
+          type: integer
+      required:
+      - capacity
+      - id
+      - location
+      - name
+      - resource_type
+    ResourceRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        resource_type:
+          $ref: '#/components/schemas/ResourceTypeEnum'
+        capacity:
+          type: number
+          format: double
+          minimum: 0.001
+        capacity_unit:
+          type: string
+          minLength: 1
+          maxLength: 40
+        location:
+          type: integer
+      required:
+      - capacity
+      - location
+      - name
+      - resource_type
+    ResourceTypeEnum:
+      enum:
+      - equipment
+      - staff
+      - storage
+      type: string
+      description: |-
+        * `equipment` - Оборудование
+        * `staff` - Персонал
+        * `storage` - Склад
+    RoleEnum:
+      enum:
+      - visitor
+      - manager
+      - editor
+      - admin
+      type: string
+      description: |-
+        * `visitor` - Посетитель
+        * `manager` - Руководитель
+        * `editor` - Редактор
+        * `admin` - Администратор
+    Route:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        enterprise:
+          type: integer
+        name:
+          type: string
+          maxLength: 200
+        audience:
+          $ref: '#/components/schemas/AudienceEnum'
+        description:
+          type: string
+        duration_minutes:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        is_published:
+          type: boolean
+        step_count:
+          type: integer
+          readOnly: true
+        steps:
+          type: array
+          items:
+            type: object
+            additionalProperties: {}
+          readOnly: true
+      required:
+      - audience
+      - enterprise
+      - id
+      - name
+      - step_count
+      - steps
+    RouteRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        enterprise:
+          type: integer
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        audience:
+          $ref: '#/components/schemas/AudienceEnum'
+        description:
+          type: string
+        duration_minutes:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+        is_published:
+          type: boolean
+      required:
+      - audience
+      - enterprise
+      - name
+    RouteStep:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        route:
+          type: integer
+        step_no:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 1
+          format: int64
+        location:
+          type: integer
+        hotspot:
+          type: integer
+          nullable: true
+        narration:
+          type: string
+      required:
+      - id
+      - location
+      - route
+      - step_no
+    RouteStepRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        route:
+          type: integer
+        step_no:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 1
+          format: int64
+        location:
+          type: integer
+        hotspot:
+          type: integer
+          nullable: true
+        narration:
+          type: string
+      required:
+      - location
+      - route
+      - step_no
+    SceneTypeEnum:
+      enum:
+      - overview
+      - panorama
+      - model
+      type: string
+      description: |-
+        * `overview` - Генплан
+        * `panorama` - Панорама
+        * `model` - 3D
+    Stage:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        process:
+          type: integer
+        location:
+          type: integer
+        resource:
+          type: integer
+        step_no:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 1
+          format: int64
+        name:
+          type: string
+          maxLength: 200
+        duration_h:
+          type: number
+          format: double
+          minimum: 0
+        cost_rub:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,12}(?:\.\d{0,2})?$
+        metrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metric'
+          readOnly: true
+        hotspot_ids:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+      required:
+      - cost_rub
+      - duration_h
+      - hotspot_ids
+      - id
+      - location
+      - metrics
+      - name
+      - process
+      - resource
+      - step_no
+    StageRequest:
+      type: object
+      description: Run model clean() for PATCH as well as creates; DB remains final
+        constraint guard.
+      properties:
+        process:
+          type: integer
+        location:
+          type: integer
+        resource:
+          type: integer
+        step_no:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 1
+          format: int64
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+        duration_h:
+          type: number
+          format: double
+          minimum: 0
+        cost_rub:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,12}(?:\.\d{0,2})?$
+      required:
+      - cost_rub
+      - duration_h
+      - location
+      - name
+      - process
+      - resource
+      - step_no
+    StatusEnum:
+      enum:
+      - draft
+      - published
+      - hidden
+      - archived
+      type: string
+      description: |-
+        * `draft` - draft
+        * `published` - published
+        * `hidden` - hidden
+        * `archived` - archived
+    TokenObtainPair:
+      type: object
+      properties:
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          readOnly: true
+      required:
+      - access
+      - refresh
+    TokenObtainPairRequest:
+      type: object
+      properties:
+        username:
+          type: string
+          writeOnly: true
+          minLength: 1
+        password:
+          type: string
+          writeOnly: true
+          minLength: 1
+      required:
+      - password
+      - username
+    TokenRefresh:
+      type: object
+      properties:
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+      required:
+      - access
+      - refresh
+    TokenRefreshRequest:
+      type: object
+      properties:
+        refresh:
+          type: string
+          minLength: 1
+      required:
+      - refresh
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          readOnly: true
+          title: Имя пользователя
+          description: Обязательное поле. Не более 150 символов. Только буквы, цифры
+            и символы @/./+/-/_.
+        email:
+          type: string
+          format: email
+          readOnly: true
+          title: Адрес электронной почты
+        role:
+          allOf:
+          - $ref: '#/components/schemas/RoleEnum'
+          readOnly: true
+        consent_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        policy_version:
+          type: string
+          readOnly: true
+      required:
+      - consent_at
+      - email
+      - id
+      - policy_version
+      - role
+      - username
+  securitySchemes:
+    jwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

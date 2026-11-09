@@ -1,0 +1,11426 @@
+[
+{
+  "model": "tour.enterprise",
+  "pk": 1,
+  "fields": {
+    "name": "Демо-завод смазочных материалов",
+    "description": "Все данные синтетические. Направление B."
+  }
+},
+{
+  "model": "tour.location",
+  "pk": 1,
+  "fields": {
+    "enterprise": 1,
+    "name": "Генплан",
+    "description": "Синтетическая локация; 3D-модель добавляет команда 3D.",
+    "scene_type": "overview",
+    "asset": "",
+    "preview": "",
+    "map_x": 0.0,
+    "map_y": 0.0,
+    "sort_order": 0
+  }
+},
+{
+  "model": "tour.location",
+  "pk": 2,
+  "fields": {
+    "enterprise": 1,
+    "name": "Резервуарный парк",
+    "description": "Синтетическая локация; 3D-модель добавляет команда 3D.",
+    "scene_type": "model",
+    "asset": "",
+    "preview": "",
+    "map_x": 15.0,
+    "map_y": 20.0,
+    "sort_order": 1
+  }
+},
+{
+  "model": "tour.location",
+  "pk": 3,
+  "fields": {
+    "enterprise": 1,
+    "name": "Цех смешения",
+    "description": "Синтетическая локация; 3D-модель добавляет команда 3D.",
+    "scene_type": "model",
+    "asset": "",
+    "preview": "",
+    "map_x": 30.0,
+    "map_y": 0.0,
+    "sort_order": 2
+  }
+},
+{
+  "model": "tour.location",
+  "pk": 4,
+  "fields": {
+    "enterprise": 1,
+    "name": "Лаборатория ОТК",
+    "description": "Синтетическая локация; 3D-модель добавляет команда 3D.",
+    "scene_type": "model",
+    "asset": "",
+    "preview": "",
+    "map_x": 45.0,
+    "map_y": 20.0,
+    "sort_order": 3
+  }
+},
+{
+  "model": "tour.location",
+  "pk": 5,
+  "fields": {
+    "enterprise": 1,
+    "name": "Цех фасовки",
+    "description": "Синтетическая локация; 3D-модель добавляет команда 3D.",
+    "scene_type": "model",
+    "asset": "",
+    "preview": "",
+    "map_x": 60.0,
+    "map_y": 0.0,
+    "sort_order": 4
+  }
+},
+{
+  "model": "tour.location",
+  "pk": 6,
+  "fields": {
+    "enterprise": 1,
+    "name": "Склад и отгрузка",
+    "description": "Синтетическая локация; 3D-модель добавляет команда 3D.",
+    "scene_type": "model",
+    "asset": "",
+    "preview": "",
+    "map_x": 75.0,
+    "map_y": 20.0,
+    "sort_order": 5
+  }
+},
+{
+  "model": "tour.hotspot",
+  "pk": 1,
+  "fields": {
+    "location": 1,
+    "title": "Завод сверху",
+    "description": "Завод сверху. Учебная точка демонстрационного завода.",
+    "kind": "info",
+    "status": "published",
+    "yaw": -60.0,
+    "pitch": 0.0,
+    "pos_x": 0.0,
+    "pos_y": 1.0,
+    "pos_z": 0.0,
+    "stage": null,
+    "case": null,
+    "target_location": null
+  }
+},
+{
+  "model": "tour.hotspot",
+  "pk": 2,
+  "fields": {
+    "location": 2,
+    "title": "Сливная эстакада",
+    "description": "Сливная эстакада. Учебная точка демонстрационного завода.",
+    "kind": "process",
+    "status": "published",
+    "yaw": -45.0,
+    "pitch": 0.0,
+    "pos_x": 2.0,
+    "pos_y": 1.0,
+    "pos_z": 1.0,
+    "stage": 1,
+    "case": null,
+    "target_location": null
+  }
+},
+{
+  "model": "tour.hotspot",
+  "pk": 3,
+  "fields": {
+    "location": 2,
+    "title": "Резервуары",
+    "description": "Резервуары. Учебная точка демонстрационного завода.",
+    "kind": "process",
+    "status": "published",
+    "yaw": -30.0,
+    "pitch": 0.0,
+    "pos_x": 4.0,
+    "pos_y": 1.0,
+    "pos_z": 0.0,
+    "stage": 2,
+    "case": null,
+    "target_location": null
+  }
+},
+{
+  "model": "tour.hotspot",
+  "pk": 4,
+  "fields": {
+    "location": 3,
+    "title": "Смесительная установка",
+    "description": "Смесительная установка. Учебная точка демонстрационного завода.",
+    "kind": "process",
+    "status": "published",
+    "yaw": -15.0,
+    "pitch": 0.0,
+    "pos_x": 0.0,
+    "pos_y": 1.0,
+    "pos_z": 1.0,
+    "stage": 3,
+    "case": null,
+    "target_location": null
+  }
+},
+{
+  "model": "tour.hotspot",
+  "pk": 5,
+  "fields": {
+    "location": 4,
+    "title": "Отбор проб",
+    "description": "Отбор проб. Учебная точка демонстрационного завода.",
+    "kind": "case",
+    "status": "published",
+    "yaw": 0.0,
+    "pitch": 0.0,
+    "pos_x": 2.0,
+    "pos_y": 1.0,
+    "pos_z": 0.0,
+    "stage": 4,
+    "case": 1,
+    "target_location": null
+  }
+},
+{
+  "model": "tour.hotspot",
+  "pk": 6,
+  "fields": {
+    "location": 5,
+    "title": "Линия розлива",
+    "description": "Линия розлива. Учебная точка демонстрационного завода.",
+    "kind": "case",
+    "status": "published",
+    "yaw": 15.0,
+    "pitch": 0.0,
+    "pos_x": 4.0,
+    "pos_y": 1.0,
+    "pos_z": 1.0,
+    "stage": 5,
+    "case": 2,
+    "target_location": null
+  }
+},
+{
+  "model": "tour.hotspot",
+  "pk": 7,
+  "fields": {
+    "location": 5,
+    "title": "Рабочее место оператора",
+    "description": "Рабочее место оператора. Учебная точка демонстрационного завода.",
+    "kind": "process",
+    "status": "published",
+    "yaw": 30.0,
+    "pitch": 0.0,
+    "pos_x": 0.0,
+    "pos_y": 1.0,
+    "pos_z": 0.0,
+    "stage": 5,
+    "case": null,
+    "target_location": null
+  }
+},
+{
+  "model": "tour.hotspot",
+  "pk": 8,
+  "fields": {
+    "location": 6,
+    "title": "Адресное хранение",
+    "description": "Адресное хранение. Учебная точка демонстрационного завода.",
+    "kind": "case",
+    "status": "published",
+    "yaw": 45.0,
+    "pitch": 0.0,
+    "pos_x": 2.0,
+    "pos_y": 1.0,
+    "pos_z": 1.0,
+    "stage": 6,
+    "case": 3,
+    "target_location": null
+  }
+},
+{
+  "model": "tour.hotspot",
+  "pk": 9,
+  "fields": {
+    "location": 6,
+    "title": "Погрузка",
+    "description": "Погрузка. Учебная точка демонстрационного завода.",
+    "kind": "process",
+    "status": "published",
+    "yaw": 60.0,
+    "pitch": 0.0,
+    "pos_x": 4.0,
+    "pos_y": 1.0,
+    "pos_z": 0.0,
+    "stage": 7,
+    "case": null,
+    "target_location": null
+  }
+},
+{
+  "model": "tour.hotspot",
+  "pk": 10,
+  "fields": {
+    "location": 1,
+    "title": "Итоги",
+    "description": "Итоги. Учебная точка демонстрационного завода.",
+    "kind": "info",
+    "status": "published",
+    "yaw": 75.0,
+    "pitch": 0.0,
+    "pos_x": 0.0,
+    "pos_y": 1.0,
+    "pos_z": 1.0,
+    "stage": null,
+    "case": null,
+    "target_location": null
+  }
+},
+{
+  "model": "tour.route",
+  "pk": 1,
+  "fields": {
+    "enterprise": 1,
+    "name": "Знакомство с профессией",
+    "audience": "students",
+    "description": "",
+    "duration_minutes": 10,
+    "is_published": true
+  }
+},
+{
+  "model": "tour.route",
+  "pk": 2,
+  "fields": {
+    "enterprise": 1,
+    "name": "Мощности и эффективность",
+    "audience": "partners",
+    "description": "",
+    "duration_minutes": 16,
+    "is_published": true
+  }
+},
+{
+  "model": "tour.route",
+  "pk": 3,
+  "fields": {
+    "enterprise": 1,
+    "name": "Первый день на заводе",
+    "audience": "employees",
+    "description": "",
+    "duration_minutes": 10,
+    "is_published": true
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 1,
+  "fields": {
+    "route": 1,
+    "step_no": 1,
+    "location": 1,
+    "hotspot": 1,
+    "narration": "Знакомство с профессией: шаг 1. Завод сверху. Знакомимся с профессией и технологией."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 2,
+  "fields": {
+    "route": 1,
+    "step_no": 2,
+    "location": 3,
+    "hotspot": 4,
+    "narration": "Знакомство с профессией: шаг 2. Смесительная установка. Знакомимся с профессией и технологией."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 3,
+  "fields": {
+    "route": 1,
+    "step_no": 3,
+    "location": 4,
+    "hotspot": 5,
+    "narration": "Знакомство с профессией: шаг 3. Отбор проб. Знакомимся с профессией и технологией."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 4,
+  "fields": {
+    "route": 1,
+    "step_no": 4,
+    "location": 5,
+    "hotspot": 7,
+    "narration": "Знакомство с профессией: шаг 4. Рабочее место оператора. Знакомимся с профессией и технологией."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 5,
+  "fields": {
+    "route": 1,
+    "step_no": 5,
+    "location": 1,
+    "hotspot": 10,
+    "narration": "Знакомство с профессией: шаг 5. Итоги. Знакомимся с профессией и технологией."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 6,
+  "fields": {
+    "route": 2,
+    "step_no": 1,
+    "location": 1,
+    "hotspot": 1,
+    "narration": "Мощности и эффективность: шаг 1. Завод сверху. Обратите внимание на мощности и показатели."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 7,
+  "fields": {
+    "route": 2,
+    "step_no": 2,
+    "location": 2,
+    "hotspot": 3,
+    "narration": "Мощности и эффективность: шаг 2. Резервуары. Обратите внимание на мощности и показатели."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 8,
+  "fields": {
+    "route": 2,
+    "step_no": 3,
+    "location": 3,
+    "hotspot": 4,
+    "narration": "Мощности и эффективность: шаг 3. Смесительная установка. Обратите внимание на мощности и показатели."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 9,
+  "fields": {
+    "route": 2,
+    "step_no": 4,
+    "location": 4,
+    "hotspot": 5,
+    "narration": "Мощности и эффективность: шаг 4. Отбор проб. Обратите внимание на мощности и показатели."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 10,
+  "fields": {
+    "route": 2,
+    "step_no": 5,
+    "location": 5,
+    "hotspot": 6,
+    "narration": "Мощности и эффективность: шаг 5. Линия розлива. Обратите внимание на мощности и показатели."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 11,
+  "fields": {
+    "route": 2,
+    "step_no": 6,
+    "location": 6,
+    "hotspot": 8,
+    "narration": "Мощности и эффективность: шаг 6. Адресное хранение. Обратите внимание на мощности и показатели."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 12,
+  "fields": {
+    "route": 2,
+    "step_no": 7,
+    "location": 6,
+    "hotspot": 9,
+    "narration": "Мощности и эффективность: шаг 7. Погрузка. Обратите внимание на мощности и показатели."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 13,
+  "fields": {
+    "route": 2,
+    "step_no": 8,
+    "location": 1,
+    "hotspot": 10,
+    "narration": "Мощности и эффективность: шаг 8. Итоги. Обратите внимание на мощности и показатели."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 14,
+  "fields": {
+    "route": 3,
+    "step_no": 1,
+    "location": 1,
+    "hotspot": 1,
+    "narration": "Первый день на заводе: шаг 1. Завод сверху. Изучите рабочее место и правила безопасности."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 15,
+  "fields": {
+    "route": 3,
+    "step_no": 2,
+    "location": 2,
+    "hotspot": 2,
+    "narration": "Первый день на заводе: шаг 2. Сливная эстакада. Изучите рабочее место и правила безопасности."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 16,
+  "fields": {
+    "route": 3,
+    "step_no": 3,
+    "location": 5,
+    "hotspot": 7,
+    "narration": "Первый день на заводе: шаг 3. Рабочее место оператора. Изучите рабочее место и правила безопасности."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 17,
+  "fields": {
+    "route": 3,
+    "step_no": 4,
+    "location": 6,
+    "hotspot": 8,
+    "narration": "Первый день на заводе: шаг 4. Адресное хранение. Изучите рабочее место и правила безопасности."
+  }
+},
+{
+  "model": "tour.routestep",
+  "pk": 18,
+  "fields": {
+    "route": 3,
+    "step_no": 5,
+    "location": 6,
+    "hotspot": 9,
+    "narration": "Первый день на заводе: шаг 5. Погрузка. Изучите рабочее место и правила безопасности."
+  }
+},
+{
+  "model": "processes.process",
+  "pk": 1,
+  "fields": {
+    "enterprise": 1,
+    "name": "Производство смазочных материалов",
+    "description": "От приёмки сырья до отгрузки продукции."
+  }
+},
+{
+  "model": "processes.resource",
+  "pk": 1,
+  "fields": {
+    "location": 2,
+    "name": "Сливная эстакада",
+    "resource_type": "equipment",
+    "capacity": 10.0,
+    "capacity_unit": "т/ч"
+  }
+},
+{
+  "model": "processes.resource",
+  "pk": 2,
+  "fields": {
+    "location": 2,
+    "name": "Резервуары",
+    "resource_type": "storage",
+    "capacity": 10.0,
+    "capacity_unit": "т/ч"
+  }
+},
+{
+  "model": "processes.resource",
+  "pk": 3,
+  "fields": {
+    "location": 3,
+    "name": "Смеситель",
+    "resource_type": "equipment",
+    "capacity": 10.0,
+    "capacity_unit": "т/ч"
+  }
+},
+{
+  "model": "processes.resource",
+  "pk": 4,
+  "fields": {
+    "location": 4,
+    "name": "Анализатор ОТК",
+    "resource_type": "equipment",
+    "capacity": 10.0,
+    "capacity_unit": "т/ч"
+  }
+},
+{
+  "model": "processes.resource",
+  "pk": 5,
+  "fields": {
+    "location": 5,
+    "name": "Линия розлива",
+    "resource_type": "equipment",
+    "capacity": 10.0,
+    "capacity_unit": "т/ч"
+  }
+},
+{
+  "model": "processes.resource",
+  "pk": 6,
+  "fields": {
+    "location": 6,
+    "name": "Стеллажи",
+    "resource_type": "storage",
+    "capacity": 10.0,
+    "capacity_unit": "т/ч"
+  }
+},
+{
+  "model": "processes.resource",
+  "pk": 7,
+  "fields": {
+    "location": 6,
+    "name": "Погрузчик",
+    "resource_type": "equipment",
+    "capacity": 10.0,
+    "capacity_unit": "т/ч"
+  }
+},
+{
+  "model": "processes.processstage",
+  "pk": 1,
+  "fields": {
+    "process": 1,
+    "location": 2,
+    "resource": 1,
+    "step_no": 1,
+    "name": "Приёмка сырья",
+    "duration_h": 1.0,
+    "cost_rub": "1000.00"
+  }
+},
+{
+  "model": "processes.processstage",
+  "pk": 2,
+  "fields": {
+    "process": 1,
+    "location": 2,
+    "resource": 2,
+    "step_no": 2,
+    "name": "Хранение",
+    "duration_h": 2.0,
+    "cost_rub": "2000.00"
+  }
+},
+{
+  "model": "processes.processstage",
+  "pk": 3,
+  "fields": {
+    "process": 1,
+    "location": 3,
+    "resource": 3,
+    "step_no": 3,
+    "name": "Смешение",
+    "duration_h": 3.0,
+    "cost_rub": "3000.00"
+  }
+},
+{
+  "model": "processes.processstage",
+  "pk": 4,
+  "fields": {
+    "process": 1,
+    "location": 4,
+    "resource": 4,
+    "step_no": 4,
+    "name": "Контроль качества",
+    "duration_h": 6.0,
+    "cost_rub": "6000.00"
+  }
+},
+{
+  "model": "processes.processstage",
+  "pk": 5,
+  "fields": {
+    "process": 1,
+    "location": 5,
+    "resource": 5,
+    "step_no": 5,
+    "name": "Фасовка",
+    "duration_h": 2.0,
+    "cost_rub": "2000.00"
+  }
+},
+{
+  "model": "processes.processstage",
+  "pk": 6,
+  "fields": {
+    "process": 1,
+    "location": 6,
+    "resource": 6,
+    "step_no": 6,
+    "name": "Хранение продукции",
+    "duration_h": 1.5,
+    "cost_rub": "1500.00"
+  }
+},
+{
+  "model": "processes.processstage",
+  "pk": 7,
+  "fields": {
+    "process": 1,
+    "location": 6,
+    "resource": 7,
+    "step_no": 7,
+    "name": "Отгрузка",
+    "duration_h": 1.0,
+    "cost_rub": "1000.00"
+  }
+},
+{
+  "model": "processes.metric",
+  "pk": 1,
+  "fields": {
+    "process": 1,
+    "stage": 1,
+    "code": "stage_duration",
+    "name": "Длительность: Приёмка сырья",
+    "unit": "ч",
+    "better": "lower"
+  }
+},
+{
+  "model": "processes.metric",
+  "pk": 2,
+  "fields": {
+    "process": 1,
+    "stage": 2,
+    "code": "stage_duration",
+    "name": "Длительность: Хранение",
+    "unit": "ч",
+    "better": "lower"
+  }
+},
+{
+  "model": "processes.metric",
+  "pk": 3,
+  "fields": {
+    "process": 1,
+    "stage": 3,
+    "code": "stage_duration",
+    "name": "Длительность: Смешение",
+    "unit": "ч",
+    "better": "lower"
+  }
+},
+{
+  "model": "processes.metric",
+  "pk": 4,
+  "fields": {
+    "process": 1,
+    "stage": 4,
+    "code": "stage_duration",
+    "name": "Длительность: Контроль качества",
+    "unit": "ч",
+    "better": "lower"
+  }
+},
+{
+  "model": "processes.metric",
+  "pk": 5,
+  "fields": {
+    "process": 1,
+    "stage": 5,
+    "code": "stage_duration",
+    "name": "Длительность: Фасовка",
+    "unit": "ч",
+    "better": "lower"
+  }
+},
+{
+  "model": "processes.metric",
+  "pk": 6,
+  "fields": {
+    "process": 1,
+    "stage": 6,
+    "code": "stage_duration",
+    "name": "Длительность: Хранение продукции",
+    "unit": "ч",
+    "better": "lower"
+  }
+},
+{
+  "model": "processes.metric",
+  "pk": 7,
+  "fields": {
+    "process": 1,
+    "stage": 7,
+    "code": "stage_duration",
+    "name": "Длительность: Отгрузка",
+    "unit": "ч",
+    "better": "lower"
+  }
+},
+{
+  "model": "processes.metric",
+  "pk": 8,
+  "fields": {
+    "process": 1,
+    "stage": null,
+    "code": "cycle_time",
+    "name": "Время цикла",
+    "unit": "ч",
+    "better": "lower"
+  }
+},
+{
+  "model": "processes.metric",
+  "pk": 9,
+  "fields": {
+    "process": 1,
+    "stage": null,
+    "code": "output",
+    "name": "Выпуск",
+    "unit": "т/сут",
+    "better": "higher"
+  }
+},
+{
+  "model": "processes.metric",
+  "pk": 10,
+  "fields": {
+    "process": 1,
+    "stage": null,
+    "code": "utilization",
+    "name": "Загрузка ресурсов",
+    "unit": "%",
+    "better": "higher"
+  }
+},
+{
+  "model": "processes.metric",
+  "pk": 11,
+  "fields": {
+    "process": 1,
+    "stage": null,
+    "code": "cost",
+    "name": "Стоимость партии",
+    "unit": "руб.",
+    "better": "lower"
+  }
+},
+{
+  "model": "processes.metric",
+  "pk": 12,
+  "fields": {
+    "process": 1,
+    "stage": 3,
+    "code": "utilization",
+    "name": "Загрузка смесителя",
+    "unit": "%",
+    "better": "higher"
+  }
+},
+{
+  "model": "processes.metric",
+  "pk": 13,
+  "fields": {
+    "process": 1,
+    "stage": 5,
+    "code": "output",
+    "name": "Выпуск фасовки",
+    "unit": "т/сут",
+    "better": "higher"
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-12",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 2,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-13",
+    "value": 0.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 3,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-14",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 4,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-15",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 5,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-16",
+    "value": 1.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 6,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-17",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 7,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-18",
+    "value": 1.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 8,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-19",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 9,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-20",
+    "value": 0.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 10,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-21",
+    "value": 0.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 11,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-22",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 12,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-23",
+    "value": 1.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 13,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-24",
+    "value": 0.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 14,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-25",
+    "value": 0.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 15,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-26",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 16,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-27",
+    "value": 1.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 17,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-28",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 18,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-29",
+    "value": 1.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 19,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-30",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 20,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-08-31",
+    "value": 0.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 21,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-01",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 22,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-02",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 23,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-03",
+    "value": 0.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 24,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-04",
+    "value": 0.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 25,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-05",
+    "value": 1.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 26,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-06",
+    "value": 0.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 27,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-07",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 28,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-08",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 29,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-09",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 30,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-10",
+    "value": 1.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 31,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-11",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 32,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-12",
+    "value": 1.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 33,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-13",
+    "value": 1.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 34,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-14",
+    "value": 1.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 35,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-15",
+    "value": 0.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 36,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-16",
+    "value": 1.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 37,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-17",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 38,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-18",
+    "value": 1.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 39,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-19",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 40,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-20",
+    "value": 1.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 41,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-21",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 42,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-22",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 43,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-23",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 44,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-24",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 45,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-25",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 46,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-26",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 47,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-27",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 48,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-28",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 49,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-29",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 50,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-09-30",
+    "value": 0.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 51,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-01",
+    "value": 0.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 52,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-02",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 53,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-03",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 54,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-04",
+    "value": 1.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 55,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-05",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 56,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-06",
+    "value": 1.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 57,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-07",
+    "value": 0.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 58,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-08",
+    "value": 1.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 59,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-09",
+    "value": 0.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 60,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-10",
+    "value": 0.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 61,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-11",
+    "value": 1.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 62,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-12",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 63,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-13",
+    "value": 1.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 64,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-14",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 65,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-15",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 66,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-16",
+    "value": 1.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 67,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-17",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 68,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-18",
+    "value": 0.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 69,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-19",
+    "value": 0.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 70,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-20",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 71,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-21",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 72,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-22",
+    "value": 1.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 73,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-23",
+    "value": 1.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 74,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-24",
+    "value": 0.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 75,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-25",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 76,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-26",
+    "value": 0.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 77,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-27",
+    "value": 1.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 78,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-28",
+    "value": 1.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 79,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-29",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 80,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-30",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 81,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-10-31",
+    "value": 1.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 82,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-11-01",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 83,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-11-02",
+    "value": 1.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 84,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-11-03",
+    "value": 1.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 85,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-11-04",
+    "value": 0.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 86,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-11-05",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 87,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-11-06",
+    "value": 1.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 88,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-11-07",
+    "value": 1.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 89,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-11-08",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 90,
+  "fields": {
+    "metric": 1,
+    "measured_on": "2026-11-09",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 91,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-12",
+    "value": 1.91
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 92,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-13",
+    "value": 2.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 93,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-14",
+    "value": 2.07
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 94,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-15",
+    "value": 1.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 95,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-16",
+    "value": 1.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 96,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-17",
+    "value": 1.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 97,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-18",
+    "value": 2.12
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 98,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-19",
+    "value": 2.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 99,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-20",
+    "value": 2.11
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 100,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-21",
+    "value": 2.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 101,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-22",
+    "value": 1.88
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 102,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-23",
+    "value": 2.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 103,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-24",
+    "value": 2.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 104,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-25",
+    "value": 2.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 105,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-26",
+    "value": 1.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 106,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-27",
+    "value": 2.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 107,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-28",
+    "value": 1.91
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 108,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-29",
+    "value": 1.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 109,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-30",
+    "value": 1.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 110,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-08-31",
+    "value": 2.11
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 111,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-01",
+    "value": 2.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 112,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-02",
+    "value": 1.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 113,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-03",
+    "value": 2.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 114,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-04",
+    "value": 1.92
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 115,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-05",
+    "value": 2.1
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 116,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-06",
+    "value": 2.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 117,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-07",
+    "value": 1.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 118,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-08",
+    "value": 2.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 119,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-09",
+    "value": 2.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 120,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-10",
+    "value": 1.92
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 121,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-11",
+    "value": 2.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 122,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-12",
+    "value": 2.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 123,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-13",
+    "value": 2.07
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 124,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-14",
+    "value": 2.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 125,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-15",
+    "value": 1.88
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 126,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-16",
+    "value": 1.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 127,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-17",
+    "value": 1.88
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 128,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-18",
+    "value": 2.1
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 129,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-19",
+    "value": 2.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 130,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-20",
+    "value": 2.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 131,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-21",
+    "value": 1.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 132,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-22",
+    "value": 1.89
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 133,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-23",
+    "value": 2.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 134,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-24",
+    "value": 2.11
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 135,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-25",
+    "value": 1.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 136,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-26",
+    "value": 2.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 137,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-27",
+    "value": 1.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 138,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-28",
+    "value": 2.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 139,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-29",
+    "value": 2.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 140,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-09-30",
+    "value": 1.91
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 141,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-01",
+    "value": 1.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 142,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-02",
+    "value": 2.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 143,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-03",
+    "value": 1.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 144,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-04",
+    "value": 2.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 145,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-05",
+    "value": 1.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 146,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-06",
+    "value": 1.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 147,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-07",
+    "value": 2.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 148,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-08",
+    "value": 2.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 149,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-09",
+    "value": 1.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 150,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-10",
+    "value": 1.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 151,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-11",
+    "value": 2.12
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 152,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-12",
+    "value": 2.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 153,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-13",
+    "value": 1.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 154,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-14",
+    "value": 2.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 155,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-15",
+    "value": 1.91
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 156,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-16",
+    "value": 1.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 157,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-17",
+    "value": 1.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 158,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-18",
+    "value": 2.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 159,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-19",
+    "value": 1.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 160,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-20",
+    "value": 1.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 161,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-21",
+    "value": 1.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 162,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-22",
+    "value": 2.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 163,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-23",
+    "value": 1.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 164,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-24",
+    "value": 2.1
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 165,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-25",
+    "value": 2.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 166,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-26",
+    "value": 1.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 167,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-27",
+    "value": 1.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 168,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-28",
+    "value": 2.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 169,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-29",
+    "value": 1.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 170,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-30",
+    "value": 1.91
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 171,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-10-31",
+    "value": 2.1
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 172,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-11-01",
+    "value": 2.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 173,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-11-02",
+    "value": 1.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 174,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-11-03",
+    "value": 2.07
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 175,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-11-04",
+    "value": 2.07
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 176,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-11-05",
+    "value": 1.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 177,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-11-06",
+    "value": 1.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 178,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-11-07",
+    "value": 1.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 179,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-11-08",
+    "value": 1.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 180,
+  "fields": {
+    "metric": 2,
+    "measured_on": "2026-11-09",
+    "value": 1.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 181,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-12",
+    "value": 3.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 182,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-13",
+    "value": 3.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 183,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-14",
+    "value": 3.17
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 184,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-15",
+    "value": 2.86
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 185,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-16",
+    "value": 2.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 186,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-17",
+    "value": 2.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 187,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-18",
+    "value": 3.13
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 188,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-19",
+    "value": 2.91
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 189,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-20",
+    "value": 2.89
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 190,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-21",
+    "value": 2.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 191,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-22",
+    "value": 2.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 192,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-23",
+    "value": 2.92
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 193,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-24",
+    "value": 2.91
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 194,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-25",
+    "value": 3.15
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 195,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-26",
+    "value": 2.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 196,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-27",
+    "value": 3.13
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 197,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-28",
+    "value": 3.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 198,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-29",
+    "value": 2.84
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 199,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-30",
+    "value": 3.18
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 200,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-08-31",
+    "value": 3.12
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 201,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-01",
+    "value": 3.17
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 202,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-02",
+    "value": 3.15
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 203,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-03",
+    "value": 3.13
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 204,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-04",
+    "value": 2.88
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 205,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-05",
+    "value": 2.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 206,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-06",
+    "value": 2.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 207,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-07",
+    "value": 2.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 208,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-08",
+    "value": 2.84
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 209,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-09",
+    "value": 2.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 210,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-10",
+    "value": 3.17
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 211,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-11",
+    "value": 2.92
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 212,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-12",
+    "value": 3.1
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 213,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-13",
+    "value": 2.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 214,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-14",
+    "value": 2.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 215,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-15",
+    "value": 3.16
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 216,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-16",
+    "value": 3.18
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 217,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-17",
+    "value": 3.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 218,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-18",
+    "value": 3.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 219,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-19",
+    "value": 2.88
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 220,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-20",
+    "value": 2.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 221,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-21",
+    "value": 3.17
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 222,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-22",
+    "value": 3.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 223,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-23",
+    "value": 3.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 224,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-24",
+    "value": 3.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 225,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-25",
+    "value": 2.84
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 226,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-26",
+    "value": 3.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 227,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-27",
+    "value": 3.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 228,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-28",
+    "value": 3.13
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 229,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-29",
+    "value": 2.88
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 230,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-09-30",
+    "value": 3.17
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 231,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-01",
+    "value": 2.85
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 232,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-02",
+    "value": 2.89
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 233,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-03",
+    "value": 3.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 234,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-04",
+    "value": 3.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 235,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-05",
+    "value": 2.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 236,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-06",
+    "value": 2.86
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 237,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-07",
+    "value": 3.14
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 238,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-08",
+    "value": 2.91
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 239,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-09",
+    "value": 3.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 240,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-10",
+    "value": 3.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 241,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-11",
+    "value": 2.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 242,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-12",
+    "value": 3.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 243,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-13",
+    "value": 3.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 244,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-14",
+    "value": 3.16
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 245,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-15",
+    "value": 2.89
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 246,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-16",
+    "value": 3.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 247,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-17",
+    "value": 2.91
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 248,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-18",
+    "value": 2.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 249,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-19",
+    "value": 3.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 250,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-20",
+    "value": 2.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 251,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-21",
+    "value": 2.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 252,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-22",
+    "value": 3.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 253,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-23",
+    "value": 2.85
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 254,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-24",
+    "value": 2.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 255,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-25",
+    "value": 3.18
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 256,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-26",
+    "value": 3.18
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 257,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-27",
+    "value": 2.85
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 258,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-28",
+    "value": 2.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 259,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-29",
+    "value": 2.92
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 260,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-30",
+    "value": 3.16
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 261,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-10-31",
+    "value": 3.14
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 262,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-11-01",
+    "value": 3.14
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 263,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-11-02",
+    "value": 2.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 264,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-11-03",
+    "value": 2.88
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 265,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-11-04",
+    "value": 3.12
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 266,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-11-05",
+    "value": 3.07
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 267,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-11-06",
+    "value": 3.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 268,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-11-07",
+    "value": 3.18
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 269,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-11-08",
+    "value": 3.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 270,
+  "fields": {
+    "metric": 3,
+    "measured_on": "2026-11-09",
+    "value": 2.82
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 271,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-12",
+    "value": 6.23
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 272,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-13",
+    "value": 5.86
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 273,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-14",
+    "value": 6.12
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 274,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-15",
+    "value": 6.32
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 275,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-16",
+    "value": 5.74
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 276,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-17",
+    "value": 5.72
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 277,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-18",
+    "value": 5.72
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 278,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-19",
+    "value": 6.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 279,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-20",
+    "value": 5.84
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 280,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-21",
+    "value": 6.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 281,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-22",
+    "value": 6.16
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 282,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-23",
+    "value": 5.79
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 283,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-24",
+    "value": 6.1
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 284,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-25",
+    "value": 5.83
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 285,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-26",
+    "value": 5.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 286,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-27",
+    "value": 6.29
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 287,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-28",
+    "value": 6.25
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 288,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-29",
+    "value": 5.71
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 289,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-30",
+    "value": 5.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 290,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-08-31",
+    "value": 5.84
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 291,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-01",
+    "value": 5.64
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 292,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-02",
+    "value": 6.2
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 293,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-03",
+    "value": 6.1
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 294,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-04",
+    "value": 5.83
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 295,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-05",
+    "value": 6.17
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 296,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-06",
+    "value": 6.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 297,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-07",
+    "value": 5.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 298,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-08",
+    "value": 5.65
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 299,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-09",
+    "value": 5.69
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 300,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-10",
+    "value": 6.28
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 301,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-11",
+    "value": 6.29
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 302,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-12",
+    "value": 6.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 303,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-13",
+    "value": 6.24
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 304,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-14",
+    "value": 6.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 305,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-15",
+    "value": 5.75
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 306,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-16",
+    "value": 5.73
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 307,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-17",
+    "value": 5.86
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 308,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-18",
+    "value": 6.29
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 309,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-19",
+    "value": 6.21
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 310,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-20",
+    "value": 6.26
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 311,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-21",
+    "value": 6.29
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 312,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-22",
+    "value": 5.79
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 313,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-23",
+    "value": 5.82
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 314,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-24",
+    "value": 5.71
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 315,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-25",
+    "value": 6.2
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 316,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-26",
+    "value": 6.28
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 317,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-27",
+    "value": 5.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 318,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-28",
+    "value": 6.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 319,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-29",
+    "value": 5.75
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 320,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-09-30",
+    "value": 6.31
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 321,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-01",
+    "value": 6.26
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 322,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-02",
+    "value": 6.34
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 323,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-03",
+    "value": 6.22
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 324,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-04",
+    "value": 6.27
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 325,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-05",
+    "value": 5.66
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 326,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-06",
+    "value": 6.17
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 327,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-07",
+    "value": 5.88
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 328,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-08",
+    "value": 6.31
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 329,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-09",
+    "value": 6.22
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 330,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-10",
+    "value": 6.26
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 331,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-11",
+    "value": 6.22
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 332,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-12",
+    "value": 5.83
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 333,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-13",
+    "value": 6.21
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 334,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-14",
+    "value": 5.72
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 335,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-15",
+    "value": 6.27
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 336,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-16",
+    "value": 6.26
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 337,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-17",
+    "value": 5.8
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 338,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-18",
+    "value": 6.23
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 339,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-19",
+    "value": 5.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 340,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-20",
+    "value": 5.86
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 341,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-21",
+    "value": 6.21
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 342,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-22",
+    "value": 5.8
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 343,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-23",
+    "value": 5.66
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 344,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-24",
+    "value": 5.78
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 345,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-25",
+    "value": 5.88
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 346,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-26",
+    "value": 6.26
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 347,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-27",
+    "value": 6.34
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 348,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-28",
+    "value": 5.84
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 349,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-29",
+    "value": 6.1
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 350,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-30",
+    "value": 5.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 351,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-10-31",
+    "value": 6.35
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 352,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-11-01",
+    "value": 6.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 353,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-11-02",
+    "value": 6.32
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 354,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-11-03",
+    "value": 5.72
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 355,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-11-04",
+    "value": 6.34
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 356,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-11-05",
+    "value": 5.77
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 357,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-11-06",
+    "value": 6.33
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 358,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-11-07",
+    "value": 5.83
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 359,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-11-08",
+    "value": 5.72
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 360,
+  "fields": {
+    "metric": 4,
+    "measured_on": "2026-11-09",
+    "value": 5.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 361,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-12",
+    "value": 2.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 362,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-13",
+    "value": 1.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 363,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-14",
+    "value": 2.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 364,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-15",
+    "value": 2.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 365,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-16",
+    "value": 1.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 366,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-17",
+    "value": 2.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 367,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-18",
+    "value": 1.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 368,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-19",
+    "value": 2.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 369,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-20",
+    "value": 1.88
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 370,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-21",
+    "value": 2.1
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 371,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-22",
+    "value": 2.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 372,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-23",
+    "value": 2.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 373,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-24",
+    "value": 2.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 374,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-25",
+    "value": 2.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 375,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-26",
+    "value": 1.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 376,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-27",
+    "value": 1.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 377,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-28",
+    "value": 2.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 378,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-29",
+    "value": 1.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 379,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-30",
+    "value": 1.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 380,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-08-31",
+    "value": 2.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 381,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-01",
+    "value": 2.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 382,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-02",
+    "value": 1.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 383,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-03",
+    "value": 1.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 384,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-04",
+    "value": 1.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 385,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-05",
+    "value": 1.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 386,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-06",
+    "value": 1.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 387,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-07",
+    "value": 1.91
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 388,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-08",
+    "value": 1.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 389,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-09",
+    "value": 2.11
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 390,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-10",
+    "value": 2.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 391,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-11",
+    "value": 2.1
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 392,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-12",
+    "value": 2.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 393,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-13",
+    "value": 1.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 394,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-14",
+    "value": 2.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 395,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-15",
+    "value": 1.88
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 396,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-16",
+    "value": 1.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 397,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-17",
+    "value": 1.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 398,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-18",
+    "value": 2.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 399,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-19",
+    "value": 2.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 400,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-20",
+    "value": 1.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 401,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-21",
+    "value": 1.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 402,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-22",
+    "value": 1.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 403,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-23",
+    "value": 1.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 404,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-24",
+    "value": 2.1
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 405,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-25",
+    "value": 2.07
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 406,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-26",
+    "value": 1.92
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 407,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-27",
+    "value": 1.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 408,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-28",
+    "value": 2.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 409,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-29",
+    "value": 2.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 410,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-09-30",
+    "value": 1.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 411,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-01",
+    "value": 2.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 412,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-02",
+    "value": 2.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 413,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-03",
+    "value": 2.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 414,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-04",
+    "value": 1.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 415,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-05",
+    "value": 1.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 416,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-06",
+    "value": 1.89
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 417,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-07",
+    "value": 1.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 418,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-08",
+    "value": 1.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 419,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-09",
+    "value": 2.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 420,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-10",
+    "value": 1.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 421,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-11",
+    "value": 1.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 422,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-12",
+    "value": 2.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 423,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-13",
+    "value": 1.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 424,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-14",
+    "value": 2.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 425,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-15",
+    "value": 2.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 426,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-16",
+    "value": 1.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 427,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-17",
+    "value": 2.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 428,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-18",
+    "value": 1.88
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 429,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-19",
+    "value": 2.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 430,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-20",
+    "value": 2.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 431,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-21",
+    "value": 1.91
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 432,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-22",
+    "value": 1.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 433,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-23",
+    "value": 1.92
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 434,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-24",
+    "value": 2.11
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 435,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-25",
+    "value": 2.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 436,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-26",
+    "value": 1.89
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 437,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-27",
+    "value": 1.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 438,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-28",
+    "value": 2.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 439,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-29",
+    "value": 1.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 440,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-30",
+    "value": 2.07
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 441,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-10-31",
+    "value": 2.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 442,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-11-01",
+    "value": 2.12
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 443,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-11-02",
+    "value": 2.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 444,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-11-03",
+    "value": 2.11
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 445,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-11-04",
+    "value": 2.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 446,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-11-05",
+    "value": 2.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 447,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-11-06",
+    "value": 2.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 448,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-11-07",
+    "value": 2.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 449,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-11-08",
+    "value": 2.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 450,
+  "fields": {
+    "metric": 5,
+    "measured_on": "2026-11-09",
+    "value": 2.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 451,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-12",
+    "value": 1.57
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 452,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-13",
+    "value": 1.54
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 453,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-14",
+    "value": 1.5
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 454,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-15",
+    "value": 1.46
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 455,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-16",
+    "value": 1.45
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 456,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-17",
+    "value": 1.52
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 457,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-18",
+    "value": 1.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 458,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-19",
+    "value": 1.5
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 459,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-20",
+    "value": 1.52
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 460,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-21",
+    "value": 1.46
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 461,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-22",
+    "value": 1.42
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 462,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-23",
+    "value": 1.46
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 463,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-24",
+    "value": 1.46
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 464,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-25",
+    "value": 1.47
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 465,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-26",
+    "value": 1.51
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 466,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-27",
+    "value": 1.43
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 467,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-28",
+    "value": 1.45
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 468,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-29",
+    "value": 1.53
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 469,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-30",
+    "value": 1.54
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 470,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-08-31",
+    "value": 1.42
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 471,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-01",
+    "value": 1.48
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 472,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-02",
+    "value": 1.51
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 473,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-03",
+    "value": 1.48
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 474,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-04",
+    "value": 1.45
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 475,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-05",
+    "value": 1.49
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 476,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-06",
+    "value": 1.57
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 477,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-07",
+    "value": 1.52
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 478,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-08",
+    "value": 1.54
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 479,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-09",
+    "value": 1.56
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 480,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-10",
+    "value": 1.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 481,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-11",
+    "value": 1.48
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 482,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-12",
+    "value": 1.41
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 483,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-13",
+    "value": 1.47
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 484,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-14",
+    "value": 1.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 485,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-15",
+    "value": 1.56
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 486,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-16",
+    "value": 1.58
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 487,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-17",
+    "value": 1.49
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 488,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-18",
+    "value": 1.54
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 489,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-19",
+    "value": 1.51
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 490,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-20",
+    "value": 1.52
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 491,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-21",
+    "value": 1.45
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 492,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-22",
+    "value": 1.45
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 493,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-23",
+    "value": 1.49
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 494,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-24",
+    "value": 1.42
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 495,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-25",
+    "value": 1.47
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 496,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-26",
+    "value": 1.53
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 497,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-27",
+    "value": 1.48
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 498,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-28",
+    "value": 1.44
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 499,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-29",
+    "value": 1.49
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 500,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-09-30",
+    "value": 1.43
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 501,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-01",
+    "value": 1.52
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 502,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-02",
+    "value": 1.41
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 503,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-03",
+    "value": 1.48
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 504,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-04",
+    "value": 1.51
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 505,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-05",
+    "value": 1.41
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 506,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-06",
+    "value": 1.53
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 507,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-07",
+    "value": 1.43
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 508,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-08",
+    "value": 1.49
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 509,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-09",
+    "value": 1.42
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 510,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-10",
+    "value": 1.48
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 511,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-11",
+    "value": 1.45
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 512,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-12",
+    "value": 1.47
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 513,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-13",
+    "value": 1.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 514,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-14",
+    "value": 1.48
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 515,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-15",
+    "value": 1.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 516,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-16",
+    "value": 1.56
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 517,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-17",
+    "value": 1.46
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 518,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-18",
+    "value": 1.42
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 519,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-19",
+    "value": 1.41
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 520,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-20",
+    "value": 1.51
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 521,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-21",
+    "value": 1.59
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 522,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-22",
+    "value": 1.47
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 523,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-23",
+    "value": 1.53
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 524,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-24",
+    "value": 1.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 525,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-25",
+    "value": 1.53
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 526,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-26",
+    "value": 1.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 527,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-27",
+    "value": 1.58
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 528,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-28",
+    "value": 1.45
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 529,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-29",
+    "value": 1.41
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 530,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-30",
+    "value": 1.44
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 531,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-10-31",
+    "value": 1.43
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 532,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-11-01",
+    "value": 1.53
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 533,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-11-02",
+    "value": 1.51
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 534,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-11-03",
+    "value": 1.45
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 535,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-11-04",
+    "value": 1.54
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 536,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-11-05",
+    "value": 1.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 537,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-11-06",
+    "value": 1.44
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 538,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-11-07",
+    "value": 1.52
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 539,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-11-08",
+    "value": 1.54
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 540,
+  "fields": {
+    "metric": 6,
+    "measured_on": "2026-11-09",
+    "value": 1.43
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 541,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-12",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 542,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-13",
+    "value": 1.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 543,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-14",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 544,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-15",
+    "value": 0.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 545,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-16",
+    "value": 0.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 546,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-17",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 547,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-18",
+    "value": 1.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 548,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-19",
+    "value": 0.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 549,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-20",
+    "value": 1.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 550,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-21",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 551,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-22",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 552,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-23",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 553,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-24",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 554,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-25",
+    "value": 1.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 555,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-26",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 556,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-27",
+    "value": 1.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 557,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-28",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 558,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-29",
+    "value": 1.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 559,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-30",
+    "value": 1.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 560,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-08-31",
+    "value": 0.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 561,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-01",
+    "value": 0.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 562,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-02",
+    "value": 0.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 563,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-03",
+    "value": 1.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 564,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-04",
+    "value": 0.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 565,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-05",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 566,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-06",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 567,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-07",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 568,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-08",
+    "value": 1.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 569,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-09",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 570,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-10",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 571,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-11",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 572,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-12",
+    "value": 0.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 573,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-13",
+    "value": 1.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 574,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-14",
+    "value": 1.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 575,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-15",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 576,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-16",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 577,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-17",
+    "value": 1.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 578,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-18",
+    "value": 1.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 579,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-19",
+    "value": 0.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 580,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-20",
+    "value": 1.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 581,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-21",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 582,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-22",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 583,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-23",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 584,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-24",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 585,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-25",
+    "value": 1.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 586,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-26",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 587,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-27",
+    "value": 1.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 588,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-28",
+    "value": 1.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 589,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-29",
+    "value": 0.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 590,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-09-30",
+    "value": 0.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 591,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-01",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 592,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-02",
+    "value": 0.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 593,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-03",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 594,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-04",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 595,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-05",
+    "value": 0.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 596,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-06",
+    "value": 1.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 597,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-07",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 598,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-08",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 599,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-09",
+    "value": 0.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 600,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-10",
+    "value": 1.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 601,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-11",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 602,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-12",
+    "value": 1.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 603,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-13",
+    "value": 1.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 604,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-14",
+    "value": 1.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 605,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-15",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 606,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-16",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 607,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-17",
+    "value": 1.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 608,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-18",
+    "value": 1.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 609,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-19",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 610,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-20",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 611,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-21",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 612,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-22",
+    "value": 0.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 613,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-23",
+    "value": 1.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 614,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-24",
+    "value": 1.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 615,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-25",
+    "value": 1.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 616,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-26",
+    "value": 0.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 617,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-27",
+    "value": 1.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 618,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-28",
+    "value": 0.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 619,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-29",
+    "value": 1.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 620,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-30",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 621,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-10-31",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 622,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-11-01",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 623,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-11-02",
+    "value": 0.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 624,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-11-03",
+    "value": 0.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 625,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-11-04",
+    "value": 1.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 626,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-11-05",
+    "value": 1.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 627,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-11-06",
+    "value": 0.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 628,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-11-07",
+    "value": 0.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 629,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-11-08",
+    "value": 1.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 630,
+  "fields": {
+    "metric": 7,
+    "measured_on": "2026-11-09",
+    "value": 1.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 631,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-12",
+    "value": 17.44
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 632,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-13",
+    "value": 16.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 633,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-14",
+    "value": 16.07
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 634,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-15",
+    "value": 15.71
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 635,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-16",
+    "value": 15.89
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 636,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-17",
+    "value": 15.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 637,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-18",
+    "value": 15.87
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 638,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-19",
+    "value": 15.54
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 639,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-20",
+    "value": 16.57
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 640,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-21",
+    "value": 16.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 641,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-22",
+    "value": 17.44
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 642,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-23",
+    "value": 16.61
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 643,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-24",
+    "value": 16.89
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 644,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-25",
+    "value": 15.76
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 645,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-26",
+    "value": 17.23
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 646,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-27",
+    "value": 16.48
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 647,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-28",
+    "value": 17.24
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 648,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-29",
+    "value": 16.65
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 649,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-30",
+    "value": 16.44
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 650,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-08-31",
+    "value": 16.38
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 651,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-01",
+    "value": 15.88
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 652,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-02",
+    "value": 15.61
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 653,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-03",
+    "value": 17.37
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 654,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-04",
+    "value": 16.46
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 655,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-05",
+    "value": 17.14
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 656,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-06",
+    "value": 16.3
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 657,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-07",
+    "value": 15.66
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 658,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-08",
+    "value": 16.76
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 659,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-09",
+    "value": 15.62
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 660,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-10",
+    "value": 15.81
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 661,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-11",
+    "value": 16.62
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 662,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-12",
+    "value": 16.11
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 663,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-13",
+    "value": 17.48
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 664,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-14",
+    "value": 15.74
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 665,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-15",
+    "value": 17.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 666,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-16",
+    "value": 16.71
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 667,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-17",
+    "value": 17.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 668,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-18",
+    "value": 15.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 669,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-19",
+    "value": 16.54
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 670,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-20",
+    "value": 16.4
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 671,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-21",
+    "value": 16.39
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 672,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-22",
+    "value": 17.21
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 673,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-23",
+    "value": 17.47
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 674,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-24",
+    "value": 16.11
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 675,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-25",
+    "value": 16.74
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 676,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-26",
+    "value": 16.72
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 677,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-27",
+    "value": 16.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 678,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-28",
+    "value": 17.39
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 679,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-29",
+    "value": 15.92
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 680,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-09-30",
+    "value": 15.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 681,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-01",
+    "value": 16.82
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 682,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-02",
+    "value": 15.82
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 683,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-03",
+    "value": 15.85
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 684,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-04",
+    "value": 15.66
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 685,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-05",
+    "value": 15.52
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 686,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-06",
+    "value": 16.4
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 687,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-07",
+    "value": 16.69
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 688,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-08",
+    "value": 16.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 689,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-09",
+    "value": 15.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 690,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-10",
+    "value": 16.91
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 691,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-11",
+    "value": 16.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 692,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-12",
+    "value": 16.41
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 693,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-13",
+    "value": 16.87
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 694,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-14",
+    "value": 17.34
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 695,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-15",
+    "value": 17.07
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 696,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-16",
+    "value": 16.75
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 697,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-17",
+    "value": 16.82
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 698,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-18",
+    "value": 17.36
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 699,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-19",
+    "value": 16.35
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 700,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-20",
+    "value": 16.59
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 701,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-21",
+    "value": 16.79
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 702,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-22",
+    "value": 17.31
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 703,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-23",
+    "value": 17.15
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 704,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-24",
+    "value": 15.65
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 705,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-25",
+    "value": 15.84
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 706,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-26",
+    "value": 16.12
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 707,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-27",
+    "value": 16.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 708,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-28",
+    "value": 16.64
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 709,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-29",
+    "value": 16.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 710,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-30",
+    "value": 15.76
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 711,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-10-31",
+    "value": 16.87
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 712,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-11-01",
+    "value": 16.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 713,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-11-02",
+    "value": 17.38
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 714,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-11-03",
+    "value": 16.5
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 715,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-11-04",
+    "value": 16.49
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 716,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-11-05",
+    "value": 15.67
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 717,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-11-06",
+    "value": 15.59
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 718,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-11-07",
+    "value": 16.37
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 719,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-11-08",
+    "value": 16.15
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 720,
+  "fields": {
+    "metric": 8,
+    "measured_on": "2026-11-09",
+    "value": 16.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 721,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-12",
+    "value": 76.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 722,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-13",
+    "value": 84.43
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 723,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-14",
+    "value": 83.23
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 724,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-15",
+    "value": 80.72
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 725,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-16",
+    "value": 84.33
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 726,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-17",
+    "value": 84.8
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 727,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-18",
+    "value": 81.65
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 728,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-19",
+    "value": 77.79
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 729,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-20",
+    "value": 75.59
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 730,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-21",
+    "value": 82.46
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 731,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-22",
+    "value": 79.72
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 732,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-23",
+    "value": 81.45
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 733,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-24",
+    "value": 83.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 734,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-25",
+    "value": 76.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 735,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-26",
+    "value": 80.82
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 736,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-27",
+    "value": 81.29
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 737,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-28",
+    "value": 79.92
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 738,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-29",
+    "value": 76.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 739,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-30",
+    "value": 78.54
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 740,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-08-31",
+    "value": 78.4
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 741,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-01",
+    "value": 81.63
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 742,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-02",
+    "value": 83.43
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 743,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-03",
+    "value": 78.37
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 744,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-04",
+    "value": 81.86
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 745,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-05",
+    "value": 77.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 746,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-06",
+    "value": 84.27
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 747,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-07",
+    "value": 83.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 748,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-08",
+    "value": 80.48
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 749,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-09",
+    "value": 79.57
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 750,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-10",
+    "value": 78.22
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 751,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-11",
+    "value": 78.3
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 752,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-12",
+    "value": 84.51
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 753,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-13",
+    "value": 79.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 754,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-14",
+    "value": 80.14
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 755,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-15",
+    "value": 84.69
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 756,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-16",
+    "value": 81.51
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 757,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-17",
+    "value": 80.41
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 758,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-18",
+    "value": 79.17
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 759,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-19",
+    "value": 77.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 760,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-20",
+    "value": 78.67
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 761,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-21",
+    "value": 82.46
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 762,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-22",
+    "value": 81.2
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 763,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-23",
+    "value": 82.5
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 764,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-24",
+    "value": 77.15
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 765,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-25",
+    "value": 80.47
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 766,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-26",
+    "value": 84.11
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 767,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-27",
+    "value": 79.41
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 768,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-28",
+    "value": 81.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 769,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-29",
+    "value": 76.37
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 770,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-09-30",
+    "value": 84.54
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 771,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-01",
+    "value": 81.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 772,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-02",
+    "value": 77.5
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 773,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-03",
+    "value": 76.72
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 774,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-04",
+    "value": 80.49
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 775,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-05",
+    "value": 80.5
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 776,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-06",
+    "value": 76.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 777,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-07",
+    "value": 84.73
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 778,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-08",
+    "value": 83.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 779,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-09",
+    "value": 79.63
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 780,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-10",
+    "value": 76.33
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 781,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-11",
+    "value": 83.19
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 782,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-12",
+    "value": 79.98
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 783,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-13",
+    "value": 82.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 784,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-14",
+    "value": 80.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 785,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-15",
+    "value": 77.82
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 786,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-16",
+    "value": 83.21
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 787,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-17",
+    "value": 84.61
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 788,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-18",
+    "value": 77.54
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 789,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-19",
+    "value": 80.49
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 790,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-20",
+    "value": 78.88
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 791,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-21",
+    "value": 84.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 792,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-22",
+    "value": 80.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 793,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-23",
+    "value": 83.64
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 794,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-24",
+    "value": 83.49
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 795,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-25",
+    "value": 77.85
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 796,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-26",
+    "value": 82.78
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 797,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-27",
+    "value": 79.18
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 798,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-28",
+    "value": 84.17
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 799,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-29",
+    "value": 80.07
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 800,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-30",
+    "value": 83.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 801,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-10-31",
+    "value": 77.92
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 802,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-11-01",
+    "value": 78.07
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 803,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-11-02",
+    "value": 80.83
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 804,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-11-03",
+    "value": 84.79
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 805,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-11-04",
+    "value": 79.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 806,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-11-05",
+    "value": 76.63
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 807,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-11-06",
+    "value": 80.37
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 808,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-11-07",
+    "value": 78.51
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 809,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-11-08",
+    "value": 80.5
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 810,
+  "fields": {
+    "metric": 9,
+    "measured_on": "2026-11-09",
+    "value": 80.42
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 811,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-12",
+    "value": 75.59
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 812,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-13",
+    "value": 74.37
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 813,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-14",
+    "value": 73.16
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 814,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-15",
+    "value": 77.8
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 815,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-16",
+    "value": 76.65
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 816,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-17",
+    "value": 73.57
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 817,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-18",
+    "value": 78.51
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 818,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-19",
+    "value": 71.84
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 819,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-20",
+    "value": 78.23
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 820,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-21",
+    "value": 77.87
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 821,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-22",
+    "value": 78.84
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 822,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-23",
+    "value": 74.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 823,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-24",
+    "value": 77.49
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 824,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-25",
+    "value": 78.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 825,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-26",
+    "value": 80.39
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 826,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-27",
+    "value": 75.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 827,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-28",
+    "value": 71.78
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 828,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-29",
+    "value": 76.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 829,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-30",
+    "value": 76.82
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 830,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-08-31",
+    "value": 79.37
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 831,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-01",
+    "value": 79.41
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 832,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-02",
+    "value": 75.46
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 833,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-03",
+    "value": 76.24
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 834,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-04",
+    "value": 75.61
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 835,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-05",
+    "value": 78.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 836,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-06",
+    "value": 75.18
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 837,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-07",
+    "value": 77.41
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 838,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-08",
+    "value": 72.85
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 839,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-09",
+    "value": 75.72
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 840,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-10",
+    "value": 80.28
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 841,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-11",
+    "value": 74.53
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 842,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-12",
+    "value": 77.76
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 843,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-13",
+    "value": 77.37
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 844,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-14",
+    "value": 79.21
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 845,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-15",
+    "value": 79.21
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 846,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-16",
+    "value": 79.28
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 847,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-17",
+    "value": 74.91
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 848,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-18",
+    "value": 74.33
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 849,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-19",
+    "value": 77.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 850,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-20",
+    "value": 78.37
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 851,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-21",
+    "value": 79.4
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 852,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-22",
+    "value": 71.77
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 853,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-23",
+    "value": 72.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 854,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-24",
+    "value": 77.2
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 855,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-25",
+    "value": 79.84
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 856,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-26",
+    "value": 80.54
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 857,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-27",
+    "value": 78.25
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 858,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-28",
+    "value": 75.4
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 859,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-29",
+    "value": 72.34
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 860,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-09-30",
+    "value": 77.22
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 861,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-01",
+    "value": 79.4
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 862,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-02",
+    "value": 75.49
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 863,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-03",
+    "value": 77.77
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 864,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-04",
+    "value": 79.68
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 865,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-05",
+    "value": 71.86
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 866,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-06",
+    "value": 78.7
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 867,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-07",
+    "value": 74.12
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 868,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-08",
+    "value": 74.86
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 869,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-09",
+    "value": 72.77
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 870,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-10",
+    "value": 76.28
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 871,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-11",
+    "value": 76.6
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 872,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-12",
+    "value": 78.67
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 873,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-13",
+    "value": 72.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 874,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-14",
+    "value": 72.16
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 875,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-15",
+    "value": 79.38
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 876,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-16",
+    "value": 77.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 877,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-17",
+    "value": 73.64
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 878,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-18",
+    "value": 79.77
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 879,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-19",
+    "value": 72.75
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 880,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-20",
+    "value": 75.65
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 881,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-21",
+    "value": 73.76
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 882,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-22",
+    "value": 73.77
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 883,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-23",
+    "value": 71.53
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 884,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-24",
+    "value": 78.78
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 885,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-25",
+    "value": 79.66
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 886,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-26",
+    "value": 77.62
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 887,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-27",
+    "value": 72.88
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 888,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-28",
+    "value": 75.47
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 889,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-29",
+    "value": 74.59
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 890,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-30",
+    "value": 76.8
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 891,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-10-31",
+    "value": 77.27
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 892,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-11-01",
+    "value": 75.31
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 893,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-11-02",
+    "value": 73.72
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 894,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-11-03",
+    "value": 79.15
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 895,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-11-04",
+    "value": 73.26
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 896,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-11-05",
+    "value": 74.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 897,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-11-06",
+    "value": 75.85
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 898,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-11-07",
+    "value": 73.6
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 899,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-11-08",
+    "value": 76.66
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 900,
+  "fields": {
+    "metric": 10,
+    "measured_on": "2026-11-09",
+    "value": 76.68
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 901,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-12",
+    "value": 17475.53
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 902,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-13",
+    "value": 16094.56
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 903,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-14",
+    "value": 17446.33
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 904,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-15",
+    "value": 16813.3
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 905,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-16",
+    "value": 16053.47
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 906,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-17",
+    "value": 16630.54
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 907,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-18",
+    "value": 16867.88
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 908,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-19",
+    "value": 16984.44
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 909,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-20",
+    "value": 15607.11
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 910,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-21",
+    "value": 16710.68
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 911,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-22",
+    "value": 16493.52
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 912,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-23",
+    "value": 17300.23
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 913,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-24",
+    "value": 16076.66
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 914,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-25",
+    "value": 17091.74
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 915,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-26",
+    "value": 16711.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 916,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-27",
+    "value": 16207.6
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 917,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-28",
+    "value": 16770.5
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 918,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-29",
+    "value": 16739.36
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 919,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-30",
+    "value": 16851.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 920,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-08-31",
+    "value": 16937.44
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 921,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-01",
+    "value": 16815.18
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 922,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-02",
+    "value": 17169.91
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 923,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-03",
+    "value": 16753.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 924,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-04",
+    "value": 17298.74
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 925,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-05",
+    "value": 16789.75
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 926,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-06",
+    "value": 16121.69
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 927,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-07",
+    "value": 16382.83
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 928,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-08",
+    "value": 16657.56
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 929,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-09",
+    "value": 16960.07
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 930,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-10",
+    "value": 15688.46
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 931,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-11",
+    "value": 16094.32
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 932,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-12",
+    "value": 16990.01
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 933,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-13",
+    "value": 15857.77
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 934,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-14",
+    "value": 15771.68
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 935,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-15",
+    "value": 16578.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 936,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-16",
+    "value": 17433.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 937,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-17",
+    "value": 16561.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 938,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-18",
+    "value": 17318.7
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 939,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-19",
+    "value": 17154.34
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 940,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-20",
+    "value": 16018.8
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 941,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-21",
+    "value": 17142.89
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 942,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-22",
+    "value": 16464.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 943,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-23",
+    "value": 17106.85
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 944,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-24",
+    "value": 16988.19
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 945,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-25",
+    "value": 16180.66
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 946,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-26",
+    "value": 15738.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 947,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-27",
+    "value": 17416.53
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 948,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-28",
+    "value": 15788.7
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 949,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-29",
+    "value": 17423.67
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 950,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-09-30",
+    "value": 17213.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 951,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-01",
+    "value": 16943.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 952,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-02",
+    "value": 17450.29
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 953,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-03",
+    "value": 17425.19
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 954,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-04",
+    "value": 17103.08
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 955,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-05",
+    "value": 16234.23
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 956,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-06",
+    "value": 17075.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 957,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-07",
+    "value": 15537.56
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 958,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-08",
+    "value": 16572.41
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 959,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-09",
+    "value": 16410.48
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 960,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-10",
+    "value": 16842.2
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 961,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-11",
+    "value": 16841.23
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 962,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-12",
+    "value": 16667.43
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 963,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-13",
+    "value": 17138.39
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 964,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-14",
+    "value": 17371.78
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 965,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-15",
+    "value": 15724.53
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 966,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-16",
+    "value": 15972.97
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 967,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-17",
+    "value": 15559.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 968,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-18",
+    "value": 17260.78
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 969,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-19",
+    "value": 16621.59
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 970,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-20",
+    "value": 17322.21
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 971,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-21",
+    "value": 15948.31
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 972,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-22",
+    "value": 15635.17
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 973,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-23",
+    "value": 17141.23
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 974,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-24",
+    "value": 17310.59
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 975,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-25",
+    "value": 16108.34
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 976,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-26",
+    "value": 16318.43
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 977,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-27",
+    "value": 15786.76
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 978,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-28",
+    "value": 17383.6
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 979,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-29",
+    "value": 16112.64
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 980,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-30",
+    "value": 16485.4
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 981,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-10-31",
+    "value": 15702.44
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 982,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-11-01",
+    "value": 17266.77
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 983,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-11-02",
+    "value": 15778.61
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 984,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-11-03",
+    "value": 16408.21
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 985,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-11-04",
+    "value": 16837.56
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 986,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-11-05",
+    "value": 16981.42
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 987,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-11-06",
+    "value": 17383.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 988,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-11-07",
+    "value": 16339.87
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 989,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-11-08",
+    "value": 16979.69
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 990,
+  "fields": {
+    "metric": 11,
+    "measured_on": "2026-11-09",
+    "value": 15815.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 991,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-12",
+    "value": 81.16
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 992,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-13",
+    "value": 78.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 993,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-14",
+    "value": 81.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 994,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-15",
+    "value": 81.1
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 995,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-16",
+    "value": 86.44
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 996,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-17",
+    "value": 77.4
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 997,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-18",
+    "value": 80.73
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 998,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-19",
+    "value": 81.44
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 999,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-20",
+    "value": 86.43
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1000,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-21",
+    "value": 85.5
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1001,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-22",
+    "value": 78.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1002,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-23",
+    "value": 83.83
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1003,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-24",
+    "value": 82.44
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1004,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-25",
+    "value": 86.7
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1005,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-26",
+    "value": 80.61
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1006,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-27",
+    "value": 81.0
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1007,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-28",
+    "value": 78.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1008,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-29",
+    "value": 78.28
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1009,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-30",
+    "value": 85.42
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1010,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-08-31",
+    "value": 81.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1011,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-01",
+    "value": 83.6
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1012,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-02",
+    "value": 83.39
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1013,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-03",
+    "value": 82.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1014,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-04",
+    "value": 77.29
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1015,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-05",
+    "value": 84.82
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1016,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-06",
+    "value": 79.48
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1017,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-07",
+    "value": 78.32
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1018,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-08",
+    "value": 82.64
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1019,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-09",
+    "value": 77.76
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1020,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-10",
+    "value": 84.61
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1021,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-11",
+    "value": 79.12
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1022,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-12",
+    "value": 79.2
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1023,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-13",
+    "value": 85.64
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1024,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-14",
+    "value": 80.31
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1025,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-15",
+    "value": 78.53
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1026,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-16",
+    "value": 85.94
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1027,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-17",
+    "value": 77.11
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1028,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-18",
+    "value": 85.53
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1029,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-19",
+    "value": 78.5
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1030,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-20",
+    "value": 78.36
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1031,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-21",
+    "value": 79.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1032,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-22",
+    "value": 78.8
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1033,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-23",
+    "value": 83.58
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1034,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-24",
+    "value": 77.33
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1035,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-25",
+    "value": 77.23
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1036,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-26",
+    "value": 84.85
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1037,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-27",
+    "value": 79.42
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1038,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-28",
+    "value": 80.27
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1039,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-29",
+    "value": 78.79
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1040,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-09-30",
+    "value": 77.6
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1041,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-01",
+    "value": 84.38
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1042,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-02",
+    "value": 82.26
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1043,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-03",
+    "value": 84.42
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1044,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-04",
+    "value": 81.77
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1045,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-05",
+    "value": 84.74
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1046,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-06",
+    "value": 82.13
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1047,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-07",
+    "value": 78.15
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1048,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-08",
+    "value": 82.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1049,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-09",
+    "value": 86.38
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1050,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-10",
+    "value": 77.51
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1051,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-11",
+    "value": 84.79
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1052,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-12",
+    "value": 85.61
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1053,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-13",
+    "value": 82.21
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1054,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-14",
+    "value": 81.59
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1055,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-15",
+    "value": 86.57
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1056,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-16",
+    "value": 77.68
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1057,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-17",
+    "value": 81.79
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1058,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-18",
+    "value": 81.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1059,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-19",
+    "value": 83.83
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1060,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-20",
+    "value": 81.9
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1061,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-21",
+    "value": 86.03
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1062,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-22",
+    "value": 77.8
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1063,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-23",
+    "value": 77.87
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1064,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-24",
+    "value": 83.07
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1065,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-25",
+    "value": 77.73
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1066,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-26",
+    "value": 79.79
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1067,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-27",
+    "value": 83.31
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1068,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-28",
+    "value": 82.48
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1069,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-29",
+    "value": 80.28
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1070,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-30",
+    "value": 86.87
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1071,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-10-31",
+    "value": 82.3
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1072,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-11-01",
+    "value": 81.54
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1073,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-11-02",
+    "value": 83.04
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1074,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-11-03",
+    "value": 78.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1075,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-11-04",
+    "value": 83.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1076,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-11-05",
+    "value": 85.47
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1077,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-11-06",
+    "value": 83.49
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1078,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-11-07",
+    "value": 84.65
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1079,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-11-08",
+    "value": 84.17
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1080,
+  "fields": {
+    "metric": 12,
+    "measured_on": "2026-11-09",
+    "value": 79.2
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1081,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-12",
+    "value": 79.53
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1082,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-13",
+    "value": 77.39
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1083,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-14",
+    "value": 78.45
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1084,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-15",
+    "value": 79.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1085,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-16",
+    "value": 79.19
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1086,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-17",
+    "value": 76.11
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1087,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-18",
+    "value": 79.3
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1088,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-19",
+    "value": 81.59
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1089,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-20",
+    "value": 78.79
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1090,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-21",
+    "value": 76.67
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1091,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-22",
+    "value": 84.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1092,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-23",
+    "value": 75.84
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1093,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-24",
+    "value": 83.19
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1094,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-25",
+    "value": 76.1
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1095,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-26",
+    "value": 76.13
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1096,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-27",
+    "value": 82.29
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1097,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-28",
+    "value": 82.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1098,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-29",
+    "value": 80.54
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1099,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-30",
+    "value": 80.83
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1100,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-08-31",
+    "value": 80.59
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1101,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-01",
+    "value": 78.36
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1102,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-02",
+    "value": 76.37
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1103,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-03",
+    "value": 78.59
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1104,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-04",
+    "value": 81.59
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1105,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-05",
+    "value": 82.4
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1106,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-06",
+    "value": 83.53
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1107,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-07",
+    "value": 82.12
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1108,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-08",
+    "value": 84.5
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1109,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-09",
+    "value": 80.96
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1110,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-10",
+    "value": 78.58
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1111,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-11",
+    "value": 80.75
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1112,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-12",
+    "value": 77.24
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1113,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-13",
+    "value": 81.5
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1114,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-14",
+    "value": 77.35
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1115,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-15",
+    "value": 76.24
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1116,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-16",
+    "value": 83.32
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1117,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-17",
+    "value": 78.73
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1118,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-18",
+    "value": 82.52
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1119,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-19",
+    "value": 80.71
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1120,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-20",
+    "value": 82.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1121,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-21",
+    "value": 83.31
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1122,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-22",
+    "value": 84.56
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1123,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-23",
+    "value": 83.06
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1124,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-24",
+    "value": 81.09
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1125,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-25",
+    "value": 81.37
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1126,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-26",
+    "value": 75.45
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1127,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-27",
+    "value": 84.12
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1128,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-28",
+    "value": 83.16
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1129,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-29",
+    "value": 77.77
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1130,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-09-30",
+    "value": 76.93
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1131,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-01",
+    "value": 81.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1132,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-02",
+    "value": 78.17
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1133,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-03",
+    "value": 78.46
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1134,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-04",
+    "value": 75.26
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1135,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-05",
+    "value": 83.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1136,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-06",
+    "value": 80.64
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1137,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-07",
+    "value": 79.05
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1138,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-08",
+    "value": 76.56
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1139,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-09",
+    "value": 81.28
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1140,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-10",
+    "value": 75.49
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1141,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-11",
+    "value": 82.36
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1142,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-12",
+    "value": 77.27
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1143,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-13",
+    "value": 79.23
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1144,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-14",
+    "value": 78.47
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1145,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-15",
+    "value": 78.75
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1146,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-16",
+    "value": 82.13
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1147,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-17",
+    "value": 82.66
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1148,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-18",
+    "value": 80.65
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1149,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-19",
+    "value": 76.02
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1150,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-20",
+    "value": 75.71
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1151,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-21",
+    "value": 76.71
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1152,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-22",
+    "value": 81.13
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1153,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-23",
+    "value": 81.67
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1154,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-24",
+    "value": 77.81
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1155,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-25",
+    "value": 81.55
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1156,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-26",
+    "value": 79.86
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1157,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-27",
+    "value": 79.44
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1158,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-28",
+    "value": 77.82
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1159,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-29",
+    "value": 82.45
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1160,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-30",
+    "value": 76.29
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1161,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-10-31",
+    "value": 79.33
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1162,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-11-01",
+    "value": 77.92
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1163,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-11-02",
+    "value": 81.71
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1164,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-11-03",
+    "value": 79.87
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1165,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-11-04",
+    "value": 81.6
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1166,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-11-05",
+    "value": 75.64
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1167,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-11-06",
+    "value": 78.99
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1168,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-11-07",
+    "value": 80.95
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1169,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-11-08",
+    "value": 75.27
+  }
+},
+{
+  "model": "processes.metricvalue",
+  "pk": 1170,
+  "fields": {
+    "metric": 13,
+    "measured_on": "2026-11-09",
+    "value": 78.09
+  }
+},
+{
+  "model": "processes.case",
+  "pk": 1,
+  "fields": {
+    "enterprise": 1,
+    "metric": 4,
+    "title": "Экспресс-анализ проб",
+    "problem": "Очередь проб в ОТК задерживает выпуск партии.",
+    "solution": "Ввести экспресс-анализ типовых проб.",
+    "value_before": 6.0,
+    "value_after": 3.0
+  }
+},
+{
+  "model": "processes.case",
+  "pk": 2,
+  "fields": {
+    "enterprise": 1,
+    "metric": 5,
+    "title": "Быстрая переналадка линии",
+    "problem": "Долгая переналадка тары.",
+    "solution": "Подготовка оснастки до остановки линии.",
+    "value_before": 2.0,
+    "value_after": 1.5
+  }
+},
+{
+  "model": "processes.case",
+  "pk": 3,
+  "fields": {
+    "enterprise": 1,
+    "metric": 6,
+    "title": "Порядок на складе по 5S",
+    "problem": "Потери времени при поиске продукции.",
+    "solution": "Адресное хранение и визуальная разметка.",
+    "value_before": 1.5,
+    "value_after": 1.0
+  }
+}
+]
