@@ -1,0 +1,6 @@
+[
+  { "id": 1, "hotspot_id": 2, "media_type": "image", "url": "/3d/demo-media/unloading.svg", "caption": "Слив цистерны на эстакаде (схема)" },
+  { "id": 2, "hotspot_id": 4, "media_type": "image", "url": "/3d/demo-media/mixer.svg", "caption": "Устройство смесителя (схема)" },
+  { "id": 3, "hotspot_id": 5, "media_type": "image", "url": "/3d/demo-media/samples.svg", "caption": "Очередь проб в лаборатории (схема)" },
+  { "id": 4, "hotspot_id": 6, "media_type": "image", "url": "/3d/demo-media/filling.svg", "caption": "Линия розлива в канистры (схема)" }
+]

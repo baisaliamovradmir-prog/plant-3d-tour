@@ -1,0 +1,50 @@
+{
+  "processes": [
+    {
+      "id": 1,
+      "enterprise_id": 1,
+      "name": "Производство смазочных масел",
+      "description": "Линейный процесс из 7 этапов. Партия — 25 т готовой продукции."
+    }
+  ],
+  "resources": [
+    { "id": 1, "location_id": 2, "name": "Сливная эстакада", "resource_type": "оборудование", "capacity": 4, "capacity_unit": "цистерны одновременно" },
+    { "id": 2, "location_id": 2, "name": "Резервуары базовых масел и присадок", "resource_type": "склад", "capacity": 3200, "capacity_unit": "м³" },
+    { "id": 3, "location_id": 3, "name": "Смесители 25 м³", "resource_type": "оборудование", "capacity": 3, "capacity_unit": "шт" },
+    { "id": 4, "location_id": 4, "name": "Анализаторы и лаборанты ОТК", "resource_type": "персонал", "capacity": 2, "capacity_unit": "лаборанта в смене" },
+    { "id": 5, "location_id": 5, "name": "Линия розлива", "resource_type": "оборудование", "capacity": 1, "capacity_unit": "линия" },
+    { "id": 6, "location_id": 6, "name": "Стеллажи адресного хранения", "resource_type": "склад", "capacity": 1800, "capacity_unit": "паллетомест" },
+    { "id": 7, "location_id": 6, "name": "Погрузчики", "resource_type": "оборудование", "capacity": 3, "capacity_unit": "шт" }
+  ],
+  "stages": [
+    { "id": 1, "process_id": 1, "location_id": 2, "resource_id": 1, "step_no": 1, "name": "Приёмка сырья", "duration_h": 2.0, "cost_rub": 18000, "inputs": "базовые масла и присадки в цистернах", "outputs": "сырьё в резервуарах, паспорт входного контроля" },
+    { "id": 2, "process_id": 1, "location_id": 2, "resource_id": 2, "step_no": 2, "name": "Хранение сырья", "duration_h": 8.0, "cost_rub": 9000, "inputs": "сырьё после входного контроля", "outputs": "сырьё, подготовленное к смешению" },
+    { "id": 3, "process_id": 1, "location_id": 3, "resource_id": 3, "step_no": 3, "name": "Смешение", "duration_h": 3.0, "cost_rub": 42000, "inputs": "базовые масла, пакет присадок, рецептура", "outputs": "партия масла 25 т" },
+    { "id": 4, "process_id": 1, "location_id": 4, "resource_id": 4, "step_no": 4, "name": "Контроль качества", "duration_h": 5.5, "cost_rub": 12000, "inputs": "проба партии", "outputs": "паспорт качества или возврат на корректировку" },
+    { "id": 5, "process_id": 1, "location_id": 5, "resource_id": 5, "step_no": 5, "name": "Фасовка", "duration_h": 2.5, "cost_rub": 26000, "inputs": "одобренная партия, тара", "outputs": "канистры и бочки на паллетах" },
+    { "id": 6, "process_id": 1, "location_id": 6, "resource_id": 6, "step_no": 6, "name": "Хранение продукции", "duration_h": 12.0, "cost_rub": 7000, "inputs": "паллеты с продукцией", "outputs": "продукция в адресных ячейках" },
+    { "id": 7, "process_id": 1, "location_id": 6, "resource_id": 7, "step_no": 7, "name": "Отгрузка", "duration_h": 1.5, "cost_rub": 11000, "inputs": "заказ клиента", "outputs": "отгруженная продукция, документы" }
+  ],
+  "metrics": [
+    { "id": 1, "process_id": 1, "stage_id": null, "name": "Время цикла", "unit": "ч", "better": "lower" },
+    { "id": 2, "process_id": 1, "stage_id": null, "name": "Выпуск", "unit": "т/сут", "better": "higher" },
+    { "id": 3, "process_id": 1, "stage_id": null, "name": "Загрузка ресурсов (узкое место)", "unit": "%", "better": "lower" },
+    { "id": 4, "process_id": 1, "stage_id": null, "name": "Стоимость", "unit": "₽/т", "better": "lower" },
+
+    { "id": 11, "process_id": 1, "stage_id": 1, "name": "Длительность этапа", "unit": "ч", "better": "lower" },
+    { "id": 12, "process_id": 1, "stage_id": 2, "name": "Длительность этапа", "unit": "ч", "better": "lower" },
+    { "id": 13, "process_id": 1, "stage_id": 3, "name": "Длительность этапа", "unit": "ч", "better": "lower" },
+    { "id": 14, "process_id": 1, "stage_id": 4, "name": "Длительность этапа", "unit": "ч", "better": "lower" },
+    { "id": 15, "process_id": 1, "stage_id": 5, "name": "Длительность этапа", "unit": "ч", "better": "lower" },
+    { "id": 16, "process_id": 1, "stage_id": 6, "name": "Длительность этапа", "unit": "ч", "better": "lower" },
+    { "id": 17, "process_id": 1, "stage_id": 7, "name": "Длительность этапа", "unit": "ч", "better": "lower" },
+
+    { "id": 21, "process_id": 1, "stage_id": 1, "name": "Загрузка ресурса", "unit": "%", "better": "lower" },
+    { "id": 22, "process_id": 1, "stage_id": 2, "name": "Загрузка ресурса", "unit": "%", "better": "lower" },
+    { "id": 23, "process_id": 1, "stage_id": 3, "name": "Загрузка ресурса", "unit": "%", "better": "lower" },
+    { "id": 24, "process_id": 1, "stage_id": 4, "name": "Загрузка ресурса", "unit": "%", "better": "lower" },
+    { "id": 25, "process_id": 1, "stage_id": 5, "name": "Загрузка ресурса", "unit": "%", "better": "lower" },
+    { "id": 26, "process_id": 1, "stage_id": 6, "name": "Загрузка ресурса", "unit": "%", "better": "lower" },
+    { "id": 27, "process_id": 1, "stage_id": 7, "name": "Загрузка ресурса", "unit": "%", "better": "lower" }
+  ]
+}

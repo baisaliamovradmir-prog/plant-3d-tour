@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "enterprise_id": 1,
+    "name": "Генплан",
+    "description": "Завод сверху: путь сырья от сливной эстакады до отгрузки.",
+    "scene_type": "overview",
+    "asset_url": "procedural:site",
+    "preview_url": "",
+    "map_x": 50,
+    "map_y": 50,
+    "sort_order": 1
+  },
+  {
+    "id": 2,
+    "enterprise_id": 1,
+    "name": "Резервуарный парк",
+    "description": "Приёмка базовых масел и присадок из железнодорожных цистерн и их хранение.",
+    "scene_type": "model",
+    "asset_url": "procedural:tank_farm",
+    "preview_url": "",
+    "map_x": 17,
+    "map_y": 35,
+    "sort_order": 2
+  },
+  {
+    "id": 3,
+    "enterprise_id": 1,
+    "name": "Цех смешения",
+    "description": "Блендинг: базовые масла и присадки смешиваются по рецептуре в обогреваемых смесителях.",
+    "scene_type": "model",
+    "asset_url": "procedural:blending",
+    "preview_url": "",
+    "map_x": 42,
+    "map_y": 30,
+    "sort_order": 3
+  },
+  {
+    "id": 4,
+    "enterprise_id": 1,
+    "name": "Лаборатория ОТК",
+    "description": "Контроль качества каждой партии: вязкость, температура вспышки, щелочное число, чистота.",
+    "scene_type": "panorama",
+    "asset_url": "procedural:lab",
+    "preview_url": "",
+    "map_x": 62,
+    "map_y": 25,
+    "sort_order": 4
+  },
+  {
+    "id": 5,
+    "enterprise_id": 1,
+    "name": "Цех фасовки",
+    "description": "Розлив готовой продукции в канистры 1–20 л и бочки 216 л.",
+    "scene_type": "model",
+    "asset_url": "procedural:filling",
+    "preview_url": "",
+    "map_x": 62,
+    "map_y": 63,
+    "sort_order": 5
+  },
+  {
+    "id": 6,
+    "enterprise_id": 1,
+    "name": "Склад и отгрузка",
+    "description": "Адресное хранение готовой продукции и погрузка в автотранспорт клиентов.",
+    "scene_type": "model",
+    "asset_url": "procedural:warehouse",
+    "preview_url": "",
+    "map_x": 85,
+    "map_y": 60,
+    "sort_order": 6
+  }
+]
