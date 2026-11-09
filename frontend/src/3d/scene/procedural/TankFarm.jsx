@@ -1,5 +1,5 @@
 // Резервуарный парк: сливная эстакада с цистерной, резервуары базовых масел и присадок.
-import { Box, Cyl, Pipe, Person } from './parts.jsx'
+import { Box, Cyl, FlowPipe, Person, StageBoard, StatusLamp } from './parts.jsx'
 import { COLORS } from '../sceneUtils.js'
 
 const BIG_TANKS = [
@@ -24,7 +24,7 @@ function TankCar({ x }) {
   )
 }
 
-export default function TankFarm() {
+export default function TankFarm({ stages, fromTwin }) {
   return (
     <group>
       {/* площадка */}
@@ -47,13 +47,17 @@ export default function TankFarm() {
       ))}
       {/* сливные стояки */}
       {[-6, 4.5].map((x) => (
-        <Pipe key={x} from={[x, 4.3, 6]} to={[x, 3.7, 7.4]} r={0.12} color={COLORS.oil} />
+        <FlowPipe key={x} from={[x, 3.7, 7.4]} to={[x, 4.3, 6]} r={0.12} color={COLORS.oil} />
+      ))}
+      {[-6, 4.5].map((x) => (
+        <FlowPipe key={`d${x}`} from={[x, 4.3, 6]} to={[x, 1.2, 4.6]} r={0.12} color={COLORS.oil} />
       ))}
       {/* коллектор к резервуарам */}
-      <Pipe from={[-12, 1.2, 4.6]} to={[14, 1.2, 4.6]} r={0.2} color={COLORS.oil} />
+      <FlowPipe from={[-12, 1.2, 4.6]} to={[14, 1.2, 4.6]} r={0.2} color={COLORS.oil} />
       {[-2, 5, 12].map((x) => (
-        <Pipe key={x} from={[x, 1.2, 4.6]} to={[x, 1.2, 1]} r={0.16} color={COLORS.oil} />
+        <FlowPipe key={x} from={[x, 1.2, 4.6]} to={[x, 1.2, 1]} r={0.16} color={COLORS.oil} />
       ))}
+      <StatusLamp position={[-9.6, 2.8, 1.5]} color="#2fd36a" />
       <Person position={[-7.5, 4.3, 6]} rotation={Math.PI} />
 
       {/* обвалование */}
@@ -83,6 +87,8 @@ export default function TankFarm() {
       {/* насосная */}
       <Box position={[-11.5, 0, 1.5]} size={[4, 2.6, 2.4]} color={COLORS.wall} />
       <Box position={[-11.5, 2.6, 1.5]} size={[4.3, 0.2, 2.7]} color={COLORS.roof} />
+
+      <StageBoard position={[17.5, 3, -1]} rotationY={0.2} title="Резервуарный парк" stages={stages} fromTwin={fromTwin} />
     </group>
   )
 }

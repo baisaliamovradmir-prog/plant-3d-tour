@@ -1,8 +1,12 @@
-# Автономный запуск 3D-тура на данных-заглушках (ветка 3d).
+# Автономный запуск фронтендов на данных-заглушках: 3D-тур (ветка 3d) и прототип двойника (ветка frontend).
 # Общий docker-compose.yml (nginx + backend + db) ведёт бэкенд.
 #
-#   docker compose -f docker-compose.3d.yml up tour-dev            -> http://localhost:5173 (горячая перезагрузка)
-#   docker compose -f docker-compose.3d.yml --profile prod up tour  -> http://localhost:8080 (сборка в nginx)
+#   docker compose -f docker-compose.3d.yml up tour-dev                        -> тур, http://localhost:5173 (горячая перезагрузка)
+#   docker compose -f docker-compose.3d.yml --profile prod up --build tour     -> тур, http://localhost:8080 (сборка в nginx)
+#
+# После слияния с веткой frontend (появится папка prototype/) — оба вместе:
+#   docker compose -f docker-compose.3d.yml --profile prod --profile twin up --build
+#     -> двойник http://localhost:5500 (раздел «3D-тур» сам найдёт тур на :8080), тур http://localhost:8080
 services:
   tour-dev:
     image: node:22-alpine
@@ -26,6 +30,15 @@ services:
         VITE_API_MODE: mock
     ports:
       - "8080:80"
+
+  # прототип цифрового двойника (статические файлы из prototype/ ветки frontend)
+  twin:
+    profiles: ["twin"]
+    image: nginx:1.27-alpine
+    volumes:
+      - ./prototype:/usr/share/nginx/html:ro
+    ports:
+      - "5500:80"
 
 volumes:
   tour_node_modules:

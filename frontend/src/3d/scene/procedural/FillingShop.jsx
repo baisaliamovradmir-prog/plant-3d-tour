@@ -1,19 +1,67 @@
 // Цех фасовки: линия розлива в канистры, пост розлива в бочки, паллеты, рабочее место оператора.
-import { useMemo } from 'react'
+import { useMemo, useRef } from 'react'
+import * as THREE from 'three'
+import { useFrame } from '@react-three/fiber'
 import { Instances, Instance } from '@react-three/drei'
-import { Box, Cyl, Person, ShopShell } from './parts.jsx'
+import { Box, Cyl, Person, ShopShell, StageBoard, StatusLamp, reducedMotion } from './parts.jsx'
 import { COLORS } from '../sceneUtils.js'
 
 const CONVEYOR_FROM = -12
 const CONVEYOR_TO = 9
+const CAN_STEP = 0.9
+const CAN_SPEED = 0.55 // м/с
+const FILLER_X = -3 // розливочный автомат: до него канистры пустые, после — с маслом и крышкой
 
-export default function FillingShop() {
-  // канистры на конвейере
-  const canisters = useMemo(() => {
-    const list = []
-    for (let x = CONVEYOR_FROM + 0.8; x < CONVEYOR_TO - 0.5; x += 0.9) list.push([x, 1.38, 0])
-    return list
-  }, [])
+// Канистры едут по конвейеру; после автомата розлива — с крышкой (другой цвет).
+function ConveyorCanisters() {
+  const empty = useRef()
+  const full = useRef()
+  const count = Math.floor((CONVEYOR_TO - CONVEYOR_FROM - 1) / CAN_STEP)
+  const m = useMemo(() => new THREE.Matrix4(), [])
+  const hidden = useMemo(() => new THREE.Matrix4().makeScale(0, 0, 0), [])
+  useFrame(({ clock }) => {
+    if (!empty.current || !full.current) return
+    const shift = reducedMotion ? 0 : (clock.elapsedTime * CAN_SPEED) % CAN_STEP
+    for (let i = 0; i < count; i++) {
+      const x = CONVEYOR_FROM + 0.6 + i * CAN_STEP + shift
+      m.makeTranslation(x, 1.38, 0)
+      const isFull = x > FILLER_X + 0.4
+      empty.current.setMatrixAt(i, isFull ? hidden : m)
+      full.current.setMatrixAt(i, isFull ? m : hidden)
+    }
+    empty.current.instanceMatrix.needsUpdate = true
+    full.current.instanceMatrix.needsUpdate = true
+  })
+  return (
+    <>
+      <instancedMesh ref={empty} args={[null, null, count]} castShadow frustumCulled={false}>
+        <boxGeometry args={[0.5, 0.75, 0.35]} />
+        <meshStandardMaterial color="#f1e6c9" roughness={0.7} />
+      </instancedMesh>
+      <instancedMesh ref={full} args={[null, null, count]} castShadow frustumCulled={false}>
+        <boxGeometry args={[0.5, 0.75, 0.35]} />
+        <meshStandardMaterial color="#e0a526" roughness={0.55} />
+      </instancedMesh>
+    </>
+  )
+}
+
+// Дозаторы автомата опускаются в горловины и поднимаются.
+function FillerNozzles() {
+  const g = useRef()
+  useFrame(({ clock }) => {
+    if (g.current && !reducedMotion) g.current.position.y = 0.18 * (0.5 + 0.5 * Math.sin(clock.elapsedTime * 2.6))
+  })
+  return (
+    <group ref={g}>
+      {[-1.1, -0.37, 0.37, 1.1].map((dx) => (
+        <Cyl key={dx} position={[dx, 1.95, 0]} r={0.08} h={0.75} color={COLORS.steelDark} metal={0.6} />
+      ))}
+    </group>
+  )
+}
+
+export default function FillingShop({ stages, fromTwin }) {
   // канистры на паллетах готовой продукции
   const palletCans = useMemo(() => {
     const list = []
@@ -41,21 +89,14 @@ export default function FillingShop() {
       <Box position={[(CONVEYOR_FROM + CONVEYOR_TO) / 2, 1.05, 0.62]} size={[CONVEYOR_TO - CONVEYOR_FROM, 0.15, 0.05]} color={COLORS.steel} onGround={false} />
       <Box position={[(CONVEYOR_FROM + CONVEYOR_TO) / 2, 1.05, -0.62]} size={[CONVEYOR_TO - CONVEYOR_FROM, 0.15, 0.05]} color={COLORS.steel} onGround={false} />
 
-      <Instances limit={64} castShadow>
-        <boxGeometry args={[0.5, 0.75, 0.35]} />
-        <meshStandardMaterial color="#e0a526" roughness={0.6} />
-        {canisters.map((p, i) => (
-          <Instance key={i} position={p} />
-        ))}
-      </Instances>
+      <ConveyorCanisters />
 
       {/* розливочный автомат: портал с дозаторами */}
       <group position={[-3, 0, 0]}>
         <Box position={[0, 0, -1.2]} size={[3.4, 3.2, 0.4]} color="#d8dee6" />
         <Box position={[0, 2.7, 0]} size={[3.4, 0.7, 2.6]} color="#d8dee6" />
-        {[-1.1, -0.37, 0.37, 1.1].map((dx) => (
-          <Cyl key={dx} position={[dx, 2.0, 0]} r={0.08} h={0.7} color={COLORS.steelDark} />
-        ))}
+        <FillerNozzles />
+        <StatusLamp position={[1.5, 3.05, 1.0]} color="#2fd36a" />
         <Box position={[0, 2.72, 1.32]} size={[2.2, 0.35, 0.03]} color={COLORS.blue} onGround={false} />
         {/* ограждение */}
         <Box position={[0, 0, 1.4]} size={[3.4, 2.4, 0.04]} color="#bcd7f0" />
@@ -99,6 +140,8 @@ export default function FillingShop() {
 
       {/* стопка пустой тары */}
       <Box position={[-13, 0, 4]} size={[1.6, 2.2, 1.6]} color="#c9c2b3" />
+
+      <StageBoard position={[-4, 3.2, -7.6]} rotationY={0.65} title="Цех фасовки" stages={stages} fromTwin={fromTwin} />
     </group>
   )
 }

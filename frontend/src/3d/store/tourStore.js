@@ -1,8 +1,10 @@
 // Состояние тура: маршрут, шаг, текущая локация, выбранная точка, режим редактора.
 import { create } from 'zustand'
 import { api, sessionId } from '../api/client.js'
+import { listenTwin } from '../api/twin.js'
 
 export const FADE_MS = 300
+export const PROCESS_ID = 1
 
 export const prefersReducedMotion = () =>
   typeof window !== 'undefined' &&
@@ -20,10 +22,25 @@ export const useTourStore = create((set, get) => ({
   editMode: false,
   textMode: false,
   hotspotsVersion: 0, // растёт, когда редактор меняет точки — сцена перечитывает локацию
+  process: null, // процесс с этапами и последними значениями метрик (для табло и узкого места)
+  twin: null, // последний расчёт цифрового двойника (api/twin.js) или null
+
+  async loadProcess() {
+    if (get().process) return get().process
+    const process = await api.getProcess(PROCESS_ID)
+    set({ process })
+    return process
+  },
+  setTwin(twin) {
+    set({ twin })
+  },
 
   startRoute(route) {
     set({ route, stepIndex: 0 })
-    if (route && route.steps.length) get().applyStep(0)
+    if (!route) return
+    // старт маршрута — для статистики «где бросают маршрут» (ФТ-14)
+    api.postEvent({ session_id: sessionId(), route_id: route.id, hotspot_id: null, event_type: 'start' })
+    if (route.steps.length) get().applyStep(0)
   },
   stopRoute() {
     set({ route: null, stepIndex: 0, selectedHotspotId: null })
@@ -84,3 +101,23 @@ export const useTourStore = create((set, get) => ({
     set((s) => ({ hotspotsVersion: s.hotspotsVersion + 1 }))
   },
 }))
+
+// Тур слушает расчёты двойника с момента загрузки модуля: дашборд может прислать их раньше,
+// чем откроется сцена.
+listenTwin(
+  (twin) => useTourStore.getState().setTwin(twin),
+  // «Показать в туре» из двойника: этап → его локация и точка интереса
+  async ({ stage_id, location_id, hotspot_id }) => {
+    const store = useTourStore.getState()
+    if (stage_id) {
+      const process = await store.loadProcess().catch(() => null)
+      const stage = process?.stages.find((s) => s.id === stage_id)
+      if (!stage) return
+      const location = await api.getLocation(stage.location_id).catch(() => null)
+      const hotspot = location?.hotspots.find((h) => h.stage_id === stage_id)
+      store.goToLocation(stage.location_id, hotspot ? hotspot.id : null)
+    } else {
+      store.goToLocation(location_id, hotspot_id)
+    }
+  },
+)

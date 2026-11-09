@@ -65,7 +65,7 @@ export function proceduralCode(location) {
 
 // Стартовые ракурсы камеры и ограничения орбиты для каждой сцены.
 export const VIEWS = {
-  site: { position: [-26, 34, 44], target: [0, 0, 2], minDistance: 18, maxDistance: 85 },
+  site: { position: [-22, 29, 37], target: [0, 0, 1], minDistance: 18, maxDistance: 95 },
   tank_farm: { position: [22, 16, 26], target: [0, 2, 0], minDistance: 8, maxDistance: 55 },
   blending: { position: [15, 12, 17], target: [0, 2.5, -1], minDistance: 6, maxDistance: 40 },
   filling: { position: [14, 11, 16], target: [0, 1.5, 0], minDistance: 6, maxDistance: 40 },

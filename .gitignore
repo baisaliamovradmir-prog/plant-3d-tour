@@ -23,7 +23,17 @@
 hs_err_pid*
 replay_pid*
 
-# Node / фронтенд
+# --- артефакты прототипа (ветка frontend) ---
+__pycache__/
+*.pyc
+.dsh-office-*/
+figures/_slide/
+.DS_Store
+Thumbs.db
+
+# --- фронтенд и 3D-тур (ветка 3d) ---
 node_modules/
 dist/
+release/
 .idea/
+.claude/

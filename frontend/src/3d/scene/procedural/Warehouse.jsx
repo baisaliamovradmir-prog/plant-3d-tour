@@ -1,7 +1,7 @@
 // Склад и отгрузка: стеллажи адресного хранения, погрузчик, доковые ворота с машиной клиента.
-import { useMemo } from 'react'
+import { useMemo, useRef } from 'react'
 import { Instances, Instance } from '@react-three/drei'
-import { Box, Cyl, Person, ShopShell } from './parts.jsx'
+import { Box, Cyl, Person, ShopShell, StageBoard, StatusLamp, usePathMotion } from './parts.jsx'
 import { COLORS } from '../sceneUtils.js'
 
 const RACK_ROWS = [-6, -1, 4]
@@ -9,6 +9,26 @@ const RACK_X0 = -13
 const RACK_BAYS = 6
 const BAY_W = 2.8
 const LEVELS = [0.15, 1.9, 3.65, 5.4]
+
+// Маршрут погрузчика: по двум проездам между стеллажами, вокруг торцов рядов.
+const FORKLIFT_PATH = [
+  [-15, 0, 1.5],
+  [9, 0, 1.5],
+  [9, 0, -3.5],
+  [-15, 0, -3.5],
+]
+
+function MovingForklift() {
+  const ref = useRef()
+  // вилы смотрят в −Z модели, поэтому разворачиваем на 180°
+  usePathMotion(ref, FORKLIFT_PATH, 2.2, { yawOffset: Math.PI })
+  return (
+    <group ref={ref} position={FORKLIFT_PATH[0]}>
+      <Forklift position={[0, 0, 0]} />
+      <StatusLamp position={[0.45, 1.85, 0.75]} color="#ffb020" blink period={0.7} />
+    </group>
+  )
+}
 
 function Forklift({ position, rotation = 0 }) {
   return (
@@ -27,7 +47,7 @@ function Forklift({ position, rotation = 0 }) {
   )
 }
 
-export default function Warehouse() {
+export default function Warehouse({ stages, fromTwin }) {
   const pallets = useMemo(() => {
     const list = []
     RACK_ROWS.forEach((z, row) =>
@@ -93,7 +113,7 @@ export default function Warehouse() {
         </mesh>
       ))}
 
-      <Forklift position={[7, 0, 0]} rotation={Math.PI / 2} />
+      <MovingForklift />
 
       {/* зона отгрузки и док */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[11.5, 0.012, 3]}>
@@ -124,6 +144,8 @@ export default function Warehouse() {
         <planeGeometry args={[12, 10]} />
         <meshStandardMaterial color={COLORS.asphalt} />
       </mesh>
+
+      <StageBoard position={[12.5, 3.2, -7.5]} rotationY={0.3} title="Склад и отгрузка" stages={stages} fromTwin={fromTwin} />
     </group>
   )
 }

@@ -1,13 +1,16 @@
 // Панорама 360°: сфера изнутри, камера в центре. Текстура — файл из БД (asset_url)
-// или процедурная панорама (для ОТК на 1 этапе). Приближение колесом/щипком меняет fov (ФТ-5).
+// или комната, собранная кодом и снятая кубической камерой (ОТК на 1 этапе).
+// Приближение колесом/щипком меняет fov (ФТ-5).
 import { useEffect, useMemo } from 'react'
 import * as THREE from 'three'
 import { useThree } from '@react-three/fiber'
 import { useTexture } from '@react-three/drei'
 import { PANO_RADIUS, baseFov, isMobileViewport, proceduralCode } from './sceneUtils.js'
-import { makeLabPanoramaTexture } from './procedural/labPanorama.js'
+import LabRoomPanorama from './procedural/LabRoom.jsx'
+import { locationLoad } from '../store/stats.js'
 
-const PROCEDURAL = { lab: makeLabPanoramaTexture }
+// Процедурные панорамы: код из asset_url → компонент.
+const PROCEDURAL = { lab: LabRoomPanorama }
 
 function useSphere() {
   return useMemo(() => {
@@ -33,11 +36,10 @@ function FileSphere({ url }) {
   return <Sphere texture={texture} />
 }
 
-function ProceduralSphere({ code }) {
-  // на телефоне — панорама 2048×1024 вместо 4096×2048 (раздел «Архитектура 3D-сцены»)
-  const texture = useMemo(() => PROCEDURAL[code](isMobileViewport() ? 2048 : 4096), [code])
-  useEffect(() => () => texture.dispose(), [texture])
-  return <Sphere texture={texture} />
+// Очередь проб на табло растёт с загрузкой лаборатории: 70 % — очереди нет, 96 % — около 9 партий.
+function queueFromLoad(load) {
+  if (load == null) return 9
+  return Math.max(0, Math.min(12, Math.round((load - 70) / 3)))
 }
 
 // Приближение в панораме: колесо мыши и щипок двумя пальцами меняют угол обзора камеры.
@@ -79,11 +81,17 @@ function FovZoom() {
   return null
 }
 
-export default function PanoramaScene({ location }) {
+export default function PanoramaScene({ location, stats }) {
   const code = proceduralCode(location)
+  const Procedural = code && PROCEDURAL[code]
   return (
     <group>
-      {code && PROCEDURAL[code] ? <ProceduralSphere code={code} /> : location.asset_url ? <FileSphere url={location.asset_url} /> : null}
+      {Procedural ? (
+        // на телефоне грань куба 512 px (≈ панорама 2048×1024), на ПК — 1024 px (≈ 4096×2048)
+        <Procedural size={isMobileViewport() ? 512 : 1024} queue={queueFromLoad(locationLoad(stats, location.id))} />
+      ) : location.asset_url ? (
+        <FileSphere url={location.asset_url} />
+      ) : null}
       <FovZoom />
     </group>
   )

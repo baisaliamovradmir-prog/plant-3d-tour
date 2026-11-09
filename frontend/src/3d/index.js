@@ -4,5 +4,7 @@
 import './scene/tour.css'
 
 export { default as TourCanvas } from './scene/TourCanvas.jsx'
-export { useTourStore, FADE_MS, prefersReducedMotion } from './store/tourStore.js'
-export { api, API_MODE, lookups, sessionId } from './api/client.js'
+export { useTourStore, FADE_MS, PROCESS_ID, prefersReducedMotion } from './store/tourStore.js'
+export { useStageStats, buildStats, loadLevel, locationLoad, LOAD_HOT, LOAD_WARN } from './store/stats.js'
+export { api, API_MODE, lookups, sessionId, ROLES, DEMO_USERS, DEMO_PASSWORD } from './api/client.js'
+export { applyTwin, parseTwinMessage, TWIN_MESSAGE } from './api/twin.js'
